@@ -1,0 +1,175 @@
+html {
+/*    margin: 0;
+    padding: 0;*/
+    font: normal 100%/1.0 Georgia,serif;
+}
+
+body {
+    background: #F5F5F5;
+}
+
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 15%;
+    height: 100%;
+    color: white;
+    background-color: #333;
+    /*border: 1px solid red;*/
+}
+
+#path {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 5px;
+    width: auto;
+    color: white;
+    background-color: #333;
+}
+
+#navbar ul {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-size: 25px;
+    list-style-type: none;
+}
+
+/*#navbar li {
+    float: left;
+}*/
+
+#navbar li a {
+    display: block;
+    /*text-align: center;*/
+    color: white;
+    padding: 14px 14px;
+    text-decoration: none;
+}
+
+#navbar li a:hover:not(.active) {
+    background-color: #111;
+}
+
+
+.toc {
+    background: #f9f9f9 none repeat scroll 0 0;
+    border: 1px solid #aaa;
+    display: table;    
+    width: 18%;
+    top: 110px;
+    padding: 16px;
+    position: fixed;
+    right: 10px;
+    z-index: 2;
+}
+
+.toc li, .toc ul, .toc ul li, .toc li a {
+    list-style: outside none none !important;
+    text-decoration: none;
+    color: blue;
+}
+
+.content .folder {
+    color: blue;
+    font-size: 20px;
+}
+
+.content {
+    background: #f9f9f9;
+    border: 1px solid black;
+    width: 60%;
+    margin-left: 15%;
+    padding-left: 10px;
+    
+
+/*  fixed  
+    top: 110px;
+    position: fixed;
+    left: 10px;
+    right: 25%;
+    width: auto;
+    top: 110px;
+    padding: 16px;
+    bottom: 0;
+    overflow-y: auto;*/
+    z-index: 1;
+}
+
+
+table {
+    border-collapse: collapse;
+    /*table-layout: fixed;*/
+    min-width: 70%;
+}
+
+th, td {
+    border: 1px solid lightsteelblue;
+    overflow: hidden;
+}
+tr td:first-child {
+    min-width: 100px;
+}
+/*
+tr td:first-child {
+    min-width: 10%;
+    width:5%;
+   white-space: nowrap;
+}
+*/
+
+/*.content ul, ol, table, p {
+        
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+    color: darkslategrey;
+}
+
+h1, h2, h3, h4  {
+    color: #636973;
+}
+
+*/
+
+code {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    color: darkslategrey;
+    padding: 1px 2px;
+    margin: 1px 2px;
+    border: 1px solid #ddd;
+}
+
+pre code {
+    border: 1px solid #ddd;
+    background: #f4f4f4;
+    color: darkslategrey;
+    display: inline-block;
+    padding: 10px;
+}
+
+body {counter-reset:section2;}
+
+h2 {counter-reset:section3;}
+
+h3 {counter-reset:section4;}
+
+h2:before {
+    counter-increment:section2;
+    content:counter(section2) ". ";
+    font-weight:bold;
+}
+
+h3:before {
+    counter-increment:section3;
+    content:counter(section2) "." counter(section3) " ";
+}
+
+h4:before {
+    counter-increment:section4;
+    content:counter(section2) "." counter(section3) "." counter(section4)" ";
+}
+
