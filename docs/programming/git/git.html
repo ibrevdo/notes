@@ -1,0 +1,334 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Igor's notes: Git help</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+<div id="navbar">
+    <ul>
+    <li><a  href="/index.html">Home</a></li>
+    <li><a  href="/linux/index.html">Linux</a></li>
+    <li><a  href="/programming/index.html">Programming</a></li>
+    <li><a  href="/computing/index.html">Computing</a></li>
+    <li><a  href="/studies/index.html">Studies</a></li>
+    <li><a  href="/webtools/webtools.html">Webtools</a></li>
+    <li><a  href="/travel/index.html">Travel</a></li>
+    <li><a  href="/media/index.html">Media</a></li>
+    <li><a  href="/etc/index.html">Etc</a></li>
+    </ul>
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#git-help">Git help</a><ul>
+<li><a href="#definitions">Definitions</a></li>
+<li><a href="#init">Init</a></li>
+<li><a href="#changes">Changes</a></li>
+<li><a href="#undo">Undo</a></li>
+<li><a href="#branches">Branches</a></li>
+<li><a href="#remotes">Remotes</a></li>
+<li><a href="#links">Links</a><ul>
+<li><a href="#git">Git</a></li>
+<li><a href="#github">Github</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+<div class="content">
+    <div class="folder">
+        <p>&#60;programming/git&#62;</p>    
+    </div>
+    <h1 id="git-help">Git help</h1>
+<h2 id="definitions">Definitions</h2>
+<table>
+<thead>
+<tr>
+<th>Definitions</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>working directory</td>
+<td>directory watched by git</td>
+</tr>
+<tr>
+<td>branch</td>
+<td>a pointer to commit</td>
+</tr>
+<tr>
+<td>head</td>
+<td>a pointer to current branch</td>
+</tr>
+<tr>
+<td>staging area</td>
+<td>all changes that are going to be committed</td>
+</tr>
+<tr>
+<td>tracked files</td>
+<td>new files that have been added to staging area</td>
+</tr>
+</tbody>
+</table>
+<h2 id="init">Init</h2>
+<table>
+<thead>
+<tr>
+<th>Init</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>git init</td>
+<td>Initialize git</td>
+</tr>
+<tr>
+<td>git clone</td>
+<td>copy git directory to new location</td>
+</tr>
+</tbody>
+</table>
+<h2 id="changes">Changes</h2>
+<table>
+<thead>
+<tr>
+<th>Changes</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>git add <file></td>
+<td>get file/changes on file ready to commit</td>
+</tr>
+<tr>
+<td>git add -u</td>
+<td>update all changes</td>
+</tr>
+<tr>
+<td>git commit</td>
+<td></td>
+</tr>
+<tr>
+<td>git commit -m <commit message></td>
+<td>commit staging area</td>
+</tr>
+<tr>
+<td>git commit -am <commit message></td>
+<td>add everything and commit</td>
+</tr>
+<tr>
+<td>git mv <file> <new file></td>
+<td>move or rename files</td>
+</tr>
+<tr>
+<td>git rm <file></td>
+<td>remove file from git</td>
+</tr>
+</tbody>
+</table>
+<h2 id="undo">Undo</h2>
+<table>
+<thead>
+<tr>
+<th>Undo</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>git checkout -- <file></td>
+<td>undo changes to file</td>
+</tr>
+<tr>
+<td>git checkout <commit></td>
+<td>return to commit (detached HEAD state )</td>
+</tr>
+<tr>
+<td>git revert <commit></td>
+<td>undo changes of <commit> and apply on branch</td>
+</tr>
+<tr>
+<td>git reset <file></td>
+<td>remove file from staging area</td>
+</tr>
+<tr>
+<td>git reset <commit></td>
+<td>move current branch tip to <commit> <BR> (but don't touch unstaged changes)</td>
+</tr>
+<tr>
+<td>git reset --hard <commit></td>
+<td>move current branch tip to <commit> <BR> and cancel unstaged changes too</td>
+</tr>
+<tr>
+<td>git clean</td>
+<td>remove untracked file</td>
+</tr>
+<tr>
+<td>git clean -n</td>
+<td>list files that are going to be cleaned</td>
+</tr>
+<tr>
+<td>git clean -f</td>
+<td>remove untracked files</td>
+</tr>
+<tr>
+<td>git clean -fd</td>
+<td>remove untracked files and directories</td>
+</tr>
+<tr>
+<td>git clean -fx</td>
+<td>remove untracked and ignored files</td>
+</tr>
+<tr>
+<td>git clean -f <path></td>
+<td>remove untracked files from <path> directory</td>
+</tr>
+<tr>
+<td>git stash</td>
+<td>stash current changes</td>
+</tr>
+<tr>
+<td>git stash apply</td>
+<td>restore the stash</td>
+</tr>
+<tr>
+<td>git stash list</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="branches">Branches</h2>
+<table>
+<thead>
+<tr>
+<th>Branches</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>git branch -a</td>
+<td>list branches</td>
+</tr>
+<tr>
+<td>git branch <name></td>
+<td>create new branch from current branch</td>
+</tr>
+<tr>
+<td>git checkout <branch></td>
+<td>switch to existing branch</td>
+</tr>
+<tr>
+<td>git checkout -b <branch></td>
+<td>create new branch and switch to it</td>
+</tr>
+<tr>
+<td>git checkout -b <branch> <old branch></td>
+<td>create new branch from old branch and switch to it</td>
+</tr>
+<tr>
+<td>git checkout -b <branch> <origin/branch></td>
+<td>create new branch from newly fetched branch <BR> and switch to it</td>
+</tr>
+<tr>
+<td>git branch -u <origin/master></td>
+<td>track current branch to origin/master</td>
+</tr>
+<tr>
+<td>git merge <branch></td>
+<td></td>
+</tr>
+<tr>
+<td>git difftool -d</td>
+<td>see changes to last commit</td>
+</tr>
+<tr>
+<td>git difftool -d <branch1> <branch2></td>
+<td>diff (recursive) between branches</td>
+</tr>
+<tr>
+<td>git lol -all</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="remotes">Remotes</h2>
+<table>
+<thead>
+<tr>
+<th>Remotes</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>origin/master</td>
+<td>the pointer to commit of origin (last fetch )</td>
+</tr>
+<tr>
+<td>git push</td>
+<td>merge current (head) branch to server's branch</td>
+</tr>
+<tr>
+<td>git push origin new_branch</td>
+<td></td>
+</tr>
+<tr>
+<td>git fetch</td>
+<td>update remote's branches</td>
+</tr>
+<tr>
+<td>git pull</td>
+<td>fetch + merge</td>
+</tr>
+<tr>
+<td>git log origin/master %%^master%%</td>
+<td>show changes that I will get when I will do fetch</td>
+</tr>
+<tr>
+<td>git log %%^master origin/master%%</td>
+<td>show changes I am going to push to server</td>
+</tr>
+</tbody>
+</table>
+<p>===== Configure =====
+| Configure                                                             |   |
+|-----------------------------------------------------------------------|---|
+| git remote add origin ssh://user@192.168.0.200/home/user/gitshare     |   |
+| git remote set-url origin ssh://user@192.168.0.200/home/user/gitshare |   |
+| git config --global diff.tool meld                                    |   |</p>
+<hr />
+<h2 id="links">Links</h2>
+<h3 id="git">Git</h3>
+<ul>
+<li>http://gitready.com/</li>
+<li>https://git-scm.com/book/en/v2</li>
+<li>https://try.github.io/levels/1/challenges/2</li>
+<li>git howto's https://klen.github.io/some-git-things.html</li>
+<li>https://nvie.com/posts/a-successful-git-branching-model</li>
+</ul>
+<h3 id="github">Github</h3>
+<ul>
+<li>github pages basic                https://help.github.com/categories/github-pages-basics/</li>
+<li>User, organization and Project pages      https://help.github.com/articles/user-organization-and-project-pages/</li>
+</ul>
+</div>
+
+<div id="path">
+    ~/work/notes/md/programming/git/git.md
+</div>
+
+</body>
+</html> 

@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Igor's notes</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+<div id="navbar">
+    <ul>
+    <li><a  href="/index.html">Home</a></li>
+    <li><a  href="/linux/index.html">Linux</a></li>
+    <li><a  href="/programming/index.html">Programming</a></li>
+    <li><a  href="/computing/index.html">Computing</a></li>
+    <li><a  href="/studies/index.html">Studies</a></li>
+    <li><a  href="/webtools/webtools.html">Webtools</a></li>
+    <li><a  href="/travel/index.html">Travel</a></li>
+    <li><a  href="/media/index.html">Media</a></li>
+    <li><a  href="/etc/index.html">Etc</a></li>
+    </ul>
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#multiple-files">Multiple files</a></li>
+</ul>
+</div>
+
+
+
+<div class="content">
+    <div class="folder">
+        <p>&#60;linux/vim&#62;</p>    
+    </div>
+    <h2 id="multiple-files">Multiple files</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Command mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>":p</td>
+<td>copy text from command line into file buffer</td>
+</tr>
+<tr>
+<td>:pwd</td>
+<td>current directory</td>
+</tr>
+<tr>
+<td>:cd</td>
+<td>change current directory</td>
+</tr>
+<tr>
+<td>:cd %:p:h</td>
+<td>change current directory to file's directory</td>
+</tr>
+<tr>
+<td>:Sex</td>
+<td>file explorer</td>
+</tr>
+<tr>
+<td>:!<command></td>
+<td>execute shell command</td>
+</tr>
+<tr>
+<td>:so $MYVIMRC</td>
+<td>source (reload) .vimrc file</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Buffers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%</td>
+<td>current buffer</td>
+</tr>
+<tr>
+<td>#</td>
+<td>alternate buffer</td>
+</tr>
+<tr>
+<td>:ls</td>
+<td>list buffers (% - current buffer, # - alternate)</td>
+</tr>
+<tr>
+<td>:b# or C-6</td>
+<td>go to alternate buffer</td>
+</tr>
+<tr>
+<td>:bn :bp</td>
+<td>go to next/previous buffer</td>
+</tr>
+<tr>
+<td>:b <name></td>
+<td>load buffer by name</td>
+</tr>
+<tr>
+<td>:bd</td>
+<td>delete buffer (close file)</td>
+</tr>
+<tr>
+<td>:%bd</td>
+<td>delete all buffers</td>
+</tr>
+<tr>
+<td>:wall</td>
+<td>write all changed buffers</td>
+</tr>
+<tr>
+<td>:wn</td>
+<td>write current buffer and jump to next</td>
+</tr>
+<tr>
+<td>:w filename</td>
+<td>save current buffer to other file</td>
+</tr>
+<tr>
+<td>:saveas filename</td>
+<td>save current buffer to other file and open it</td>
+</tr>
+<tr>
+<td>:e</td>
+<td>reload file to get colored syntax</td>
+</tr>
+<tr>
+<td>:e <file></td>
+<td>load file into buffer and put in current window</td>
+</tr>
+<tr>
+<td>:new</td>
+<td>open new buffer (no name) in split window</td>
+</tr>
+<tr>
+<td>:enew</td>
+<td>open new buffer (no name)  in current window</td>
+</tr>
+<tr>
+<td>:qa</td>
+<td>close all buffers and close vim</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Opening files</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:next <with params></td>
+<td>open multiple files</td>
+</tr>
+<tr>
+<td>:next / :prev</td>
+<td>go to next/prev file, close current one</td>
+</tr>
+<tr>
+<td>:arglist</td>
+<td>show list of open files</td>
+</tr>
+<tr>
+<td>:find</td>
+<td>find file recursively according to 'path' option</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>any sub directory</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Windows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:sp[lit]</td>
+<td>Split new window horizontally</td>
+</tr>
+<tr>
+<td>:vs[plit]</td>
+<td>Split new window vertically</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Tabs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:tabe[dit]</td>
+<td>open file in new tab (if no param, open new buffer)</td>
+</tr>
+<tr>
+<td>gt / gT</td>
+<td>switch tabs</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="path">
+    ~/work/notes/md/linux/vim/multiplefiles.md
+</div>
+
+</body>
+</html> 

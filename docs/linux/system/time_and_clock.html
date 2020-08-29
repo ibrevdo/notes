@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Igor's notes: Time and Clock</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+<div id="navbar">
+    <ul>
+    <li><a  href="/index.html">Home</a></li>
+    <li><a  href="/linux/index.html">Linux</a></li>
+    <li><a  href="/programming/index.html">Programming</a></li>
+    <li><a  href="/computing/index.html">Computing</a></li>
+    <li><a  href="/studies/index.html">Studies</a></li>
+    <li><a  href="/webtools/webtools.html">Webtools</a></li>
+    <li><a  href="/travel/index.html">Travel</a></li>
+    <li><a  href="/media/index.html">Media</a></li>
+    <li><a  href="/etc/index.html">Etc</a></li>
+    </ul>
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#time-and-clock">Time and Clock</a><ul>
+<li><a href="#hardware-clock-and-system-clock">Hardware clock and System clock</a></li>
+<li><a href="#time-zones">Time Zones</a></li>
+<li><a href="#hw-clock-local-vs-utc">HW clock : LOCAL vs UTC</a></li>
+<li><a href="#links">Links</a></li>
+<li><a href="#my-configuration-for-slackware">My configuration for Slackware</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+<div class="content">
+    <div class="folder">
+        <p>&#60;linux/system&#62;</p>    
+    </div>
+    <h1 id="time-and-clock">Time and Clock</h1>
+<h2 id="hardware-clock-and-system-clock">Hardware clock and System clock</h2>
+<p><strong>Hardware clock</strong> (BIOS CLOCK, RTC) is a CMOS watch backed by battery.             \
+During boot, Linux sets it's system clock according to the hardware clock using \
+<code>hwclock -s (--hctosys)</code></p>
+<p>On shutdown Linux writes it current system clock value to hardware clock using  \
+<code>hwclock -w (--systohc)</code>                                                        \
+(This command also updates timestamps in /etc/adjtime)</p>
+<p>Check the HW clock time:<code>hwclock -r</code></p>
+<p><strong>System clock</strong> (software clock, CPU clock) is used by kernel and all applications \
+while the Linux is running. The commands that effect the system clock are : \
+date, ntpdate, ntpd, and system calls: settimeofday(), adjtime().</p>
+<ul>
+<li><code>date -s &lt;current date&gt;</code> is used for setting current time and date by user.</li>
+<li><code>ntpdate &lt;ntp server&gt;</code> starts NTP protocol with the given server 
+  and updates System clock according to it. <code>ntpdate pool.ntp.org</code></li>
+<li><strong>ntpd</strong> - is NTP service that runs constantly and periodically updates System clock. \
+  It also updates HW clock every 11 minutes acording to System clock. \
+  Another service it provides, is acting as NTP server for a local network \
+  listening on port 123 for other computers requests.</li>
+<li>Note: ntpd can run for only single fix if given a flag -q \
+  (in that way it works as ntpdate exactly) ntpd uses config file: <code>/etc/ntp.conf</code></li>
+</ul>
+<h2 id="time-zones">Time Zones</h2>
+<p>The system clock has Time Zone (TZ) information and Daylight Saving Time (DST) information.\
+The hardware clock on the other hand, can only hold date and time.\
+So when system time is saved into HW clock there are two options :
+* UTC - means that the time that is saved is UTC time
+* LOCAL - means that the time that is saved is Local time (accrding to TZ and DST)
+* <code>/etc/adjtime</code> holds the current configuration of the HW clock.
+* <code>/usr/share/zoneinfo/</code> is a system timezone database. It is updated as part of glibc-zoneinfo package.
+* <code>/etc/localtime</code> - contains current TZ and DST info. (The file from zoneinfo is copied here.)</p>
+<p><strong>Example</strong>:</p>
+<pre><code class="sh">IST-2IDT,M3.4.4/26,M10.5.0
+It means that we use IST(Israel standard time) which is 2 hours ahead of UTC.
+IDT is day saving time - without offset it is by default one hour ahead of standard time.
+M3.4.4/26 - means the daylight saving starts on month 3, week 4 and day 4 of the week.
+M10.5.0 - means the daylight saving stops on month 10, week 5, day 0 of the week.
+</code></pre>
+
+<p>Also we can use this command to show it easier:
+<code>zdump -v Asia/Jerusalem | grep 2019</code></p>
+<p>From here : <code>man 3 tzset</code></p>
+<p>Note: The NTP protocol doesn't know anything about TZ/DST. It works with UTC time only.\
+When the time correction is made on the client, than the TZ/DST takes the effect.</p>
+<h2 id="hw-clock-local-vs-utc">HW clock : LOCAL vs UTC</h2>
+<p>On computer that run by Linux it makes sense to sync HW clock with UTC time.\
+During the boot, the Linux will read UTC time from HW clock, will update the time with local TZ/DST\
+offset and will init the system clock with it. On shutdown the Linux will convert local system time to UTC\
+and will save it into RTC.\
+On a dual boot with Windows, there may be conflict with this approach,\
+as Windows tries to update HW clock with Local time (unless this feature is disabled)\</p>
+<p>If HW clock configured to hold Local time, then during the boot Linux will read the time from it
+and will set System clock directly with that time.</p>
+<p>What happens when Daylight saving is switched on/off ?\
+If the Linux is on, it will update it's system clock accordingly to the change, and will later save the change on RTC during shutdown.\
+But if the Linux is off, it will not happen and HW clock will still have the Local time before the switch and so will the system clock. (Because it reads the time directly from HW clock)\
+So, now in order to update the Local time we should use:\
+<code>ntpdate pool.ntp.org</code></p>
+<h2 id="links">Links</h2>
+<ul>
+<li>man 8 hwclock</li>
+<li>man 3 tzset</li>
+<li>https://docs.slackware.com/howtos:hardware:syncing_hardware_clock_and_system_local_time</li>
+<li>https://docs.slackware.com/howtos:network_services:ntp</li>
+<li>https://wiki.archlinux.org/index.php/Network_Time_Protocol_daemon</li>
+<li>https://www.ntppool.org/en/use.html</li>
+</ul>
+<h2 id="my-configuration-for-slackware">My configuration for Slackware</h2>
+<p>Use ntpdate command to update clock once a day</p>
+<p>Create /etc/cron.dayly/datesync with following content:</p>
+<pre><code class="sh">#!/bin/sh
+/usr/sbin/ntpdate 0.pool.ntp.org &gt;&gt; /var/log/messages 2&gt;&amp;1
+/usr/sbin/ntpdate 1.pool.ntp.org &gt;&gt; /var/log/messages 2&gt;&amp;1
+sleep 10
+/sbin/hwclock -w
+</code></pre>
+
+<p>Enable the script for running
+<code>chmod +x /etc/cron.daily/datesync</code></p>
+</div>
+
+<div id="path">
+    ~/work/notes/md/linux/system/time_and_clock.md
+</div>
+
+</body>
+</html> 

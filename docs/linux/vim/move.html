@@ -1,0 +1,393 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Igor's notes</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+<div id="navbar">
+    <ul>
+    <li><a  href="/index.html">Home</a></li>
+    <li><a  href="/linux/index.html">Linux</a></li>
+    <li><a  href="/programming/index.html">Programming</a></li>
+    <li><a  href="/computing/index.html">Computing</a></li>
+    <li><a  href="/studies/index.html">Studies</a></li>
+    <li><a  href="/webtools/webtools.html">Webtools</a></li>
+    <li><a  href="/travel/index.html">Travel</a></li>
+    <li><a  href="/media/index.html">Media</a></li>
+    <li><a  href="/etc/index.html">Etc</a></li>
+    </ul>
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#movments">Movments</a></li>
+</ul>
+</div>
+
+
+
+<div class="content">
+    <div class="folder">
+        <p>&#60;linux/vim&#62;</p>    
+    </div>
+    <h2 id="movments">Movments</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Basic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>h</td>
+<td>move one character left</td>
+</tr>
+<tr>
+<td>j</td>
+<td>move one row down</td>
+</tr>
+<tr>
+<td>k</td>
+<td>move one row up</td>
+</tr>
+<tr>
+<td>l</td>
+<td>move one character right</td>
+</tr>
+<tr>
+<td>H</td>
+<td>move to top of screen</td>
+</tr>
+<tr>
+<td>M</td>
+<td>move to middle of screen</td>
+</tr>
+<tr>
+<td>L</td>
+<td>move to bottom of screen</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Scroll</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>zz</td>
+<td>scroll the line with the cursor to the center of the screen</td>
+</tr>
+<tr>
+<td>zt</td>
+<td>scroll the line with the cursor to the top</td>
+</tr>
+<tr>
+<td>zb</td>
+<td>scroll the line with the cursor to the bottom</td>
+</tr>
+<tr>
+<td>C-y</td>
+<td>scroll up</td>
+</tr>
+<tr>
+<td>C-e</td>
+<td>scroll down</td>
+</tr>
+<tr>
+<td>C-u</td>
+<td>scroll half-page up</td>
+</tr>
+<tr>
+<td>C-d</td>
+<td>scroll half-page down</td>
+</tr>
+<tr>
+<td>C-b</td>
+<td>scroll page up</td>
+</tr>
+<tr>
+<td>C-f</td>
+<td>scroll page down</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>Some movements can be preceded by a count; e.g. 4j moves down 4 lines.</p>
+</li>
+<li>
+<p>note:  Any mnenomics to remember this? 
+       efter (after in Swedish), yore (meaning the past), up, down, back, forward. 
+       (The words back and forward are longer than up and down, 
+       so naturally they move the screen a longer distance;)</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Words</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>w</td>
+<td>move to beginning of next word</td>
+</tr>
+<tr>
+<td>b</td>
+<td>move to beginning of previous word</td>
+</tr>
+<tr>
+<td>e</td>
+<td>move to end of word</td>
+</tr>
+<tr>
+<td>W</td>
+<td>move to beginning of next word after a whitespace</td>
+</tr>
+<tr>
+<td>B</td>
+<td>move to beginning of previous word before a whitespace</td>
+</tr>
+<tr>
+<td>E</td>
+<td>move to end of word before a whitespace</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Lines</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>f<char></td>
+<td>go forward to <char> inside line (after)</td>
+</tr>
+<tr>
+<td>t<char></td>
+<td>go forward to <char> inside line (before)</td>
+</tr>
+<tr>
+<td>;</td>
+<td>repeat above, in same direction</td>
+</tr>
+<tr>
+<td>,</td>
+<td>repeat above, in reverse direction</td>
+</tr>
+<tr>
+<td>0</td>
+<td>move to beginning of line</td>
+</tr>
+<tr>
+<td>$</td>
+<td>move to end of line</td>
+</tr>
+<tr>
+<td>_</td>
+<td>move to first non-blank character of the line</td>
+</tr>
+<tr>
+<td>g_</td>
+<td>move to last non-blank character of the line</td>
+</tr>
+<tr>
+<td>gg</td>
+<td>move to first line</td>
+</tr>
+<tr>
+<td>S-g</td>
+<td>move to last line</td>
+</tr>
+<tr>
+<td><n>gg</td>
+<td>move to n'th line of file (n is a number; 12G moves to line 12)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Searching</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*</td>
+<td>find (and highlight) word under cursor (forward)</td>
+</tr>
+<tr>
+<td>#</td>
+<td>find (and highlight) word under cursor (backwards)</td>
+</tr>
+<tr>
+<td>g*</td>
+<td>find (and highlight) word (not whole word) under cursor (forward)</td>
+</tr>
+<tr>
+<td>g#</td>
+<td>find (and highlight) word (not whole word) under cursor (backwards)</td>
+</tr>
+<tr>
+<td>/text</td>
+<td>find text (forward)</td>
+</tr>
+<tr>
+<td>?text</td>
+<td>find text (backward)</td>
+</tr>
+<tr>
+<td>n</td>
+<td>next matching search pattern</td>
+</tr>
+<tr>
+<td>S-n</td>
+<td>previous matching search pattern</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Jumping</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>``</td>
+<td>last location inside of file</td>
+</tr>
+<tr>
+<td>'.</td>
+<td>last edit location inside of file</td>
+</tr>
+<tr>
+<td>C-o</td>
+<td>jump to last (older) cursor position</td>
+</tr>
+<tr>
+<td>C-i</td>
+<td>jump to next cursor position (after Ctrl-O)</td>
+</tr>
+<tr>
+<td>:jumps</td>
+<td>print list of locations</td>
+</tr>
+<tr>
+<td>( )</td>
+<td>jump forward/backwards one sentence</td>
+</tr>
+<tr>
+<td>{ }</td>
+<td>jump forward/backwards one paragraph</td>
+</tr>
+<tr>
+<td>%</td>
+<td>jump to matching bracket { } [ ] ( )</td>
+</tr>
+<tr>
+<td><code>[[ ]]</code></td>
+<td>jump to next block of code</td>
+</tr>
+<tr>
+<td>mx</td>
+<td>mark current position 'x'</td>
+</tr>
+<tr>
+<td>'x</td>
+<td>go to line of mark x</td>
+</tr>
+<tr>
+<td>`x</td>
+<td>go to cursor position of mark x</td>
+</tr>
+<tr>
+<td>gf</td>
+<td>go to file under cursor</td>
+</tr>
+<tr>
+<td>gd / gD</td>
+<td>go to definition / go to global definition</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Ctags</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C-]</td>
+<td>jump to definition according to tags</td>
+</tr>
+<tr>
+<td>C-t</td>
+<td>jump back</td>
+</tr>
+<tr>
+<td>C-w C-]</td>
+<td>Open the definition in horizontal split</td>
+</tr>
+<tr>
+<td>g C-]</td>
+<td>opens a quick dialog to select one between multiple definitions</td>
+</tr>
+<tr>
+<td>:tag %%/^asserts_*%%</td>
+<td>search for tags that start with %%asserts_%%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Help</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:h <topic></td>
+<td></td>
+</tr>
+<tr>
+<td>C-]</td>
+<td>jump to tag</td>
+</tr>
+<tr>
+<td>C-t</td>
+<td>jump back</td>
+</tr>
+<tr>
+<td>K</td>
+<td>jump to man page of a function</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="path">
+    ~/work/notes/md/linux/vim/move.md
+</div>
+
+</body>
+</html> 

@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Igor's notes: Connecting remotely with gui</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+<div id="navbar">
+    <ul>
+    <li><a  href="/index.html">Home</a></li>
+    <li><a  href="/linux/index.html">Linux</a></li>
+    <li><a  href="/programming/index.html">Programming</a></li>
+    <li><a  href="/computing/index.html">Computing</a></li>
+    <li><a  href="/studies/index.html">Studies</a></li>
+    <li><a  href="/webtools/webtools.html">Webtools</a></li>
+    <li><a  href="/travel/index.html">Travel</a></li>
+    <li><a  href="/media/index.html">Media</a></li>
+    <li><a  href="/etc/index.html">Etc</a></li>
+    </ul>
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#connecting-remotely-with-gui">Connecting remotely with gui</a><ul>
+<li><a href="#available-vnc-software">Available VNC software:</a></li>
+<li><a href="#vnc-viewer">VNC Viewer</a></li>
+<li><a href="#vnc-server">VNC Server</a></li>
+<li><a href="#connecting-to-display0">Connecting to display:0</a></li>
+<li><a href="#x11vnc">X11VNC</a><ul>
+<li><a href="#links">Links</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+<div class="content">
+    <div class="folder">
+        <p>&#60;linux/tools&#62;</p>    
+    </div>
+    <h1 id="connecting-remotely-with-gui">Connecting remotely with gui</h1>
+<h2 id="available-vnc-software">Available VNC software:</h2>
+<p><strong>RealVNC</strong>, <strong>TightVNC</strong>, <strong>UltraVNC</strong> ...</p>
+<p>On Linux i use : <strong>TigerVNC</strong> as server</p>
+<p>On Windows : <strong>UltraVNC</strong> portable client</p>
+<h2 id="vnc-viewer">VNC Viewer</h2>
+<p><code>use &lt;ip_address&gt;:1 to connect to VNC server, display 1</code></p>
+<h2 id="vnc-server">VNC Server</h2>
+<ul>
+<li>
+<p>vncserver - a command that starts the VNC service</p>
+</li>
+<li>
+<p>On start it uses first available display number (usually :1) \
+  and then run ~/.vnc/xstartup script. </p>
+</li>
+<li>
+<p>In my case xstartup points to ~/.xinitrc \
+  (which is not executable?? )             \
+  I updated xstartup script to :           \
+  <code>exec sh ~/.xinitrc</code></p>
+</li>
+<li>
+<p><code>vncserver -geometry 1920x1080</code></p>
+</li>
+<li>
+<p><code>vncpasswd</code> - a program that configures the login password that is entered by the viewer. \
+    The passwrd is stored in ~/.vnc/passwd</p>
+</li>
+<li>
+<p>killing VNC server : <code>vncserver -kill :1</code></p>
+</li>
+</ul>
+<h2 id="connecting-to-display0">Connecting to display:0</h2>
+<ul>
+<li><code>x0vncserver</code> - this program enables to connect to VNC server on display 0</li>
+<li><code>x0vncserver PasswordFile=~/.vnc/passwd</code></li>
+</ul>
+<h2 id="x11vnc">X11VNC</h2>
+<ul>
+<li><strong>x11vnc</strong> - a program that enables to remotely connect to physical monitor</li>
+<li>That way you can connect to a running session. Just like with x0vncserver</li>
+</ul>
+<h3 id="links">Links</h3>
+<p>Some links about configuring VNC server on Slackware</p>
+<ul>
+<li>http://pmoghadam.com/homepage/HTML/slackware-13.37-tightvnc-epkg.html</li>
+<li>http://www.linuxquestions.org/questions/slackware-14/robust-vncserver-startup-file-rc-vncserver-248779/</li>
+</ul>
+</div>
+
+<div id="path">
+    ~/work/notes/md/linux/tools/connecting_remotely_with_gui.md
+</div>
+
+</body>
+</html> 

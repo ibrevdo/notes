@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Igor's notes: handle command line args</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+<div id="navbar">
+    <ul>
+    <li><a  href="/index.html">Home</a></li>
+    <li><a  href="/linux/index.html">Linux</a></li>
+    <li><a  href="/programming/index.html">Programming</a></li>
+    <li><a  href="/computing/index.html">Computing</a></li>
+    <li><a  href="/studies/index.html">Studies</a></li>
+    <li><a  href="/webtools/webtools.html">Webtools</a></li>
+    <li><a  href="/travel/index.html">Travel</a></li>
+    <li><a  href="/media/index.html">Media</a></li>
+    <li><a  href="/etc/index.html">Etc</a></li>
+    </ul>
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#handle-command-line-args">handle command line args</a><ul>
+<li><a href="#if-no-arguments-were-provided">if no arguments were provided</a></li>
+<li><a href="#process-arguments">process arguments</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+<div class="content">
+    <div class="folder">
+        <p>&#60;linux/bash&#62;</p>    
+    </div>
+    <h1 id="handle-command-line-args">handle command line args</h1>
+<h2 id="if-no-arguments-were-provided">if no arguments were provided</h2>
+<pre><code class="bash">function USAGE ()
+{
+    echo &quot;&quot;
+    echo &quot;USAGE: &quot;
+    echo &quot;    ineff.sh [-?dh]&quot;
+    echo &quot;&quot;
+    echo &quot;OPTIONS:&quot;
+    echo &quot;    -d  date of logfiles (format: yyyymmdd)&quot;
+    echo &quot;    -h  logfile (format: 12 or 1[2-4])&quot;
+    echo &quot;    -?  this usage information&quot;
+    echo &quot;&quot;
+    echo &quot;EXAMPLE:&quot;
+    echo &quot;    ineff.sh -d 20060801 -h 2[12]&quot;
+    echo &quot;&quot;
+    exit $E_OPTERROR    # Exit and explain usage, if no argument(s) given.
+}
+</code></pre>
+
+<h2 id="process-arguments">process arguments</h2>
+<pre><code class="bash">while getopts &quot;:d:h:?&quot; Option
+do
+    case $Option in
+        d    ) DT=$OPTARG;;
+        h    ) HR=$OPTARG;;
+        ?    ) USAGE
+               exit 0;;
+        *    ) echo &quot;&quot;
+               echo &quot;Unimplemented option chosen.&quot;
+               USAGE   # DEFAULT
+    esac
+done
+
+shift $(($OPTIND - 1))
+#  Decrements the argument pointer so it points to next argument.
+#  $1 now references the first non option item supplied on the command line
+#  if one exists.
+</code></pre>
+</div>
+
+<div id="path">
+    ~/work/notes/md/linux/bash/handle_command_line_args.md
+</div>
+
+</body>
+</html> 

@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Igor's notes: Regular expressions and Sed</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+<div id="navbar">
+    <ul>
+    <li><a  href="/index.html">Home</a></li>
+    <li><a  href="/linux/index.html">Linux</a></li>
+    <li><a  href="/programming/index.html">Programming</a></li>
+    <li><a  href="/computing/index.html">Computing</a></li>
+    <li><a  href="/studies/index.html">Studies</a></li>
+    <li><a  href="/webtools/webtools.html">Webtools</a></li>
+    <li><a  href="/travel/index.html">Travel</a></li>
+    <li><a  href="/media/index.html">Media</a></li>
+    <li><a  href="/etc/index.html">Etc</a></li>
+    </ul>
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#regular-expressions-and-sed">Regular expressions and Sed</a><ul>
+<li><a href="#regex">Regex</a><ul>
+<li><a href="#general">General</a></li>
+<li><a href="#bracket-expression">Bracket expression</a><ul>
+<li><a href="#predefined-bracket-expressions">predefined bracket expressions</a></li>
+</ul>
+</li>
+<li><a href="#exception">Exception</a></li>
+<li><a href="#notes">Notes</a></li>
+<li><a href="#backreferences-remembering-patterns">Backreferences - remembering patterns</a></li>
+</ul>
+</li>
+<li><a href="#sed">Sed</a><ul>
+<li><a href="#sed-command-format">sed command format</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+<div class="content">
+    <div class="folder">
+        <p>&#60;linux/bash&#62;</p>    
+    </div>
+    <h1 id="regular-expressions-and-sed">Regular expressions and Sed</h1>
+<h2 id="regex">Regex</h2>
+<h3 id="general">General</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.</code></td>
+<td>match any single character</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>zero or more occurrences of the previous expression</td>
+</tr>
+<tr>
+<td><code>.*</code></td>
+<td>single or more occurrences of the previous character</td>
+</tr>
+<tr>
+<td><code>\</code></td>
+<td>Any meta-character with special meaning may be quoted by preceding it with a backslash (\)a</td>
+</tr>
+<tr>
+<td><code>^</code></td>
+<td>begining of a line</td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>end of a line</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example 1:</strong>  <code>^$</code>              matches blank lines</p>
+<p><strong>Example 2:</strong>  <code>^ *$</code>            matches line that starts with a zero or more spaces</p>
+<p><strong>Example 3:</strong>  <code>[0-9][0-9]*</code>     matches one or more numbers</p>
+<h3 id="bracket-expression">Bracket expression</h3>
+<p><strong>bracket expression</strong>  Matches all the characters inside the [ ]</p>
+<ul>
+<li><code>[0123456789]</code> or <code>[0-9]</code> matches any single digit</li>
+<li><code>[a-z]</code>                   any letter 'a' to 'z'</li>
+</ul>
+<h4 id="predefined-bracket-expressions">predefined bracket expressions</h4>
+<ul>
+<li>[:alnum:]                       means [0-9A-Za-z]</li>
+</ul>
+<p>more examples: </p>
+<pre><code class="sh">[:alpha:], [:cntrl:], [:digit:], [:graph:], 
+[:lower:], [:upper:], [:xdigit:], [:space:]
+</code></pre>
+
+<h3 id="exception">Exception</h3>
+<p><code>[^&lt;expression&gt;]</code> doesn't contain &lt; expression &gt;</p>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>to include <code>]</code>, place it first in the list</li>
+<li>to include <code>^</code>, place it anywhere but first</li>
+<li>to include <code>-</code>, place it last</li>
+</ul>
+<h3 id="backreferences-remembering-patterns">Backreferences - remembering patterns</h3>
+<p>Each <code>\(&lt;expression&gt;\)</code> starts a new pattern, which can be recalled by <code>\1</code></p>
+<p><strong>Examples</strong></p>
+<pre><code class="bash">\([a-z]])\1                             match 2 identical letters
+\([a-z]\)\([a-z]\)[a-z]\2\1             match 5 letter palindrome ('radar')
+</code></pre>
+
+<hr />
+<h2 id="sed">Sed</h2>
+<h3 id="sed-command-format">sed command format</h3>
+<p><code>sed flags 'range command' &lt;file&gt;</code></p>
+<p>or</p>
+<p><code>echo "string" | sed flags 'range command'</code></p>
+<p><strong>range</strong>:</p>
+<ol>
+<li>can be regular expression. put it between <code>//</code>. </li>
+<li><code>sed '/^#/ s/[0-9][0-9]*//'</code> finds lines that start with # and delete first number on these lines</li>
+<li>range can be in form of "from" to "to"</li>
+<li><code>sed '/start/,/stop/ s/#.*//'</code></li>
+<li>can be line numbers</li>
+<li><code>sed '1,100 s/A/a/'</code></li>
+<li><code>sed '101,$ s/A/a/'</code>  operate on line 101 to end of file</li>
+</ol>
+<p><strong>commands</strong>:
+* <code>d</code> - delete the matched lines
+* <code>p</code> - print matched lines</p>
+<p><strong>flags</strong>:
+* <code>-n</code> - do not print automatically</p>
+<p><strong>print command</strong>:
+* <code>sed -n '/regex/p' &lt;file&gt;</code>        print only matches</p>
+<p><strong>substitution command</strong>:</p>
+<p><code>sed -e 's/foo/bar/g' &lt;file&gt;</code></p>
+<p>or</p>
+<p><code>echo "string" | sed 's/foo/bar/g/'</code></p>
+<ul>
+<li><code>s/old/new/</code>    substitute old with new</li>
+<li>normally old is regular expression</li>
+</ul>
+<p>substitution works only on pattern which was found by the regular expression.
+rest of the line stays.</p>
+<p><strong>example</strong>: </p>
+<pre><code class="sh">file contains
+one two three
+</code></pre>
+
+<ul>
+<li><code>sed 's/two/2/' file</code> will result in :<code>one 2 three</code></li>
+<li><code>sed 's/.*two/2/' file'</code> will result in : 2 three</li>
+</ul>
+<p><strong>example</strong>: reuse of a matched pattern with <code>[[/1]]</code></p>
+<ul>
+<li><code>echo "mailto: igor.brevdo@gmail.com" | sed 's/.* \(.*\)@.*/\1/'</code></li>
+<li>will result in: <code>igor.brevdo</code></li>
+</ul>
+</div>
+
+<div id="path">
+    ~/work/notes/md/linux/bash/regex_and_sed.md
+</div>
+
+</body>
+</html> 

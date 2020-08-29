@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Igor's notes</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+<div id="navbar">
+    <ul>
+    <li><a  href="/index.html">Home</a></li>
+    <li><a  href="/linux/index.html">Linux</a></li>
+    <li><a  href="/programming/index.html">Programming</a></li>
+    <li><a  href="/computing/index.html">Computing</a></li>
+    <li><a  href="/studies/index.html">Studies</a></li>
+    <li><a  href="/webtools/webtools.html">Webtools</a></li>
+    <li><a  href="/travel/index.html">Travel</a></li>
+    <li><a  href="/media/index.html">Media</a></li>
+    <li><a  href="/etc/index.html">Etc</a></li>
+    </ul>
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#c-language-and-linux-programming">C language and Linux programming</a><ul>
+<li><a href="#general-tutorials">General Tutorials</a></li>
+<li><a href="#posix-message-queues">POSIX Message queues</a></li>
+<li><a href="#linux-programming-pthreads-and-conditions">Linux programming Pthreads and conditions</a></li>
+<li><a href="#poll-and-epoll">Poll and epoll</a></li>
+<li><a href="#glibc-lists-and-other-data-structures">Glibc lists and other data structures</a></li>
+<li><a href="#glib-data-structures">GLib data structures</a></li>
+<li><a href="#c-hash-table">C hash table</a></li>
+<li><a href="#asynchronous-buffer">Asynchronous buffer</a></li>
+<li><a href="#libraries">Libraries</a></li>
+<li><a href="#linking">Linking</a></li>
+<li><a href="#examples">Examples</a><ul>
+<li><a href="#simple-config-file">Simple config file</a></li>
+<li><a href="#calculate-distance-between-two-geo-points">calculate distance between two geo points</a></li>
+</ul>
+</li>
+<li><a href="#d-bus">D-Bus</a></li>
+<li><a href="#linux-kernel-module-programming">Linux Kernel module programming</a></li>
+<li><a href="#labs-and-training">Labs and training</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+<div class="content">
+    <div class="folder">
+        <p>&#60;programming/c_cpp&#62;</p>    
+    </div>
+    <hr />
+<h1 id="c-language-and-linux-programming">C language and Linux programming</h1>
+<h2 id="general-tutorials">General Tutorials</h2>
+<ul>
+<li>comp.lang.c Frequently Asked Questions    http://c-faq.com/</li>
+<li>C Programming Tutorial on Random Access File Handling https://www.thoughtco.com/random-access-file-handling-958450</li>
+</ul>
+<h2 id="posix-message-queues">POSIX Message queues</h2>
+<ul>
+<li><a href="https://www.ibm.com/cloud/learn/message-queues">https://www.ibm.com/cloud/learn/message-queues</a></li>
+<li><a href="https://www.softprayog.in/programming/interprocess-communication-using-posix-message-queues-in-linux">https://www.softprayog.in/programming/interprocess-communication-using-posix-message-queues-in-linux</a></li>
+</ul>
+<h2 id="linux-programming-pthreads-and-conditions">Linux programming Pthreads and conditions</h2>
+<ul>
+<li><a href="https://computing.llnl.gov/tutorials/pthreads/">https://computing.llnl.gov/tutorials/pthreads/</a></li>
+<li><a href="https://stackoverflow.com/questions/20772476/when-to-use-pthread-conditional-variables">https://stackoverflow.com/questions/20772476/when-to-use-pthread-conditional-variables</a></li>
+<li><a href="https://stackoverflow.com/questions/2594898/linux-thread-synchronization">https://stackoverflow.com/questions/2594898/linux-thread-synchronization</a></li>
+</ul>
+<h2 id="poll-and-epoll">Poll and epoll</h2>
+<ul>
+<li><a href="https://devarea.com/linux-io-multiplexing-select-vs-poll-vs-epoll/#.XchNcOZfiV5">https://devarea.com/linux-io-multiplexing-select-vs-poll-vs-epoll/#.XchNcOZfiV5</a></li>
+<li><a href="https://github.com/raoulmillais/linux-system-programming/blob/master/src/poll-example.c">https://github.com/raoulmillais/linux-system-programming/blob/master/src/poll-example.c</a></li>
+<li><a href="https://www.ibm.com/support/knowledgecenter/en/ssw_ibm_i_71/rzab6/poll.htm">https://www.ibm.com/support/knowledgecenter/en/ssw_ibm_i_71/rzab6/poll.htm</a></li>
+<li><a href="https://stackoverflow.com/questions/12444679/why-is-this-message-not-only-displayed-when-a-file-is-written-to-using-the-poll">https://stackoverflow.com/questions/12444679/why-is-this-message-not-only-displayed-when-a-file-is-written-to-using-the-poll</a></li>
+</ul>
+<h2 id="glibc-lists-and-other-data-structures">Glibc lists and other data structures</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/16819910/glibc-list-and-other-data-structures-implementations">https://stackoverflow.com/questions/16819910/glibc-list-and-other-data-structures-implementations</a></li>
+</ul>
+<h2 id="glib-data-structures">GLib data structures</h2>
+<ul>
+<li><a href="https://developer.ibm.com/tutorials/l-glib/">https://developer.ibm.com/tutorials/l-glib/</a></li>
+</ul>
+<h2 id="c-hash-table">C hash table</h2>
+<ul>
+<li>C hash table https://gist.github.com/tonious/1377667</li>
+<li>C libraries with hash table implementation https://stackoverflow.com/a/6118603</li>
+<li>https://codereview.stackexchange.com/questions/194807/hashtable-implementation-c</li>
+</ul>
+<h2 id="asynchronous-buffer">Asynchronous buffer</h2>
+<ul>
+<li>https://stackoverflow.com/questions/21126950/asynchronously-writing-to-a-file-in-c-unix</li>
+<li>http://pubs.opengroup.org/onlinepubs/7908799/xsh/fsync.html</li>
+<li>https://www.ibm.com/developerworks/linux/library/l-async/</li>
+</ul>
+<hr />
+<h2 id="libraries">Libraries</h2>
+<ul>
+<li>C Standard Library tutorial   <a href="https://www.tutorialspoint.com/c_standard_library/">https://www.tutorialspoint.com/c_standard_library/</a></li>
+<li>Glibc - GNU C Library         <a href="https://www.gnu.org/software/libc/manual/html_node/index.html">https://www.gnu.org/software/libc/manual/html_node/index.html</a></li>
+<li>Glibc wiki                    <a href="https://sourceware.org/glibc/wiki/HomePage">https://sourceware.org/glibc/wiki/HomePage</a></li>
+<li>GLib - GNOME C Library        <a href="https://en.wikipedia.org/wiki/GLib">https://en.wikipedia.org/wiki/GLib</a></li>
+</ul>
+<h2 id="linking">Linking</h2>
+<ul>
+<li>ldconfig</li>
+<li>ldd</li>
+<li>ld.so</li>
+<li>How to execute a library<ul>
+<li><a href="https://unix.stackexchange.com/questions/223385/why-and-how-are-some-shared-libraries-runnable-as-though-they-are-executables">https://unix.stackexchange.com/questions/223385/why-and-how-are-some-shared-libraries-runnable-as-though-they-are-executables</a></li>
+</ul>
+</li>
+<li>linking with dynamic library with dependencies    https://stackoverflow.com/questions/11055569/linking-with-dynamic-library-with-dependencies</li>
+</ul>
+<hr />
+<h2 id="examples">Examples</h2>
+<h4 id="simple-config-file">Simple config file</h4>
+<ul>
+<li>Read parameters from config file  https://www.linuxquestions.org/questions/programming-9/read-parameters-from-config-file-file-parser-362188/</li>
+</ul>
+<h4 id="calculate-distance-between-two-geo-points">calculate distance between two geo points</h4>
+<ul>
+<li>https://www.geodatasource.com/developers/c</li>
+<li>https://stackoverflow.com/questions/10198985/calculating-the-distance-between-2-latitudes-and-longitudes-that-are-saved-in-a</li>
+</ul>
+<hr />
+<h2 id="d-bus">D-Bus</h2>
+<ul>
+<li>https://dbus.freedesktop.org/doc/dbus-tutorial.html</li>
+<li>https://stackoverflow.com/questions/572283/what-is-the-underlying-transport-for-d-bus</li>
+</ul>
+<hr />
+<h2 id="linux-kernel-module-programming">Linux Kernel module programming</h2>
+<ul>
+<li>linux kernel module cheetsheet <a href="https://github.com/cirosantilli/linux-kernel-module-cheat">https://github.com/cirosantilli/linux-kernel-module-cheat</a></li>
+</ul>
+<h2 id="labs-and-training">Labs and training</h2>
+<ul>
+<li><a href="https://devarea.com/labs/#.XchNbOZfiV5">https://devarea.com/labs/#.XchNbOZfiV5</a></li>
+</ul>
+</div>
+
+<div id="path">
+    ~/work/notes/md/programming/c_cpp/c_linux_programming.md
+</div>
+
+</body>
+</html> 

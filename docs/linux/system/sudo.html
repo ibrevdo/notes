@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Igor's notes</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+<div id="navbar">
+    <ul>
+    <li><a  href="/index.html">Home</a></li>
+    <li><a  href="/linux/index.html">Linux</a></li>
+    <li><a  href="/programming/index.html">Programming</a></li>
+    <li><a  href="/computing/index.html">Computing</a></li>
+    <li><a  href="/studies/index.html">Studies</a></li>
+    <li><a  href="/webtools/webtools.html">Webtools</a></li>
+    <li><a  href="/travel/index.html">Travel</a></li>
+    <li><a  href="/media/index.html">Media</a></li>
+    <li><a  href="/etc/index.html">Etc</a></li>
+    </ul>
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#sudoers-file">SUDOERS file</a></li>
+</ul>
+</div>
+
+
+
+<div class="content">
+    <div class="folder">
+        <p>&#60;linux/system&#62;</p>    
+    </div>
+    <h2 id="sudoers-file">SUDOERS file</h2>
+<p>Format : 
+<code>username hosts = (runas) commands</code></p>
+<p>There are four kinds of aliases: User_Alias, Runas_Alias, Host_Alias and Cmnd_Alias. </p>
+<p>Each alias definition is of the form : <code>Alias_Type NAME = item1, item2, ...</code>
+where Alias_Type is one of User_Alias, Runas_Alias, Host_Alias, or Cmnd_Alias.</p>
+<p>Example : </p>
+<pre><code class="sh">root    ALL = (ALL) ALL
+</code></pre>
+
+<p>Let root run any command on any host as any user. </p>
+<p>From here : https://www.sudo.ws/man/sudoers.man.html</p>
+</div>
+
+<div id="path">
+    ~/work/notes/md/linux/system/sudo.md
+</div>
+
+</body>
+</html> 

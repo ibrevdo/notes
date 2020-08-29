@@ -104,7 +104,7 @@ def main():
         for file in files:
             if file.endswith(".md"):
                 input_file_path = os.path.join(root, file)
-                output_file_path = input_file_path.replace("md/","site/").replace(".md", ".html")
+                output_file_path = input_file_path.replace("md/","docs/").replace(".md", ".html")
                 ensure_dir(output_file_path)
 
 

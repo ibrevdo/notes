@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Igor's notes: Linux system</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+<div id="navbar">
+    <ul>
+    <li><a  href="/index.html">Home</a></li>
+    <li><a  href="/linux/index.html">Linux</a></li>
+    <li><a  href="/programming/index.html">Programming</a></li>
+    <li><a  href="/computing/index.html">Computing</a></li>
+    <li><a  href="/studies/index.html">Studies</a></li>
+    <li><a  href="/webtools/webtools.html">Webtools</a></li>
+    <li><a  href="/travel/index.html">Travel</a></li>
+    <li><a  href="/media/index.html">Media</a></li>
+    <li><a  href="/etc/index.html">Etc</a></li>
+    </ul>
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#linux-system">Linux system</a><ul>
+<li><a href="#system">System</a><ul>
+<li><a href="#bash">Bash</a></li>
+<li><a href="#dotfiles-examples">dotfiles examples</a></li>
+<li><a href="#ssh">SSH</a></li>
+<li><a href="#samba-and-nfs">Samba and NFS</a></li>
+<li><a href="#md5">md5</a></li>
+<li><a href="#linux-daemon-writing-howto">Linux daemon writing howto</a></li>
+<li><a href="#cli-commands-and-services">CLI commands and services</a></li>
+<li><a href="#general-guides">General guides</a></li>
+</ul>
+</li>
+<li><a href="#development">Development</a><ul>
+<li><a href="#libs">Libs</a></li>
+</ul>
+</li>
+<li><a href="#kernel">Kernel</a></li>
+<li><a href="#real-time">Real Time</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+<div class="content">
+    <div class="folder">
+        <p>&#60;linux/system&#62;</p>    
+    </div>
+    <h1 id="linux-system">Linux system</h1>
+<h2 id="system">System</h2>
+<ul>
+<li>initd                                 <a href="https://en.wikipedia.org/wiki/Init">https://en.wikipedia.org/wiki/Init</a></li>
+<li>systemd                               <a href="https://en.wikipedia.org/wiki/Systemd">https://en.wikipedia.org/wiki/Systemd</a></li>
+<li>services, runlevels and rcd scripts   <a href="https://www.linux.com/news/introduction-services-runlevels-and-rcd-scripts">https://www.linux.com/news/introduction-services-runlevels-and-rcd-scripts</a></li>
+<li>udev                                  <a href="https://en.wikipedia.org/wiki/Udev">https://en.wikipedia.org/wiki/Udev</a></li>
+<li>eudev  (@toread)                      <a href="https://wiki.gentoo.org/wiki/Eudev">https://wiki.gentoo.org/wiki/Eudev</a></li>
+<li>Linux File system                     <a href="http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/usr.html">http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/usr.html</a></li>
+<li>Wayland (display server) (@toread)<ul>
+<li><a href="https://en.wikipedia.org/wiki/Wayland_(display_server_protocol)">https://en.wikipedia.org/wiki/Wayland_(display_server_protocol)</a></li>
+</ul>
+</li>
+<li>Shells                                <a href="https://docs.slackware.com/howtos:cli_manual:shells">https://docs.slackware.com/howtos:cli_manual:shells</a></li>
+<li>Bash                                  <a href="https://docs.slackware.com/slackbook:bash">https://docs.slackware.com/slackbook:bash</a></li>
+<li>Users and Groups                      <a href="https://wiki.archlinux.org/index.php/users_and_groups">https://wiki.archlinux.org/index.php/users_and_groups</a></li>
+<li>Linux - overview of memory management<ul>
+<li><a href="http://www.linuxhowtos.org/System/LinuxMemoryManagement.htm">http://www.linuxhowtos.org/System/LinuxMemoryManagement.htm</a></li>
+</ul>
+</li>
+<li>Change root   <a href="https://wiki.archlinux.org/index.php/Change_root">https://wiki.archlinux.org/index.php/Change_root</a></li>
+<li>gshadow       <a href="https://www.man7.org/linux/man-pages/man5/gshadow.5.html">https://www.man7.org/linux/man-pages/man5/gshadow.5.html</a></li>
+<li>Linux PAM     <a href="https://en.wikipedia.org/wiki/Linux_PAM">https://en.wikipedia.org/wiki/Linux_PAM</a></li>
+<li>Securing applications on Linux with PAM <a href="https://www.linuxjournal.com/article/5940">https://www.linuxjournal.com/article/5940</a></li>
+<li>The Linux-PAM System Administarator Guide <a href="http://www.linux-pam.org/Linux-PAM-html/Linux-PAM_SAG.html">http://www.linux-pam.org/Linux-PAM-html/Linux-PAM_SAG.html</a></li>
+<li><a href="https://unix.stackexchange.com/questions/604258/what-is-d-bus-practically-useful-for">What is D-Bus practically useful for?</a></li>
+</ul>
+<h3 id="bash">Bash</h3>
+<ul>
+<li>(non)interactive (non)login shells<ul>
+<li><a href="https://askubuntu.com/questions/438150/scripts-in-etc-profile-d-being-ignored">https://askubuntu.com/questions/438150/scripts-in-etc-profile-d-being-ignored</a></li>
+<li><a href="https://www.quora.com/What-is-bash_profile-and-what-is-its-use">https://www.quora.com/What-is-bash_profile-and-what-is-its-use</a></li>
+</ul>
+</li>
+<li>Difference betwwen nohup disown and &amp;<ul>
+<li><a href="https://unix.stackexchange.com/questions/3886/difference-between-nohup-disown-and">https://unix.stackexchange.com/questions/3886/difference-between-nohup-disown-and</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="dotfiles-examples">dotfiles examples</h3>
+<ul>
+<li>dotfiles + install script <a href="https://github.com/maguec/dotfiles">https://github.com/maguec/dotfiles</a></li>
+</ul>
+<h3 id="ssh">SSH</h3>
+<ul>
+<li>eleven ssh tricks                         http://www.linuxjournal.com/article/6602</li>
+<li>Understanding SSH                         https://www.digitalocean.com/community/tutorials/understanding-the-ssh-encryption-and-connection-process</li>
+<li>SSH guide                                 https://kimmo.suominen.com/docs/ssh/</li>
+<li>SSH on slackware                          http://www.linuxquestions.org/questions/slackware-14/howto-ssh-slackware-and-any-linux-419680/ </li>
+<li>SSH tunneling                             http://www.linuxjournal.com/content/ssh-tunneling-poor-techies-vpn</li>
+</ul>
+<h3 id="samba-and-nfs">Samba and NFS</h3>
+<ul>
+<li>Samba - private and quest no password    </li>
+<li><a href="http://tech.waltco.biz/2008/01/26/private-and-guest-no-password-prompt-samba-shares-with-securityuser/">http://tech.waltco.biz/2008/01/26/private-and-guest-no-password-prompt-samba-shares-with-securityuser/</a></li>
+<li>Samba - Security howto   <a href="http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_:_Ch12_:_Samba_Security_and_Troubleshooting">http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_:_Ch12_:_Samba_Security_and_Troubleshooting</a></li>
+<li>NFS howto     <a href="http://tldp.org/HOWTO/NFS-HOWTO/index.html">http://tldp.org/HOWTO/NFS-HOWTO/index.html</a></li>
+</ul>
+<h3 id="md5">md5</h3>
+<ul>
+<li>md5 sums examples: <a href="https://www.tecmint.com/generate-verify-check-files-md5-checksum-linux/">https://www.tecmint.com/generate-verify-check-files-md5-checksum-linux/</a></li>
+</ul>
+<h3 id="linux-daemon-writing-howto">Linux daemon writing howto</h3>
+<ul>
+<li>http://www.netzmafia.de/skripten/unix/linux-daemon-howto.html</li>
+<li>http://www.cyberciti.biz/tips/linux-write-sys-v-init-script-to-start-stop-service.html</li>
+<li>http://www.enderunix.org/docs/eng/daemon.php</li>
+<li>init-d-vs-cron-which-to-use      http://serverfault.com/questions/92783/init-d-vs-cron-which-to-use</li>
+</ul>
+<h3 id="cli-commands-and-services">CLI commands and services</h3>
+<ul>
+<li>poular linux commands                     http://cb.vu/unixtoolbox.xhtml</li>
+<li>pupular linux commands                    http://www.pixelbeat.org/cmdline.html</li>
+<li>Finding stuff in Linux                    http://www.ice2o.com/findingstuff.php</li>
+<li>regular expressions                       http://www.regular-expressions.info/reference.html</li>
+<li>grep command to search in sub dirs        https://www.cyberciti.biz/faq/grep-command-in-unix-to-search-in-subdirectories-examples/</li>
+<li>Grep guide                                http://www.grymoire.com/Unix/Grep.html</li>
+<li>Sed guide                                 http://www.grymoire.com/Unix/Sed.html</li>
+<li>screen reference                          http://aperiodic.net/screen/quick_reference </li>
+<li>a killer screen config file               https://gist.github.com/joaopizani/2718397</li>
+<li>At Your Service - Job Scheduling for Linux http://www.linuxjournal.com/article/4719</li>
+</ul>
+<h3 id="general-guides">General guides</h3>
+<ul>
+<li>Alien wiki - Linux in general         http://alien.slackbook.org/dokuwiki/doku.php?id=linux:linux</li>
+<li>Computer hope Unix/Linux help         http://www.computerhope.com/unix.htm</li>
+<li>Linux home server howto               http://www.brennan.id.au/index.html</li>
+<li>Embedded Linux practical labs         https://bootlin.com/blog/beagle-labs</li>
+<li>Unix philosphy                        https://en.wikipedia.org/wiki/Unix_philosophy</li>
+<li>Cross Linux from scratch              http://trac.clfs.org/</li>
+</ul>
+<hr />
+<h2 id="development">Development</h2>
+<ul>
+<li>An ffmpeg and SDL Tutorial or How to Write a Video Player in Less Than 1000 Lines        http://dranger.com/ffmpeg/</li>
+<li>Kernel development in Qt Creator     https://themeaningfulengineer.github.io/Kernel-developemnt-in-QtCreator/</li>
+<li>strace guide                         http://www.dedoimedo.com/computers/strace.html</li>
+</ul>
+<h3 id="libs">Libs</h3>
+<ul>
+<li>ldd and ldconfig               https://www.linux.org.ru/forum/general/8078612</li>
+<li>to read man of this commands:</li>
+<li>ldd</li>
+<li>ldconfig</li>
+<li>ld.so</li>
+<li>rpath</li>
+<li>chroot</li>
+</ul>
+<hr />
+<h2 id="kernel">Kernel</h2>
+<ul>
+<li>Linux kernel on wikipedia     <a href="https://en.wikipedia.org/wiki/Linux_kernel">https://en.wikipedia.org/wiki/Linux_kernel</a></li>
+<li>Life cycle of process     <a href="http://www.linux-tutorial.info/modules.php?name=MContent&amp;pageid=84">http://www.linux-tutorial.info/modules.php?name=MContent&amp;pageid=84</a></li>
+<li>Linux kernel driver writing tutorial  2008 Greg Kroah-Hartman</li>
+<li><a href="https://www.youtube.com/watch?v=CqDUfiH2PzQi">https://www.youtube.com/watch?v=CqDUfiH2PzQi</a></li>
+<li>Building linux kernel from source <a href="https://wiki.alienbase.nl/doku.php?id=linux:kernelbuilding">https://wiki.alienbase.nl/doku.php?id=linux:kernelbuilding</a></li>
+<li>initrd        <a href="https://www.kernel.org/doc/html/v4.12/admin-guide/initrd.html">https://www.kernel.org/doc/html/v4.12/admin-guide/initrd.html</a></li>
+</ul>
+<hr />
+<h2 id="real-time">Real Time</h2>
+<ul>
+<li>/dev/rtc documentation    <a href="http://www.mjmwired.net/kernel/Documentation/rtc.txt">http://www.mjmwired.net/kernel/Documentation/rtc.txt</a></li>
+<li>high resolution timer programming <a href="https://rt.wiki.kernel.org/index.php/Cyclictest">https://rt.wiki.kernel.org/index.php/Cyclictest</a></li>
+<li>Soft real time programming with linux         <a href="http://www.drdobbs.com/184402031;jsessionid=TCIJ0XLNLRSEBQE1GHPSKHWATMY32JVN">http://www.drdobbs.com/184402031;jsessionid=TCIJ0XLNLRSEBQE1GHPSKHWATMY32JVN</a></li>
+<li>IO Port - programming high resolution timing</li>
+<li><a href="http://tldp.org/HOWTO/IO-Port-Programming-4.html">http://tldp.org/HOWTO/IO-Port-Programming-4.html</a></li>
+<li>Real time linux wiki      <a href="https://rt.wiki.kernel.org/index.php/Main_Page">https://rt.wiki.kernel.org/index.php/Main_Page</a></li>
+<li>howto:build and RT application , linux <a href="https://rt.wiki.kernel.org/index.php/HOWTO:_Build_an_RT-application">https://rt.wiki.kernel.org/index.php/HOWTO:_Build_an_RT-application</a></li>
+</ul>
+</div>
+
+<div id="path">
+    ~/work/notes/md/linux/system/Linux_system_links.md
+</div>
+
+</body>
+</html> 

@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Igor's notes: Questions and Answers</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+<div id="navbar">
+    <ul>
+    <li><a  href="/index.html">Home</a></li>
+    <li><a  href="/linux/index.html">Linux</a></li>
+    <li><a  href="/programming/index.html">Programming</a></li>
+    <li><a  href="/computing/index.html">Computing</a></li>
+    <li><a  href="/studies/index.html">Studies</a></li>
+    <li><a  href="/webtools/webtools.html">Webtools</a></li>
+    <li><a  href="/travel/index.html">Travel</a></li>
+    <li><a  href="/media/index.html">Media</a></li>
+    <li><a  href="/etc/index.html">Etc</a></li>
+    </ul>
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#questions-and-answers">Questions and Answers</a><ul>
+<li><a href="#list-all-installed-packges">List all installed packges</a></li>
+<li><a href="#list-all-config-files-that-saved-as-orig">List all config files that saved as ".orig"</a></li>
+<li><a href="#find-which-file-belongs-to-a-package">find which file belongs to a package</a></li>
+<li><a href="#kernel-upgrade">kernel upgrade</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+<div class="content">
+    <div class="folder">
+        <p>&#60;linux/slackware&#62;</p>    
+    </div>
+    <h1 id="questions-and-answers">Questions and Answers</h1>
+<h2 id="list-all-installed-packges">List all installed packges</h2>
+<p><code>ls -1 /var/log/packages | less</code></p>
+<h2 id="list-all-config-files-that-saved-as-orig">List all config files that saved as ".orig"</h2>
+<p><code>sudo find /etc -type f -name '*.orig' -print</code></p>
+<p>delete these files
+<code>sudo find /etc -type f -name '*.orig' -exec rm {} \;</code></p>
+<h2 id="find-which-file-belongs-to-a-package">find which file belongs to a package</h2>
+<p>Example: find all files from a package smplayer
+<code>sudo vim /var/lib/pkgtools/packages/smplayer-19.10.2-x86_64-1_SBo</code></p>
+<h2 id="kernel-upgrade">kernel upgrade</h2>
+<blockquote>
+<p>I would highly recommend not to use slackpkg to upgrade your kernels, unless you have a very simple setup 
+(using the huge kernel, no initrd, no LUKS/LVM/RAID)...</p>
+<p>I have the kernel-modules and kernel-generic blacklisted and manually 'installpkg' a new kernel alongside my running kernel.
+Then I create a new initrd to accompany the new kernel and its modules. 
+Then I update (e)lilo and make sure that I can always boot the latest (new) kernel and the previous kernel. 
+That way, I am sure that there will always be a kernel in the boot menu that I know is working.
+Finally I removepkg the oldest kernel (keeping two), its modules and its initrd.</p>
+</blockquote>
+<ul>
+<li>From here: <a href="https://www.linuxquestions.org/questions/slackware-14/pam-slackware-current-login-problem-4175675753/">https://www.linuxquestions.org/questions/slackware-14/pam-slackware-current-login-problem-4175675753/</a></li>
+</ul>
+</div>
+
+<div id="path">
+    ~/work/notes/md/linux/slackware/upgrade.md
+</div>
+
+</body>
+</html> 

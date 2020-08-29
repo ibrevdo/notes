@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Igor's notes: GLIBC</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+<div id="navbar">
+    <ul>
+    <li><a  href="/index.html">Home</a></li>
+    <li><a  href="/linux/index.html">Linux</a></li>
+    <li><a  href="/programming/index.html">Programming</a></li>
+    <li><a  href="/computing/index.html">Computing</a></li>
+    <li><a  href="/studies/index.html">Studies</a></li>
+    <li><a  href="/webtools/webtools.html">Webtools</a></li>
+    <li><a  href="/travel/index.html">Travel</a></li>
+    <li><a  href="/media/index.html">Media</a></li>
+    <li><a  href="/etc/index.html">Etc</a></li>
+    </ul>
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#glibc">GLIBC</a><ul>
+<li><a href="#inttypesh">inttypes.h</a></li>
+<li><a href="#arpaineth">arpa/inet.h</a></li>
+<li><a href="#links">Links</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+<div class="content">
+    <div class="folder">
+        <p>&#60;programming/c_cpp&#62;</p>    
+    </div>
+    <h1 id="glibc">GLIBC</h1>
+<h2 id="inttypesh">inttypes.h</h2>
+<p>fixed size integer types</p>
+<h2 id="arpaineth">arpa/inet.h</h2>
+<p>definitions for internet operations</p>
+<pre><code class="c++">in_addr_t    inet_addr(const char *);
+char        *inet_ntoa(struct in_addr);
+const char  *inet_ntop(int, const void *restrict, char *restrict, socklen_t);
+int          inet_pton(int, const char *restrict, void *restrict);
+</code></pre>
+
+<h2 id="links">Links</h2>
+<ul>
+<li>POSIX standard            <a href="https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/contents.html">https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/contents.html</a></li>
+<li>Linux system calls        <a href="http://man7.org/linux/man-pages/man2/syscalls.2.html">http://man7.org/linux/man-pages/man2/syscalls.2.html</a></li>
+<li>GNU C Library             <a href="https://www.gnu.org/software/libc/">https://www.gnu.org/software/libc/</a></li>
+<li>C standard library        <a href="https://en.wikipedia.org/wiki/C_standard_library">https://en.wikipedia.org/wiki/C_standard_library</a></li>
+<li>GLIBC searching and sorting <a href="https://www.gnu.org/software/libc/manual/html_node/Searching-and-Sorting.html">https://www.gnu.org/software/libc/manual/html_node/Searching-and-Sorting.html</a></li>
+<li>memfrob                   <a href="https://linux.die.net/man/3/memfrob">https://linux.die.net/man/3/memfrob</a></li>
+<li>strfry                    <a href="http://man7.org/linux/man-pages/man3/strfry.3.html">http://man7.org/linux/man-pages/man3/strfry.3.html</a></li>
+</ul>
+</div>
+
+<div id="path">
+    ~/work/notes/md/programming/c_cpp/glibc.md
+</div>
+
+</body>
+</html> 

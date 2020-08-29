@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Igor's notes: Python</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+<div id="navbar">
+    <ul>
+    <li><a  href="/index.html">Home</a></li>
+    <li><a  href="/linux/index.html">Linux</a></li>
+    <li><a  href="/programming/index.html">Programming</a></li>
+    <li><a  href="/computing/index.html">Computing</a></li>
+    <li><a  href="/studies/index.html">Studies</a></li>
+    <li><a  href="/webtools/webtools.html">Webtools</a></li>
+    <li><a  href="/travel/index.html">Travel</a></li>
+    <li><a  href="/media/index.html">Media</a></li>
+    <li><a  href="/etc/index.html">Etc</a></li>
+    </ul>
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#python">Python</a><ul>
+<li><a href="#basic-language-definitions">Basic language definitions</a></li>
+<li><a href="#tuples">Tuples</a></li>
+<li><a href="#dictionaries">Dictionaries</a></li>
+<li><a href="#functions">Functions</a></li>
+<li><a href="#classes">Classes</a></li>
+<li><a href="#modules">Modules</a></li>
+<li><a href="#python-3-keywords">Python 3 keywords</a></li>
+<li><a href="#built-in-functions">Built-in functions</a></li>
+<li><a href="#regular-expressions">Regular expressions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+<div class="content">
+    <div class="folder">
+        <p>&#60;programming/python&#62;</p>    
+    </div>
+    <h1 id="python">Python</h1>
+<hr />
+<h2 id="basic-language-definitions">Basic language definitions</h2>
+<table>
+<thead>
+<tr>
+<th>Basics</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#</td>
+<td>comment</td>
+</tr>
+<tr>
+<td>var = 5</td>
+<td>variable definition</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Lists</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nums = [1,2,3,4]</td>
+<td>definition</td>
+</tr>
+<tr>
+<td>nums[0]</td>
+<td>indexing</td>
+</tr>
+<tr>
+<td>nums[-1]</td>
+<td>negative indexing</td>
+</tr>
+<tr>
+<td>nums[1:]</td>
+<td>slicing from 1 to end</td>
+</tr>
+<tr>
+<td>nums[:1]</td>
+<td>slicing from end to 1</td>
+</tr>
+<tr>
+<td>2 in nums =&gt; true</td>
+<td>in operator</td>
+</tr>
+<tr>
+<td>nums[0] = 10</td>
+<td>put 10 instead of 1</td>
+</tr>
+<tr>
+<td>nums[0:2] = -1</td>
+<td>remove 1,2 and put -1</td>
+</tr>
+<tr>
+<td>nums + [5,6]</td>
+<td>concatenation</td>
+</tr>
+<tr>
+<td>nums * 10</td>
+<td>multiplication</td>
+</tr>
+<tr>
+<td>nums.pop()</td>
+<td>extract one element from end of list</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Strings</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>String has same operations like list <BR>but it contains characters only and is not mutable</td>
+</tr>
+<tr>
+<td>str = "abc"</td>
+<td>definition</td>
+</tr>
+<tr>
+<td>str.upper()</td>
+<td>uppercase str</td>
+</tr>
+<tr>
+<td>str.lower()</td>
+<td>lowercase str</td>
+</tr>
+<tr>
+<td>'here is hoo'.find('hoo')</td>
+<td>find substring</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tuples">Tuples</h2>
+<p>tuples are identical to lists, except that tuples are immutable</p>
+<p>defintion <BR> consts = (1,2,3,4)       </p>
+<h2 id="dictionaries">Dictionaries</h2>
+<p>Dictionary is a set of key-values pairs</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dict = {"John": 123, "Jane": 234, "Jerard": 345}</td>
+<td>definition</td>
+</tr>
+<tr>
+<td>dict['Jane']</td>
+<td>get value of 'Jane'</td>
+</tr>
+<tr>
+<td>dict['Igor'] = 456</td>
+<td>add new pair key-value</td>
+</tr>
+<tr>
+<td>dict.keys()</td>
+<td>get all keys</td>
+</tr>
+<tr>
+<td>dict.values()</td>
+<td>get all values</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Boolean operators</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>==</td>
+<td>equals</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>not equals</td>
+</tr>
+<tr>
+<td>or</td>
+<td>or operator</td>
+</tr>
+<tr>
+<td>and</td>
+<td>and operator</td>
+</tr>
+<tr>
+<td>not</td>
+<td>not opertator (inverts boolean expression it precedes)</td>
+</tr>
+<tr>
+<td>not,and,or</td>
+<td>order of operators</td>
+</tr>
+<tr>
+<td>if <boolean expression> :</td>
+<td>if statement</td>
+</tr>
+<tr>
+<td>elif</td>
+<td></td>
+</tr>
+<tr>
+<td>else</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Loops</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>for i in list:code</td>
+<td>iterate over list and execute block of code</td>
+</tr>
+<tr>
+<td>while condition:code</td>
+<td>execute code while condition is true</td>
+</tr>
+<tr>
+<td>break</td>
+<td>exit the loop</td>
+</tr>
+<tr>
+<td>continue</td>
+<td>skip current iteration of the loop</td>
+</tr>
+</tbody>
+</table>
+<h2 id="functions">Functions</h2>
+<p>defintion (with parameter x)</p>
+<pre><code class="python">def mult(x,y=1):
+    res = x*y
+    return res
+</code></pre>
+
+<hr />
+<h2 id="classes">Classes</h2>
+<p>Class is a template for creation of object.
+Object has variables and functions (methods)
+A "self" parameter is passed to function by default and 
+is used to refer to the current instance of the class.</p>
+<pre><code class="python">class MyClass:          - definition
+    variable = 4        - a variable
+    def __init__(self): - a constructor method
+        construct   
+    def foo(self):      - a method
+        print(&quot;Hello form function foo&quot;)
+my_object = MyClass()       - creation
+</code></pre>
+
+<h2 id="modules">Modules</h2>
+<p>Module is a file with .py extentions that contains defintions
+and statements.
+Import module with "import module-name" keyword in order to use them.
+Module name is a filename without an extention</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>import my_module</td>
+<td>import my_module.&lt;<BR>&gt;in order to call a function from it use : my_module.hello_world()</td>
+</tr>
+<tr>
+<td>from my_module import MyClass</td>
+<td>import MyClass class from my_module</td>
+</tr>
+<tr>
+<td>from my_module import hello_world</td>
+<td>import a function hello_world from my module</td>
+</tr>
+</tbody>
+</table>
+<h2 id="python-3-keywords">Python 3 keywords</h2>
+<p>Python 3 has these keywords:</p>
+<pre><code>False   class       finally     is          return
+None    continue    for         lambda      try
+True    def         from        nonlocal    while
+and     del         global      not         with
+as      elif        if          or          yield
+assert  else        import      pass
+break   except      in          raise
+</code></pre>
+
+<h2 id="built-in-functions">Built-in functions</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>print("string")</td>
+<td>print string to output</td>
+</tr>
+<tr>
+<td>str(var)</td>
+<td>convert valuer of var to string</td>
+</tr>
+<tr>
+<td>len(var)</td>
+<td>length of string, list, tuple</td>
+</tr>
+<tr>
+<td>type(var)</td>
+<td>get type fo variable var</td>
+</tr>
+<tr>
+<td>int(var)</td>
+<td>type cast value of var to int</td>
+</tr>
+<tr>
+<td>float(var)</td>
+<td>type cast value of var to float</td>
+</tr>
+<tr>
+<td>range(5)</td>
+<td>return list [0,1,2,3,4]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="regular-expressions">Regular expressions</h2>
+</div>
+
+<div id="path">
+    ~/work/notes/md/programming/python/python.md
+</div>
+
+</body>
+</html> 

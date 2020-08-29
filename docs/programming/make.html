@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Igor's notes: Make</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+<div id="navbar">
+    <ul>
+    <li><a  href="/index.html">Home</a></li>
+    <li><a  href="/linux/index.html">Linux</a></li>
+    <li><a  href="/programming/index.html">Programming</a></li>
+    <li><a  href="/computing/index.html">Computing</a></li>
+    <li><a  href="/studies/index.html">Studies</a></li>
+    <li><a  href="/webtools/webtools.html">Webtools</a></li>
+    <li><a  href="/travel/index.html">Travel</a></li>
+    <li><a  href="/media/index.html">Media</a></li>
+    <li><a  href="/etc/index.html">Etc</a></li>
+    </ul>
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#make">Make</a><ul>
+<li><a href="#concepts">Concepts</a></li>
+<li><a href="#makefile-example">Makefile example</a></li>
+<li><a href="#make-links">Make links</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+<div class="content">
+    <div class="folder">
+        <p>&#60;programming&#62;</p>    
+    </div>
+    <h1 id="make">Make</h1>
+<h2 id="concepts">Concepts</h2>
+<ul>
+<li>The command of the rule is executed by shell</li>
+<li>Make prints the command before executing (if not desired put @ before the command)</li>
+<li>Put '-' before command if stderr of command is not desired.<ul>
+<li>example: -rm $(TARGET)</li>
+</ul>
+</li>
+<li>wildcards are '*' , '?', [...]. They're meaning is exactly like in shell.</li>
+<li>wildcard are expended automatically in targets and prerequisites. </li>
+<li>In commands the shell is responsible for expansion</li>
+<li>In other contexts the expansion will happen only explicitly by calling  <code>wildcard</code> function<ul>
+<li>example: <code>objects := $(wildcard *.o)</code> will be expanded during <code>objects</code> variable definition</li>
+</ul>
+</li>
+<li><code>$@</code> automatic variable for target of the rule</li>
+<li><code>$?</code> automatic variable that contains only prerequisites that have been changed</li>
+<li><code>$^</code> all prerequisites</li>
+<li><code>$&lt;</code> only first prerequisite</li>
+<li><code>$&gt;</code> only last prerequisite</li>
+<li><code>$*</code> the stem of target filename. stem is a filename without suffix</li>
+<li><code>:=</code> variables that are defined this way are exapnded when they defined rather when used</li>
+</ul>
+<h2 id="makefile-example">Makefile example</h2>
+<pre><code class="sh">SRC = .
+OBJ = obj
+
+HEADERS = $(wildcard $(SRC)/*.h)
+OBJECTS = $(patsubst $(SRC)/%.cpp, $(OBJ)/%.o, $(wildcard $(SRC)/*.cpp))
+
+CXX = g++
+ARCH = -m64
+CXXFLAGS = -g -std=c++11 -Wall -pedantic $(ARCH)
+
+TARGET = prime
+INCLUDE = -I./include
+LIBDIR = -L./lib
+LIBS = -lpthread
+
+default: $(TARGET)
+
+all: default
+
+$(OBJECTS): | $(OBJ)
+
+$(OBJ):
+    mkdir -p $@
+
+$(OBJ)/%.o: $(SRC)/%.cpp $(HEADERS)
+    $(CXX) -c -o $@ $&lt; $(CXXFLAGS)
+
+$(TARGET): $(OBJECTS)
+    $(CXX) -o $@ $^ $(CXXFLAGS) $(LIBDIR) $(LIBS)
+
+.PHONY: all clean
+
+clean:
+    rm -f $(OBJ)/*.o $(TARGET) core
+
+</code></pre>
+
+<hr />
+<h2 id="make-links">Make links</h2>
+<ul>
+<li>GNU make documentation                <a href="https://www.gnu.org/software/make/manual/html_node/index.html">https://www.gnu.org/software/make/manual/html_node/index.html</a></li>
+<li>Advanced auto-dependency generation   <a href="http://make.mad-scientist.net/papers/advanced-auto-dependency-generation/">http://make.mad-scientist.net/papers/advanced-auto-dependency-generation/</a></li>
+<li>things you should know about make     <a href="http://www.alexeyshmalko.com/2014/7-things-you-should-know-about-make">http://www.alexeyshmalko.com/2014/7-things-you-should-know-about-make</a></li>
+<li>GNU automake                          <a href="https://www.gnu.org/software/automake/manual/html_node/index.html">https://www.gnu.org/software/automake/manual/html_node/index.html</a></li>
+<li>subdirs in makefile <a href="https://stackoverflow.com/questions/4036191/sources-from-subdirectories-in-makefile">https://stackoverflow.com/questions/4036191/sources-from-subdirectories-in-makefile</a></li>
+</ul>
+</div>
+
+<div id="path">
+    ~/work/notes/md/programming/make.md
+</div>
+
+</body>
+</html> 

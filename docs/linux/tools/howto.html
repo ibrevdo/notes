@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Igor's notes</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+<div id="navbar">
+    <ul>
+    <li><a  href="/index.html">Home</a></li>
+    <li><a  href="/linux/index.html">Linux</a></li>
+    <li><a  href="/programming/index.html">Programming</a></li>
+    <li><a  href="/computing/index.html">Computing</a></li>
+    <li><a  href="/studies/index.html">Studies</a></li>
+    <li><a  href="/webtools/webtools.html">Webtools</a></li>
+    <li><a  href="/travel/index.html">Travel</a></li>
+    <li><a  href="/media/index.html">Media</a></li>
+    <li><a  href="/etc/index.html">Etc</a></li>
+    </ul>
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#linux-cli-how-tos">Linux CLI How to's</a><ul>
+<li><a href="#time-sync">Time sync</a></li>
+<li><a href="#calculate-md5-checksum-of-a-directory">Calculate md5 checksum of a directory</a></li>
+<li><a href="#mplayer-stream">mplayer stream</a></li>
+<li><a href="#linux-and-youtube">Linux and Youtube</a></li>
+<li><a href="#virtualization">Virtualization</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+<div class="content">
+    <div class="folder">
+        <p>&#60;linux/tools&#62;</p>    
+    </div>
+    <hr />
+<h1 id="linux-cli-how-tos">Linux CLI How to's</h1>
+<h2 id="time-sync">Time sync</h2>
+<p>update time using time server on linux
+* http://www.cyberciti.biz/tips/synchronize-the-system-clock-to-network-time-protocol-ntp-under-fedora-or-red-hat-linux.html
+* http://www.howtogeek.com/tips/how-to-sync-your-linux-server-time-with-network-time-servers-ntp/</p>
+<h2 id="calculate-md5-checksum-of-a-directory">Calculate md5 checksum of a directory</h2>
+<ul>
+<li><code>find "$path" -type f -print0 | sort -z | xargs -r0 md5sum | md5sum</code></li>
+</ul>
+<h2 id="mplayer-stream">mplayer stream</h2>
+<ul>
+<li>
+<p><code>mplayer -afm ffmpeg -cache 5000000 -prefer-ipv4 https://kanlivep2event-i.akamaihd.net/hls/live/749624/749624/kanbet_mp3/chunklist.m3u8</code></p>
+</li>
+<li>
+<p><code>mplayer -afm ffmpeg -cache 5000000 https://82.102.152.41/hls/live/749624/749624/kanbet_mp3/chunklist.m3u8</code></p>
+</li>
+<li>
+<p><code>mplayer -afm ffmpeg -nocache -prefer-ipv4 https://kanlivep2event-i.akamaihd.net/hls/live/749624/749624/kanbet_mp3/chunklist.m3u8</code></p>
+</li>
+</ul>
+<h2 id="linux-and-youtube">Linux and Youtube</h2>
+<p>how to download an MP3 track from a YouTube video
+* https://askubuntu.com/questions/178481/how-to-download-an-mp3-track-from-a-youtube-video</p>
+<h2 id="virtualization">Virtualization</h2>
+<p>VirtualBox’s Little Secret: The Command Line
+* http://www.linux-mag.com/id/7673/?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+LinuxMagazine+(Linux+Magazine%3A+Top+Stories</p>
+</div>
+
+<div id="path">
+    ~/work/notes/md/linux/tools/howto.md
+</div>
+
+</body>
+</html> 

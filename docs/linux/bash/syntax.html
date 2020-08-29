@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Igor's notes: Bash syntax</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+<div id="navbar">
+    <ul>
+    <li><a  href="/index.html">Home</a></li>
+    <li><a  href="/linux/index.html">Linux</a></li>
+    <li><a  href="/programming/index.html">Programming</a></li>
+    <li><a  href="/computing/index.html">Computing</a></li>
+    <li><a  href="/studies/index.html">Studies</a></li>
+    <li><a  href="/webtools/webtools.html">Webtools</a></li>
+    <li><a  href="/travel/index.html">Travel</a></li>
+    <li><a  href="/media/index.html">Media</a></li>
+    <li><a  href="/etc/index.html">Etc</a></li>
+    </ul>
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#bash-syntax">Bash syntax</a><ul>
+<li><a href="#basic">Basic</a></li>
+<li><a href="#variables">Variables</a></li>
+<li><a href="#special-variables">special variables</a></li>
+<li><a href="#using-double-quotes-around-variable-substitution-and-command-substitution">using double quotes around variable substitution and command substitution</a></li>
+<li><a href="#if-then-else-fi-and-test-commands">if-then-else-fi and test commands</a></li>
+<li><a href="#test-commands">Test commands</a></li>
+<li><a href="#functions">Functions</a></li>
+<li><a href="#examples">Examples</a></li>
+<li><a href="#heredoc">Heredoc</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+<div class="content">
+    <div class="folder">
+        <p>&#60;linux/bash&#62;</p>    
+    </div>
+    <h1 id="bash-syntax">Bash syntax</h1>
+<hr />
+<h2 id="basic">Basic</h2>
+<ul>
+<li><code>;</code> same as new line</li>
+</ul>
+<h2 id="variables">Variables</h2>
+<ul>
+<li>how to init?</li>
+</ul>
+<pre><code class="sh">VAR=1 
+#or 
+VAR=`ls -l` 
+</code></pre>
+
+<ul>
+<li>how to use?
+<code>echo $VAR</code></li>
+</ul>
+<h2 id="special-variables">special variables</h2>
+<ul>
+<li><code>$#</code>  a number of positional variables.</li>
+<li><code>"$@"</code> is replaced by all the positional parameters, as separate words. For two parameters : <code>"$1" "$2"</code></li>
+<li>If there are no positional parameters (<code>$#</code> is 0), then <code>"$@"</code> expands to nothing (a list with 0 elements)</li>
+</ul>
+<h2 id="using-double-quotes-around-variable-substitution-and-command-substitution">using double quotes around variable substitution and command substitution</h2>
+<ul>
+<li><strong>$foo</strong> means take a value of the variable AND treat this value as whitespace-separated list of fields</li>
+<li><strong>filename generation</strong> - treat each field as a glob (wildcard pattern) and replace it by the list of file names</li>
+<li>example : <code>foo=abc * bar.</code> <code>$foo</code> is the 3-element list <code>foo, *, bar.</code></li>
+</ul>
+<p>There are two contexts in shell syntax: list context and string context. Field splitting and filename generation only happen in list context, but that's most of the time. Double quotes delimit a string context: the whole double-quoted string is a single string, not to be split.</p>
+<ul>
+<li><strong>command substitution</strong> : <code>$(foo)</code> <code>`foo`</code></li>
+<li>
+<p>don't use <code>foo</code>: its quoting rules are weird and non-portable, and all modern shells support $(foo) which is absolutely equivalent except for having intuitive quoting rules.</p>
+</li>
+<li>
+<p><strong>Always use double quotes around variable substitutions and command substitutions: <code>"$foo"</code>, <code>"$(foo)"</code></strong></p>
+</li>
+</ul>
+<hr />
+<h2 id="if-then-else-fi-and-test-commands">if-then-else-fi and test commands</h2>
+<ul>
+<li>Syntax</li>
+</ul>
+<pre><code class="sh">if test1
+then
+        command2        # then is executed if the exit code of test1 command is zero
+elsif
+        command3
+else                    # if the exit code is not zero then else is executed
+        command4
+fi
+</code></pre>
+
+<hr />
+<h2 id="test-commands">Test commands</h2>
+<ul>
+<li><strong><code>test &lt;condition&gt;</code></strong> command returns 0 exit code when condition is true</li>
+<li>test conditions:<ul>
+<li><code>-e &lt;arg&gt;</code> arg exists as file</li>
+<li><code>-d &lt;arg&gt;</code> arg is a direcotry</li>
+<li><code>&lt;arg1&gt; -gt &lt;arg2&gt;</code> arg1 is greater than arg2</li>
+<li><code>&lt;arg1&gt; -eq &lt;arg2&gt;</code> args1 equals arg2</li>
+</ul>
+</li>
+<li>
+<p>example: <code>test 3 -gt 4</code></p>
+</li>
+<li>
+<p><strong><code>[ &lt;condition&gt; ]</code></strong> is just an abbreviation for test command</p>
+</li>
+<li>[ is a command so it must have space after it</li>
+<li>
+<p>example: <code>[ 3 -gt 4 ]</code></p>
+</li>
+<li>
+<p><strong><code>[[ &lt;condition&gt; ]]</code></strong> upgraded version of test. it can test whether a string matches regular expression</p>
+</li>
+<li>not POSIX</li>
+<li>
+<p>example: <code>[[ `screen -ls` == *grip_session* ]]</code></p>
+</li>
+<li>
+<p><strong><code>(( &lt;condition&gt; ))</code></strong>  performs arithmetic. if the result of arithmetic is non-zero, the exit code set to zero</p>
+</li>
+<li>
+<p>not POSIX</p>
+</li>
+<li>
+<p><strong><code>( &lt;command&gt; )</code></strong> run commands in subshell and returns the exit code of that command</p>
+</li>
+<li>
+<p><strong><code>if &lt;command&gt;</code></strong> command is executed and the <code>if</code> statement acts according to its exit code.</p>
+</li>
+</ul>
+<hr />
+<h2 id="functions">Functions</h2>
+<p>Define </p>
+<pre><code class="sh">func {
+    echo $1
+    return 
+}
+</code></pre>
+
+<p>Return to calling script :
+<code>return [n]</code>
+returning non-zero considered an error return value</p>
+<hr />
+<h2 id="examples">Examples</h2>
+<pre><code class="sh">if [ $DEBUG -eq 2 ]; then
+        echo ok;
+fi
+</code></pre>
+
+<hr />
+<h2 id="heredoc">Heredoc</h2>
+<ul>
+<li><a class="wikilink" href="https://stackoverflow.com/questions/2953081/how-can-i-write-a-heredoc-to-a-file-in-bash-script">How Can I Write a Heredoc to a File in Bash Script</a></li>
+<li><a class="wikilink" href="https://en.wikipedia.org/wiki/Here_document">Here Document</a></li>
+</ul>
+</div>
+
+<div id="path">
+    ~/work/notes/md/linux/bash/syntax.md
+</div>
+
+</body>
+</html> 

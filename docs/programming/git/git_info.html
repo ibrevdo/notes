@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Igor's notes</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+<div id="navbar">
+    <ul>
+    <li><a  href="/index.html">Home</a></li>
+    <li><a  href="/linux/index.html">Linux</a></li>
+    <li><a  href="/programming/index.html">Programming</a></li>
+    <li><a  href="/computing/index.html">Computing</a></li>
+    <li><a  href="/studies/index.html">Studies</a></li>
+    <li><a  href="/webtools/webtools.html">Webtools</a></li>
+    <li><a  href="/travel/index.html">Travel</a></li>
+    <li><a  href="/media/index.html">Media</a></li>
+    <li><a  href="/etc/index.html">Etc</a></li>
+    </ul>
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#git-info">Git info</a></li>
+</ul>
+</div>
+
+
+
+<div class="content">
+    <div class="folder">
+        <p>&#60;programming/git&#62;</p>    
+    </div>
+    <hr />
+<h1 id="git-info">Git info</h1>
+<p>===== GIT terms =====</p>
+<p>=== commit ===
+is being created after changing files/adding new files and putting them into staging area. 
+A commit is a snapshot of a working directory.
+All commits live in <strong>objects </strong>direcory</p>
+<p>=== caret ^ ===
+a parent of a commit
+For example, to resotore a deleted file:
+''&gt; git checkout <deleting_commit>^ -- <deleted_file_path>''</p>
+<p>=== remote ===
+means a remote repository on other server
+add a remote repository to your known remotes with:
+''&gt; git remote add <remote name> <repository url>''
+origin - a default name of a remote from where a local reposity was cloned</p>
+<p>=== branch ===
+Every repository has at least one branch
+master is a default branch in a repositry</p>
+<p>''remotes/origin/HEAD -&gt; origin/master''</p>
+<p>''&gt; git push <remote name> <local branch>''</p>
+<p>See all local and remote branches
+''&gt; git branch -a''</p>
+<p>See all known branches
+''&gt; git branch -r''</p>
+<p>branches and tags are a pointers to a commit</p>
+<p>=== HEAD ===
+HEAD is a ref (reference) to the last commit in the currently checked-out branch
+Normally, it's actually a symbolic ref to checked-out branch, because a branch itself is a ref to a commit at the tip of the branch.
+In that case a content of a HEAD is something like:
+''ref: refs/heads/master''</p>
+<p><strong>detached HEAD </strong>- happens when you check out something besides a local branch. Like a remote branch, a specific commit, a tag.
+In that case a HEAD becomes a direct ref to a commit.
+The contents of HEAD will be a SHA1 hash.</p>
+<p><strong>HEAD^</strong> means the first <strong>parent</strong> of the tip of the current branch.</p>
+<p>===== GIT Howtos =====</p>
+<p><strong>How to find and restore a deleted file in a Git repository?</strong>
+1. Undelete //deletedFile// if it's been deleted and the deletion has not yet been staged or committed.
+''&gt; git checkout <deletedFile>''</p>
+<ol>
+<li>If the deletion was committed, then :
+Find the last commit that affected the given path. As the file isn't in the HEAD commit, this commit must have deleted it.
+''&gt; git rev-list -n 1 HEAD -- <file_path>''
+checkout the version at the commit before, using the caret (^) symbol:
+''&gt; git checkout <deleting_commit>^ -- <file_path>''</li>
+</ol>
+<p><strong>How to find and restore a deleted file in a Git repository?</strong>
+1. All the commits which have deleted files and the files deleted;
+''&gt; git log --diff-filter=D --summary''
+2. Restore the deleted file.
+''&gt; git checkout $commit~1 filename''</p>
+<p><strong>How to restore all deleted files in a folder?</strong>
+If the changes were not committed yet
+''&gt; git ls-files -d | xargs git checkout --''</p>
+<p>===== .GIT directory =====</p>
+<p>├── HEAD
+├── branches
+├── config
+├── description
+├── hooks
+│ ├── pre-commit.sample
+│ ├── pre-push.sample
+│ └── ...
+├── info
+│ └── exclude
+├── objects
+│ ├── info
+│ └── pack
+└── refs
+ ├── heads
+ ├── remotes
+ └── tags</p>
+<p><strong>HEAD</strong>
+a pointer to the tip of the branch you’re working on
+ref: refs/heads/master</p>
+<p><strong>config</strong></p>
+<p>branches
+refs/remotes/<remote>/</p>
+</div>
+
+<div id="path">
+    ~/work/notes/md/programming/git/git_info.md
+</div>
+
+</body>
+</html> 

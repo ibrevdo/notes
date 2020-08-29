@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Igor's notes: Vim configuration</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+<div id="navbar">
+    <ul>
+    <li><a  href="/index.html">Home</a></li>
+    <li><a  href="/linux/index.html">Linux</a></li>
+    <li><a  href="/programming/index.html">Programming</a></li>
+    <li><a  href="/computing/index.html">Computing</a></li>
+    <li><a  href="/studies/index.html">Studies</a></li>
+    <li><a  href="/webtools/webtools.html">Webtools</a></li>
+    <li><a  href="/travel/index.html">Travel</a></li>
+    <li><a  href="/media/index.html">Media</a></li>
+    <li><a  href="/etc/index.html">Etc</a></li>
+    </ul>
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#vim-configuration">Vim configuration</a><ul>
+<li><a href="#general-definitions">General definitions</a></li>
+<li><a href="#mappings">Mappings</a></li>
+<li><a href="#other">Other</a></li>
+<li><a href="#filename-modifiers">Filename modifiers</a></li>
+<li><a href="#options">Options</a></li>
+<li><a href="#commands">Commands</a><ul>
+<li><a href="#syntax">Syntax</a></li>
+</ul>
+</li>
+<li><a href="#mappings_1">Mappings</a></li>
+<li><a href="#vimscript">Vimscript</a><ul>
+<li><a href="#functions">Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+<div class="content">
+    <div class="folder">
+        <p>&#60;linux/vim&#62;</p>    
+    </div>
+    <h1 id="vim-configuration">Vim configuration</h1>
+<h2 id="general-definitions">General definitions</h2>
+<ul>
+<li>buffer - a file opened by vim</li>
+<li>window - a viewport on buffer</li>
+<li>tab - collection of windows</li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<ul>
+<li>cmap handles command-line mappings.</li>
+<li>imap handles insert-only mappings.</li>
+<li>map maps keys in normal, visual, and operator-pending mode.</li>
+<li>map! maps keys in Vim's command and insert modes.</li>
+<li>nmap maps keys in normal mode only.</li>
+<li>omap maps keys in operator-pending mode only.</li>
+<li>vmap maps keys in visual mode only.</li>
+</ul>
+<h2 id="other">Other</h2>
+<table>
+<thead>
+<tr>
+<th>Ranges</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.</td>
+<td>current line</td>
+</tr>
+<tr>
+<td>21</td>
+<td>line 21</td>
+</tr>
+<tr>
+<td>21,25</td>
+<td>lines 21 to 25 inclusive</td>
+</tr>
+<tr>
+<td>$</td>
+<td>last line</td>
+</tr>
+<tr>
+<td>.,$</td>
+<td>current line to end</td>
+</tr>
+<tr>
+<td>%</td>
+<td>all lines</td>
+</tr>
+</tbody>
+</table>
+<h2 id="filename-modifiers">Filename modifiers</h2>
+<p>Filename modifiers can be used after "%, "#, ...</p>
+<ul>
+<li>:p        full path</li>
+<li>:t        tail (last word)</li>
+<li>:h         head</li>
+</ul>
+<h2 id="options">Options</h2>
+<p>Options are a way to control Vim.
+Option's values can be boolean, numbers or strings</p>
+<p>Change option with <code>set</code> command.</p>
+<table>
+<thead>
+<tr>
+<th>set examples</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:set number?</td>
+<td>Check current value of option</td>
+</tr>
+<tr>
+<td>:set number</td>
+<td>Set boolean option</td>
+</tr>
+<tr>
+<td>:set nonumber</td>
+<td>Unset boolean option by adding "no" to it's name</td>
+</tr>
+<tr>
+<td>:set number!</td>
+<td>Toggle previos value of boolean option</td>
+</tr>
+<tr>
+<td>:set <name>#<value></td>
+<td>Set non-boolean option</td>
+</tr>
+<tr>
+<td>:set number numberwidth#6</td>
+<td>You can set more than one option in the same line</td>
+</tr>
+</tbody>
+</table>
+<p>You can add to existing option
+|:set tags+#./tags;/ | vim will search for tags file till root fs |</p>
+<table>
+<thead>
+<tr>
+<th>Common options</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tabstop#4 (or #8)</td>
+<td>how many columns a tab counts for.This is the only command here that will affect how existing text displays.</td>
+</tr>
+<tr>
+<td>shiftwidth#4</td>
+<td>controls how many columns text is indented with the reindent operations (&lt;&lt; and &gt;&gt;)</td>
+</tr>
+<tr>
+<td>softtabstop#4</td>
+<td>controls how many columns vim uses when you hit Tab in insert mode</td>
+</tr>
+<tr>
+<td>expandtab</td>
+<td>hitting Tab in insert mode will produce the appropriate number of spaces</td>
+</tr>
+<tr>
+<td>autoindent</td>
+<td>The indent of the new line will match that of the previous line.</td>
+</tr>
+<tr>
+<td>ignorecase</td>
+<td>Ignore case in search patterns.  Also used when searching in the tags file.</td>
+</tr>
+<tr>
+<td>smartcase</td>
+<td>Override the 'ignorecase' option if the search pattern contains upper case characters.</td>
+</tr>
+<tr>
+<td>smarttab</td>
+<td>Use the "shiftwidth" setting for inserting <TAB>s instead of the "tabstop" setting, when at the beginning of a line.</td>
+</tr>
+</tbody>
+</table>
+<p><code>Some people like to keep their tabstop#8 for compatability when loading files, but setting shiftwidth#4 for nicer coding style.</code> </p>
+<h2 id="commands">Commands</h2>
+<table>
+<thead>
+<tr>
+<th>Filetype</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>filetype [on/off]</td>
+<td>filetype command enables file type detection.</td>
+</tr>
+<tr>
+<td>filetype plugin [on/off]</td>
+<td>after detecting the filetype, vim can run an appropriate  plugin</td>
+</tr>
+<tr>
+<td>filetype indent [on/off]</td>
+<td>after detecting the filetype, vim can load  an appropriate indent file</td>
+</tr>
+<tr>
+<td>filetype plugin indent on</td>
+<td>means: filetype on, filetype plugin on, filetype indent on</td>
+</tr>
+</tbody>
+</table>
+<p><code>filetype on</code> will trigger the FileType event,which can be used to set the syntax highlighting, set options, etc.</p>
+<h3 id="syntax">Syntax</h3>
+<h2 id="mappings_1">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Common mappings</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nnoremap gb :ls<CR>:b<Space></td>
+<td>lists all loaded buffers and populates the prompt</td>
+</tr>
+<tr>
+<td>nnoremap <C-L> :nohl<CR><C-L></td>
+<td>cancel search highlighting and redraw</td>
+</tr>
+</tbody>
+</table>
+<h2 id="vimscript">Vimscript</h2>
+<h3 id="functions">Functions</h3>
+<ul>
+<li>expand("string")      expands meaning of string</li>
+</ul>
+</div>
+
+<div id="path">
+    ~/work/notes/md/linux/vim/config.md
+</div>
+
+</body>
+</html> 

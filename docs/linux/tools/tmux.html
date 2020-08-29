@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Igor's notes: tmux usage</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+<div id="navbar">
+    <ul>
+    <li><a  href="/index.html">Home</a></li>
+    <li><a  href="/linux/index.html">Linux</a></li>
+    <li><a  href="/programming/index.html">Programming</a></li>
+    <li><a  href="/computing/index.html">Computing</a></li>
+    <li><a  href="/studies/index.html">Studies</a></li>
+    <li><a  href="/webtools/webtools.html">Webtools</a></li>
+    <li><a  href="/travel/index.html">Travel</a></li>
+    <li><a  href="/media/index.html">Media</a></li>
+    <li><a  href="/etc/index.html">Etc</a></li>
+    </ul>
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#tmux-usage">tmux usage</a><ul>
+<li><a href="#sessions">Sessions</a></li>
+<li><a href="#windows-tabs">Windows (tabs)</a></li>
+<li><a href="#panes">Panes</a></li>
+<li><a href="#help">Help</a></li>
+<li><a href="#configuration-in-tmuxconf">Configuration (in ~/.tmux.conf)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+<div class="content">
+    <div class="folder">
+        <p>&#60;linux/tools&#62;</p>    
+    </div>
+    <h1 id="tmux-usage">tmux usage</h1>
+<p>All tmux commands can be run from inside tmux either by using prefix <code>C-b</code> and <code>:&lt;command&gt;</code>
+or by just typing in the shell <code>tmux command</code>!</p>
+<hr />
+<h2 id="sessions">Sessions</h2>
+<ul>
+<li><code>tmux</code>                            start a new session</li>
+<li><code>tmux new -s session_name</code>        start a new session named "session_name"</li>
+<li><code>tmux attach -t session_name</code>     attach to session "session_name"</li>
+<li><code>tmux ls</code>                         list sessions</li>
+<li><code>C-b d</code>                           detach current session</li>
+<li><code>tmux kill-session -t name</code>       kill session by name</li>
+<li><code>tmux kill-session -a</code>            kill other sessions</li>
+<li><code>tmux kill-server</code>                kill all tmux sessions</li>
+</ul>
+<h2 id="windows-tabs">Windows (tabs)</h2>
+<ul>
+<li><code>C-b c</code>                   create a new window</li>
+<li><code>C-b :rename-window name</code> rename the current window</li>
+<li><code>C-b ,</code>                   rename the current window</li>
+<li><code>C-b w</code>                   list windows</li>
+<li><code>C-b 0-9</code>                 jump to window index</li>
+<li><code>C-b l</code>                   jump back to last window</li>
+<li><code>C-b n</code>                   go to next window</li>
+<li><code>C-b p</code>                   go to previous window</li>
+<li><code>C-b :swap-window -t &lt;num&gt;</code> swaps current window with window num</li>
+<li><code>C-b :move-window -t &lt;num&gt;</code> assigns a number to curent window (if not taken)</li>
+</ul>
+<h2 id="panes">Panes</h2>
+<ul>
+<li><code>C-b "</code> <code>split window</code>    split window vertically</li>
+<li><code>C-b %</code> <code>split window -t</code> split window horizontally</li>
+<li><code>C-b x</code>                   kill current pane</li>
+<li><code>C-b !</code>                   kill other panes</li>
+<li><code>C-b o</code>                   switch to other pane</li>
+<li><code>C-b {</code>                   swap current pane with previous</li>
+<li><code>C-b }</code>                   swap current pane with next</li>
+<li><code>C-b z</code>                   zoom/unzoom current pane</li>
+</ul>
+<h2 id="help">Help</h2>
+<ul>
+<li><code>C-b ?</code>                   see bindings</li>
+<li>In order to copy/paste to/from system clipbaord, press SHIFT while doing it</li>
+</ul>
+<h2 id="configuration-in-tmuxconf">Configuration (in ~/.tmux.conf)</h2>
+<ul>
+<li><code>tmux source-file .tmux.conf</code>     reload configuration file</li>
+<li><code>set -g default-terminal "xterm"</code></li>
+<li><code>set-option -g mouse on</code></li>
+<li><code>:set-window-option -g window-status-current-style bg=blue</code></li>
+<li>in <code>.bahsrc</code> add following alias so colorscheme of vim will preserve</li>
+<li><code>alias tmux="TERM=screen-256color-bce tmux"</code></li>
+</ul>
+</div>
+
+<div id="path">
+    ~/work/notes/md/linux/tools/tmux.md
+</div>
+
+</body>
+</html> 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DIR=/home/mago/work/notes/
+DIR=/home/mago/git/notes
 EXE=server.py
 
 webserver_start() {
@@ -9,9 +9,12 @@ webserver_start() {
         return
     fi
     if [ -d $DIR ]; then
-        echo "Starting webserver in $DIR"
         cd $DIR
-        ./$EXE > /tmp/webserver.log 2>&1 &
+        if [ -x $EXE ]; then
+            echo "Starting webserver in $DIR"
+            ./$EXE 2>&1 &
+        else
+            echo "$EXE not found"
     else
         echo "Cannot start webserver because $DIR doesn't exist"
     fi

@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Igor's notes: Lenovo thinkpad  configuration</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+<div id="navbar">
+    <ul>
+    <li><a  href="/index.html">Home</a></li>
+    <li><a  href="/linux/index.html">Linux</a></li>
+    <li><a  href="/programming/index.html">Programming</a></li>
+    <li><a  href="/computing/index.html">Computing</a></li>
+    <li><a  href="/studies/index.html">Studies</a></li>
+    <li><a  href="/webtools/webtools.html">Webtools</a></li>
+    <li><a  href="/travel/index.html">Travel</a></li>
+    <li><a  href="/media/index.html">Media</a></li>
+    <li><a  href="/etc/index.html">Etc</a></li>
+    </ul>
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#lenovo-thinkpad-configuration">Lenovo thinkpad  configuration</a><ul>
+<li><a href="#hardware">Hardware</a></li>
+<li><a href="#bios-setup">Bios setup</a></li>
+<li><a href="#partitions-list">Partitions list</a></li>
+<li><a href="#boot-loader-grub2">Boot loader : grub2</a></li>
+<li><a href="#windows-10">Windows 10</a></li>
+<li><a href="#slackware-142-ie-current-based-on-142">Slackware 14.2+ (ie current based on 14.2)</a></li>
+<li><a href="#update-slackware">Update slackware</a><ul>
+<li><a href="#if-using-grub">if using grub</a></li>
+</ul>
+</li>
+<li><a href="#notes">Notes</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+<div class="content">
+    <div class="folder">
+        <p>&#60;etc&#62;</p>    
+    </div>
+    <h1 id="lenovo-thinkpad-configuration">Lenovo thinkpad  configuration</h1>
+<h2 id="hardware">Hardware</h2>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Characteristics</th>
+<th>More</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU</td>
+<td>4 cores i7-7500U</td>
+<td>2.7 GHz</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td>16G</td>
+<td></td>
+</tr>
+<tr>
+<td>HD</td>
+<td>500 GB</td>
+<td></td>
+</tr>
+<tr>
+<td>Slots</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="bios-setup">Bios setup</h2>
+<h2 id="partitions-list">Partitions list</h2>
+<pre><code>477 GiB, 512110190592 bytes, 1000215216 sectors
+
+Partition          Start        End   Sectors   Size Type
+/dev/nvme0n1p1      2048     534527    532480   260M EFI System
+/dev/nvme0n1p2    534528     567295     32768    16M Microsoft reserved
+/dev/nvme0n1p3    567296  293535743 292968448 139.7G Microsoft basic data           C:
+/dev/nvme0n1p5 293535744  327090175  33554432    16G Linux swap
+/dev/nvme0n1p6 327090176  431947775 104857600    50G Linux filesystem               /
+/dev/nvme0n1p7 431947776  998166527 566218752   270G Linux filesystem               /home
+/dev/nvme0n1p4 998166528 1000214527   2048000  1000M Windows recovery environment
+</code></pre>
+
+<h2 id="boot-loader-grub2">Boot loader : grub2</h2>
+<ul>
+<li>
+<p>to switch to linux:</p>
+<ul>
+<li>edit <code>/etc/default/grub</code>: GRUB_DEFAULT=0</li>
+<li><code>grub-mkconfig -o /boot/grub/grub.cfg</code></li>
+<li>reboot</li>
+</ul>
+</li>
+<li>
+<p>to switch to windows:</p>
+<ul>
+<li>edit <code>/etc/default/grub</code>: GRUB_DEFAULT=2</li>
+<li><code>grub-mkconfig -o /boot/grub/grub.cfg</code></li>
+<li>reboot</li>
+</ul>
+</li>
+</ul>
+<h2 id="windows-10">Windows 10</h2>
+<p>password:</p>
+<h2 id="slackware-142-ie-current-based-on-142">Slackware 14.2+ (ie current based on 14.2)</h2>
+<ul>
+<li>hostname:ultra-haze, </li>
+<li>users:mago/igor,root/$okol23</li>
+<li>Kernel version:         4.19.24</li>
+<li>Ktown versions:</li>
+<li>KDE                     5_19.02<ul>
+<li>KDE Frameworks      5.55.0</li>
+<li>Plasma              5.13</li>
+<li>Applications        18.12.2</li>
+<li>QT                  5.12.1</li>
+</ul>
+</li>
+</ul>
+<h2 id="update-slackware">Update slackware</h2>
+<pre><code class="sh">slackpkg update
+slackpkg install-new
+slackpkg upgrade-all
+slackplg clean-system
+</code></pre>
+
+<h3 id="if-using-grub">if using grub</h3>
+<p><code>grub-mkconfig -o /boot/grub/grub.cfg</code></p>
+<h2 id="notes">Notes</h2>
+<p>Slackware was added with help of this video
+<a href="https://www.youtube.com/watch?v=kBIWSEoWIkw">https://www.youtube.com/watch?v=kBIWSEoWIkw</a></p>
+</div>
+
+<div id="path">
+    ~/work/notes/md/etc/lenovo_thinkpad_13_2Gen.md
+</div>
+
+</body>
+</html> 

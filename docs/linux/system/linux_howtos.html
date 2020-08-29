@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Igor's notes: Linux Howtos</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+<div id="navbar">
+    <ul>
+    <li><a  href="/index.html">Home</a></li>
+    <li><a  href="/linux/index.html">Linux</a></li>
+    <li><a  href="/programming/index.html">Programming</a></li>
+    <li><a  href="/computing/index.html">Computing</a></li>
+    <li><a  href="/studies/index.html">Studies</a></li>
+    <li><a  href="/webtools/webtools.html">Webtools</a></li>
+    <li><a  href="/travel/index.html">Travel</a></li>
+    <li><a  href="/media/index.html">Media</a></li>
+    <li><a  href="/etc/index.html">Etc</a></li>
+    </ul>
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#linux-howtos">Linux Howtos</a><ul>
+<li><a href="#searching">Searching</a></li>
+<li><a href="#logging">Logging</a></li>
+<li><a href="#networking">Networking</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+<div class="content">
+    <div class="folder">
+        <p>&#60;linux/system&#62;</p>    
+    </div>
+    <h1 id="linux-howtos">Linux Howtos</h1>
+<h3 id="searching">Searching</h3>
+<ul>
+<li>search "word" in hidden directories   </li>
+</ul>
+<pre><code class="sh">grep -R &quot;word&quot; `ls -ap | grep &quot;^\..*/$&quot;` 
+</code></pre>
+
+<ul>
+<li>
+<p>find file by (partial) name           <code>find . -iname "stdio*"</code></p>
+</li>
+<li>
+<p>count a number of files in directories recursively (wihtout folders)
+find . -type f | wc -l</p>
+</li>
+<li>
+<p>update permissions to all folders recursively
+find . -type d -exec chmod 755 {} \;</p>
+</li>
+<li>
+<p>update permissions to all files recursively
+find /opt/lampp/htdocs -type f -exec chmod 644 {} \;</p>
+</li>
+</ul>
+<h3 id="logging">Logging</h3>
+<ul>
+<li>dmesg                                 prints kernel messages . i.e /var/log/kern.log            </li>
+<li>print 10 last lines of kernel log     <code>dmesg | tail 10</code></li>
+<li>follow log file in real time          <code>tail -f /var/log/syslog</code></li>
+</ul>
+<h3 id="networking">Networking</h3>
+<ul>
+<li>display bandwidth usage               <code>iftop -P</code></li>
+</ul>
+</div>
+
+<div id="path">
+    ~/work/notes/md/linux/system/linux_howtos.md
+</div>
+
+</body>
+</html> 

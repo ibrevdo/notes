@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Igor's notes</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+<div id="navbar">
+    <ul>
+    <li><a  href="/index.html">Home</a></li>
+    <li><a  href="/linux/index.html">Linux</a></li>
+    <li><a  href="/programming/index.html">Programming</a></li>
+    <li><a  href="/computing/index.html">Computing</a></li>
+    <li><a  href="/studies/index.html">Studies</a></li>
+    <li><a  href="/webtools/webtools.html">Webtools</a></li>
+    <li><a  href="/travel/index.html">Travel</a></li>
+    <li><a  href="/media/index.html">Media</a></li>
+    <li><a  href="/etc/index.html">Etc</a></li>
+    </ul>
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#voip">VOIP</a><ul>
+<li><a href="#rtp">RTP</a></li>
+<li><a href="#sip">SIP</a><ul>
+<li><a href="#sdp">SDP</a></li>
+</ul>
+</li>
+<li><a href="#tutorials">Tutorials</a></li>
+<li><a href="#rtp-and-sip-implementations">RTP and SIP Implementations</a><ul>
+<li><a href="#pjsip">PJSIP</a></li>
+<li><a href="#resiprocate">Resiprocate</a></li>
+<li><a href="#list-of-sip-software">List of SIP software</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+<div class="content">
+    <div class="folder">
+        <p>&#60;computing&#62;</p>    
+    </div>
+    <hr />
+<h1 id="voip">VOIP</h1>
+<h2 id="rtp">RTP</h2>
+<pre><code>A protocol for delivering audio and video over networks
+Typically run over UDP
+Used in conjunction with RTCP (RTP control protocol) which delas with QoS of the media streaming
+Used in conjuction with SIP (Session Initiation Protocol) which establishes connections across the network
+</code></pre>
+
+<p>RTP specification (RFC3550) https://tools.ietf.org/html/rfc3550
+https://en.wikipedia.org/wiki/Real-time_Transport_Protocol</p>
+<h2 id="sip">SIP</h2>
+<p>SIP specification (RFC3261) https://tools.ietf.org/html/rfc3261
+https://en.wikipedia.org/wiki/Session_Initiation_Protocol</p>
+<h5 id="sdp">SDP</h5>
+<p>SDP carried as payload in SIP messages.
+SDP specification (RFC4566) https://tools.ietf.org/html/rfc4566
+https://en.wikipedia.org/wiki/Session_Description_Protocol</p>
+<h2 id="tutorials">Tutorials</h2>
+<p>https://codeburst.io/learning-voip-rtp-and-sip-aka-awesome-pjsip-2035fa02cf88</p>
+<h2 id="rtp-and-sip-implementations">RTP and SIP Implementations</h2>
+<h5 id="pjsip">PJSIP</h5>
+<p>http://www.pjsip.org/
+https://trac.pjsip.org/repos/wiki/PJSIP-Datasheet</p>
+<h5 id="resiprocate">Resiprocate</h5>
+<p>http://www.resiprocate.org/Main_Page</p>
+<h5 id="list-of-sip-software">List of SIP software</h5>
+<p>https://en.wikipedia.org/wiki/List_of_SIP_software</p>
+</div>
+
+<div id="path">
+    ~/work/notes/md/computing/voip.md
+</div>
+
+</body>
+</html> 

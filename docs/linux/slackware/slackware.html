@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Igor's notes: Slackware</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+<div id="navbar">
+    <ul>
+    <li><a  href="/index.html">Home</a></li>
+    <li><a  href="/linux/index.html">Linux</a></li>
+    <li><a  href="/programming/index.html">Programming</a></li>
+    <li><a  href="/computing/index.html">Computing</a></li>
+    <li><a  href="/studies/index.html">Studies</a></li>
+    <li><a  href="/webtools/webtools.html">Webtools</a></li>
+    <li><a  href="/travel/index.html">Travel</a></li>
+    <li><a  href="/media/index.html">Media</a></li>
+    <li><a  href="/etc/index.html">Etc</a></li>
+    </ul>
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#slackware">Slackware</a><ul>
+<li><a href="#slackware-init">Slackware init</a></li>
+<li><a href="#slackware-packages-tools">Slackware packages tools</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+<div class="content">
+    <div class="folder">
+        <p>&#60;linux/slackware&#62;</p>    
+    </div>
+    <h1 id="slackware">Slackware</h1>
+<h2 id="slackware-init">Slackware init</h2>
+<p>Slackware Linux uses the BSD-style file layout for its system initialization files.
+All of the system initialization files are stored in the <code>/etc/rc.d</code> directory.</p>
+<ol>
+<li>The system boot starts with Linux kernel, which calls for <code>/sbin/init</code> program</li>
+<li><code>init</code> reads an /etc/inittab configuration file to see how to run the system</li>
+<li>First it runs <code>/etc/rc.d/rc.S</code> "startup" script which prepares the system before going to desired runlevel<ul>
+<li>enables virutal memory</li>
+<li>mounts filesystems (by running rc.acpid)</li>
+<li>cleans up logs dirs</li>
+<li>initializes plug and play devices (by running rc.hotplug)</li>
+<li>loads kernel modules - network card, PPP support - (by running rc.modules) (rc.modules will run rc.netdevice if exists)</li>
+<li>configures PCMCIA devices (by running rc.pcmcia)</li>
+<li>sets up serial ports (by running rc.serial)</li>
+<li>runs Sys V init scripts (if found) (by running rc.sysvinit)</li>
+</ul>
+</li>
+</ol>
+<p>After system initialization is complete, <code>init</code> moves on to runlevel initialization. A runlevel describes the state that the machine will be running in. The files below define the different runlevels in Slackware Linux.</p>
+<ol>
+<li>Runlevels<ul>
+<li>rc.0  - halt the system (runlevel 0) (same as rc.6)</li>
+<li>rc.4  - multiuser startup (runlevel 4). Also starts X11 with KDM, GDM, or XDM as login manager</li>
+<li>rc.6  - reboot the system (runlevel 6).</li>
+<li>rc.K  - startup in single user mode (runlevel 1).</li>
+<li>rc.M  - multiuser mode (runlevel 2 and 3) with standard text-based login.</li>
+</ul>
+</li>
+</ol>
+<p>The following files are responsible for the network init.</p>
+<ol>
+<li>Network initialization<ul>
+<li><code>rc.inetd</code>        Starts up inetd, the BSD Internet super-daemon.</li>
+<li><code>rc.inet1</code>        This script is used to bring up the various network interfaces.</li>
+<li><code>rc.inet1.conf</code>   Modified by netconfig, this file is responsible for configuring the actual network interfaces.</li>
+<li><code>rc.ip_forward</code>   Activates IP packet forwarding.</li>
+<li><code>rc.inet2</code>        Runs after rc.inet1 and starts up basic network services.</li>
+<li><code>rc.wireless</code>     This script sets up PCI, USB, and 32-bit Cardbus wireless devices</li>
+<li><code>rc.wireless.conf</code> Wireless LAN adapter configuration.</li>
+<li><code>rc.httpd</code>        Starts up the Apache web server.</li>
+<li><code>rc.mysqld</code>       Starts up the MySQL server.</li>
+<li><code>rc.nfsd</code>         Starts up the NFS server.</li>
+<li><code>rc.samba</code>        Starts up Windows file and print sharing services.</li>
+<li><code>rc.sshd</code>         Starts up the secure shell server (sshd).</li>
+</ul>
+</li>
+</ol>
+<h2 id="slackware-packages-tools">Slackware packages tools</h2>
+<ul>
+<li>
+<p>Official</p>
+<ul>
+<li>installpkg    - a basic command to install slackware package. Used by other tools</li>
+<li>slackpkg      - a standard tool to install packages from an official repository</li>
+<li>an official repository to use: <code>/etc/slackpkg/mirrors</code></li>
+<li>list of installed packages: <code>/var/log/packages</code></li>
+</ul>
+</li>
+<li>
+<p>slackpkgplus  - a plugin for slackpkg that alows to install packages from additional repositories as well</p>
+<ul>
+<li>configuration file: <code>etc/slackpkg/slackpkgplus.conf</code></li>
+</ul>
+</li>
+<li>
+<p>sbopkg        - a non official tool that allows installing packages from SlackBuilds</p>
+<ul>
+<li>list of installed packages: <code>/var/log/sbopkg</code></li>
+</ul>
+</li>
+<li>
+<p>sbotools </p>
+</li>
+</ul>
+<p><a href="https://www.linuxquestions.org/questions/slackware-14/upgradepkg-installpkg-and-system-integrity-4175622115/">https://www.linuxquestions.org/questions/slackware-14/upgradepkg-installpkg-and-system-integrity-4175622115/</a></p>
+</div>
+
+<div id="path">
+    ~/work/notes/md/linux/slackware/slackware.md
+</div>
+
+</body>
+</html> 

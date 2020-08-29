@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Igor's notes: FTP Server</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+<div id="navbar">
+    <ul>
+    <li><a  href="/index.html">Home</a></li>
+    <li><a  href="/linux/index.html">Linux</a></li>
+    <li><a  href="/programming/index.html">Programming</a></li>
+    <li><a  href="/computing/index.html">Computing</a></li>
+    <li><a  href="/studies/index.html">Studies</a></li>
+    <li><a  href="/webtools/webtools.html">Webtools</a></li>
+    <li><a  href="/travel/index.html">Travel</a></li>
+    <li><a  href="/media/index.html">Media</a></li>
+    <li><a  href="/etc/index.html">Etc</a></li>
+    </ul>
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#ftp-server">FTP Server</a><ul>
+<li><a href="#configuration">Configuration</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+<div class="content">
+    <div class="folder">
+        <p>&#60;linux/system&#62;</p>    
+    </div>
+    <h1 id="ftp-server">FTP Server</h1>
+<h2 id="configuration">Configuration</h2>
+<ul>
+<li>In slackware there two ftp servers preinstalled: vsftpd and proftpd</li>
+<li>The ftp service in slackware is run by rc.inetd script. In inetd configuration file <code>/etc/inetd.conf</code> uncomment following line
+in order to start the ftp service.</li>
+</ul>
+<pre><code class="sh">ftp     stream  tcp     nowait  root    /usr/sbin/tcpd  proftpd
+</code></pre>
+
+<ul>
+<li>Proftpd configuration is here <code>/etc/proftpd.conf</code></li>
+<li>Inside ftp user home dir  <code>/home/ftp</code> create directory <code>incoming</code> and make it 777 permissions</li>
+<li>Restart inetd service: <code>rc.d/rc.inetd restart</code></li>
+</ul>
+</div>
+
+<div id="path">
+    ~/work/notes/md/linux/system/ftp_server.md
+</div>
+
+</body>
+</html> 

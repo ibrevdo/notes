@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Igor's notes: Vim</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+<div id="navbar">
+    <ul>
+    <li><a  href="/index.html">Home</a></li>
+    <li><a  href="/linux/index.html">Linux</a></li>
+    <li><a  href="/programming/index.html">Programming</a></li>
+    <li><a  href="/computing/index.html">Computing</a></li>
+    <li><a  href="/studies/index.html">Studies</a></li>
+    <li><a  href="/webtools/webtools.html">Webtools</a></li>
+    <li><a  href="/travel/index.html">Travel</a></li>
+    <li><a  href="/media/index.html">Media</a></li>
+    <li><a  href="/etc/index.html">Etc</a></li>
+    </ul>
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#vim">Vim</a><ul>
+<li><a href="#jumps">Jumps</a></li>
+<li><a href="#marks">Marks</a></li>
+<li><a href="#registers">Registers</a></li>
+<li><a href="#macros">Macros</a></li>
+<li><a href="#completions">Completions</a></li>
+<li><a href="#folding">Folding</a></li>
+<li><a href="#visual-mode">Visual mode</a></li>
+<li><a href="#windows">Windows</a></li>
+<li><a href="#arglist">Arglist</a></li>
+<li><a href="#quickfix-list">Quickfix list</a></li>
+<li><a href="#vimdiff">Vimdiff</a></li>
+<li><a href="#clipboard">Clipboard</a></li>
+<li><a href="#search-substitute-and-vim-regex">Search, substitute and vim regex</a><ul>
+<li><a href="#global-command">Global command</a></li>
+<li><a href="#vimgrep">vimgrep</a></li>
+<li><a href="#grep">grep</a></li>
+</ul>
+</li>
+<li><a href="#netrw-commands">netrw commands</a></li>
+<li><a href="#general-commands">General commands</a></li>
+<li><a href="#command-line-mode">Command-line mode</a></li>
+<li><a href="#useful-settings">Useful settings</a></li>
+<li><a href="#tips">Tips</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+<div class="content">
+    <div class="folder">
+        <p>&#60;linux/vim&#62;</p>    
+    </div>
+    <h1 id="vim">Vim</h1>
+<hr />
+<h2 id="jumps">Jumps</h2>
+<p>Jumps commands include: searches (and repetitions), substitutions, parenthesses jumping,
+paragraphs and sentences, locations inside window, opening another file</p>
+<ul>
+<li><code>(</code>/<code>)</code>   jump to prev/next sentence</li>
+<li><code>{</code>/<code>}</code>   jump to prev/next paragraph</li>
+<li><code>gg</code>/<code>G</code>  jump to start/end of file</li>
+<li><code>H</code>/<code>M</code>/<code>L</code> jump to windows top/middle/bottom</li>
+<li><code>%</code>       jump to matching parenthess (works with <code>(,[,{</code> )</li>
+<li><code>C-i</code>     jump forward (in)</li>
+<li><code>C-o</code>     jump back (out)</li>
+<li><code>C-]</code>     jump to tag definition (works in help or with ctags)</li>
+<li><code>:jumps</code>  see list of jumps</li>
+<li><code>g;</code> <code>g,</code> go back/forward through list of changes (<code>:changes</code> see list of changes)</li>
+</ul>
+<h2 id="marks">Marks</h2>
+<p><strong>Auto marks</strong></p>
+<pre><code>``      last jump within current file
+`.      last change within current file
+`0      jump to position in last file edited (after exiting vim)
+`[ `]   start/end of last changed or yanked text
+`&lt; `&gt;   start/end of last visual selelction
+</code></pre>
+
+<p><strong>Local marks</strong></p>
+<ul>
+<li><code>mm</code> put mark in current cursor</li>
+<li><code>`m</code> jump to mark</li>
+</ul>
+<p><strong>Global marks</strong>
+Global marks are saved between files</p>
+<ul>
+<li><code>mM</code>      set global mark by m and capital letter</li>
+<li><code>`M</code>  jump to global mark M</li>
+</ul>
+<h2 id="registers">Registers</h2>
+<p>The command that can use a register looks like this : <code>"{register}command</code>. 
+For example, to a yank a current word into register 'a' run : <code>"ayiw</code> </p>
+<ul>
+<li><code>""</code>      unnamed (default) register. contains what was deleted/yanked
+            Commands <code>x</code>,<code>s</code>,<code>c{motion}</code>,<code>d{motion}</code> all set content of this register</li>
+<li><code>"0</code>      yank register. command <code>y{motion}</code> sets this register</li>
+<li><code>"0p</code>     paste from yank register</li>
+<li><code>:reg</code>    inspect registers</li>
+<li><code>"a</code>      named register a</li>
+<li><code>"/</code>      last search register</li>
+<li><code>":</code>      last Ex command</li>
+<li><code>"%</code>      name of current file</li>
+<li><code>&lt;C-r&gt;"</code>   Copy text from register in insert mode/command prompt</li>
+<li><code>"+y</code>     if clipboard enabled, puts visual selection from Vim into system clipboard</li>
+<li><code>:put +</code>  if clipboard enabled, puts system clipboard into Vim</li>
+</ul>
+<h2 id="macros">Macros</h2>
+<ul>
+<li><code>qa</code>      Start recording macro into register a. Stop recroding with <code>q</code>. </li>
+<li><code>@a</code>      play macro stored in register a</li>
+<li><code>@@</code>      repeat last executed macro</li>
+<li><code>22@a</code>    execute macro on next 22 buffers (num of buffers can be less than 22)</li>
+<li><code>:%norm! @a</code>  To repeat macro stored in register 'a', on whole file: </li>
+</ul>
+<h2 id="completions">Completions</h2>
+<ul>
+<li><code>C-n</code>/<code>C-p</code>   keyword completion completion (next/previous) uses words from open buffers</li>
+<li><code>C-x C-o</code>     tags(omni) completion</li>
+<li><code>C-x C-f</code>     filename completion</li>
+</ul>
+<h2 id="folding">Folding</h2>
+<ul>
+<li><code>zi</code>          switch folding on/off</li>
+<li><code>za</code>          toggle current fold open/close</li>
+<li><code>zo</code>/<code>zc</code>     open/close current fold</li>
+<li><code>zR</code>/<code>zC</code>     open/close all folds</li>
+<li><code>zv</code>          expand folds to reveal cursor</li>
+</ul>
+<hr />
+<h2 id="visual-mode">Visual mode</h2>
+<ul>
+<li><code>o</code>   - move to other end of marked area</li>
+<li><code>gv</code>  reselect last visual selection</li>
+<li>highlight text objects<ol>
+<li><code>vi}</code>    highlight inner {} block</li>
+<li><code>va)</code>    highlight outer () block</li>
+</ol>
+</li>
+</ul>
+<h2 id="windows">Windows</h2>
+<p>All window commands can be activated with <code>&lt;C-w&gt;&lt;C-&lt;letter&gt;&gt;</code> or just <code>&lt;C-w&lt;letter&gt;&gt;</code></p>
+<ul>
+<li><code>C-ws</code>        split current window vertically </li>
+<li><code>:sp &lt;file&gt;</code>  split and load file into new window</li>
+<li><code>:new</code>,<code>:vnew</code> split and open new buffer</li>
+<li><code>C-ww</code>        jump to prevoius window</li>
+<li><code>:clo</code> or <code>:q</code> close current window</li>
+<li><code>C-w+</code> <code>C-w-</code>  enlarge/decrease current window</li>
+<li><code>C-w_</code>        enlarge current window maximally</li>
+<li><code>C-w=</code>        make all windows even g</li>
+<li><code>C-wr</code>        rotate windows locations</li>
+<li><code>C-wx</code>        exchange locations of two neighbor windows</li>
+</ul>
+<h2 id="arglist">Arglist</h2>
+<ul>
+<li><code>:args</code>           show arglist</li>
+<li>populate args with shell command</li>
+</ul>
+<pre><code class="sh">    :args `find *.md`
+</code></pre>
+
+<ul>
+<li><code>:next</code>/<code>:prev</code>   traverse trough buffers inside arglsist</li>
+<li><code>:first</code>/<code>:last</code>  jump to first/last buffer of arglist</li>
+<li><code>:argdo %s/\a/*/ge</code> execute substitude command on every file in arglist</li>
+<li><code>:argdo edit!</code>    undo last change in all buffers in arglist</li>
+<li><code>:argdo update</code>    save changes in all buffers in arglist</li>
+<li><code>:argdo normal @a</code> execute macro on every file in arg list</li>
+</ul>
+<h2 id="quickfix-list">Quickfix list</h2>
+<ul>
+<li><code>[q</code>,<code>:cprev</code>     show prev entry of quickfix list</li>
+<li><code>]q</code>,<code>:cnext</code>     show next entry of quickfix list</li>
+<li><code>[Q</code>,<code>:cfirst</code>    show first entry of quickfix list</li>
+<li><code>]Q</code>,<code>:clast</code>     show last entry of quickfix list</li>
+<li><code>:copen</code>,<code>:close</code> open/close quickfix list window</li>
+</ul>
+<h2 id="vimdiff">Vimdiff</h2>
+<p>Open two windows with two buffers (each buffer may be unnamed)</p>
+<ul>
+<li><code>:windo diffthis</code> start diff on two windows</li>
+<li><code>:windo diffoff</code>  stop diff</li>
+<li><code>[c</code>,<code>]c</code>     jump back and forward between changes</li>
+<li><code>:diffget</code>,<code>:diffput</code> resolve differences between files</li>
+</ul>
+<h2 id="clipboard">Clipboard</h2>
+<ul>
+<li>In order to copy to clipboard from vim hold "Shift" while selecting with mouse. Now paste qith middle button</li>
+<li>In order to paste form clipboard into vim use "shift+middle click" or "Shift+Insert"</li>
+</ul>
+<hr />
+<h2 id="search-substitute-and-vim-regex">Search, substitute and vim regex</h2>
+<p>Search with <code>/&lt;expr&gt;</code>, substitute with <code>range s/pattern/string/cgiIe</code>. \
+Where c-confirm, g-all occurances in range, i-ignore case, I-don't ignore case, e-don't show errors
+It is possible to use any character instead of <code>/</code> as a separator.</p>
+<ul>
+<li><code>\&lt;</code>,<code>\&gt;</code> Anchors for start and end of a word. Example: <code>/\&lt;i\&gt;</code> search for a word i</li>
+<li><code>^</code>, <code>$</code>  Anchors for begining and end of a line. </li>
+<li><code>.</code>       any character except a new line</li>
+<li><code>\s</code>,<code>\d</code>,<code>\w</code>,<code>\a</code> Space character, digit, word, alphabetic</li>
+<li><code>\S</code>,<code>\D</code>,<code>\W</code>,<code>\A</code> Non-Space character, Non-digit, Non-word, Non-alphabetic</li>
+<li><code>*</code>           matches 0 or more characters. <code>.*</code> matches everything.</li>
+<li><code>\+</code>          matches 1 or more.</li>
+<li><code>\=</code>          matches 0 or 1</li>
+<li><code>{n}</code>,<code>{,m}</code>,<code>{n,}</code>,<code>{n,m}</code> matches exactly n, 0 to m, at least n, from n to m.</li>
+<li><code>[012345]</code>    character range will match any of characters inside</li>
+<li><code>[^A-Z]</code>      Negation sign <code>^</code> will match any character which is not in a range</li>
+<li><code>\(</code>, <code>\)</code>     group part of pattern and refer to them inside replacement pattern by their
+                number <code>\1</code>,<code>\2</code>,<code>\3</code></li>
+<li><code>\|</code>      Find this or that. The first match will be used. Not greedy. (so order is important)</li>
+<li></li>
+<li>Examples: </li>
+<li><code>:s//str/</code>    use a prevoius expression again</li>
+<li><code>%s:^vi$:VIM:g</code> Substitute all lines in a file that contain vi to VIM.</li>
+<li><code>/\.\s+[a-z]</code> Find all places where new sentence doesn't start with capital letter. 
+                a period followed by one or more blanks and a lowercase letter</li>
+<li><code>%s:\([.!?]\)\s\+\([a-z]\):\1  \u\2:g</code> Correct the prevoius example. 
+                                         Insert two spaces exactly between sentences.</li>
+<li><code>\(Date:\|Subject:\|From:\)\(\s.*\)</code>  Parse various mail headings and their contents into
+                                        <code>\1</code> and <code>\2</code>.</li>
+<li>Useful mappings for substitutions</li>
+</ul>
+<pre><code class="sh">noremap ;; :%s:::gc&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;
+cmap    ;\ \(\)&lt;Left&gt;&lt;Left&gt;
+</code></pre>
+
+<h3 id="global-command">Global command</h3>
+<p><code>:range g!/patern/cmd</code> Execute the Ex command (default: <code>:p</code>) on the lines within range 
+where pattern matches. (or, if <code>!</code> is used, only where match does not occure) \
+If range is not specified then operate on whole file</p>
+<ul>
+<li><code>:g/^$/ d</code>    delete all empty lines in a file</li>
+<li><code>:g/^$/,/./-j</code> reduce multiple blank lines to a single blank</li>
+<li><code>:g/^Error/ . w &gt;&gt; errors.txt</code> Find all lines starting with error and append them to errors.txt</li>
+<li><code>:g//cmd</code>     use previous expression again</li>
+</ul>
+<h3 id="vimgrep">vimgrep</h3>
+<p>vimgrep - use it to search in small group of files (like a local project)</p>
+<ul>
+<li><code>:vim[grep][!] /{pattern}/[g][j] {file} ...</code>  Full command (possible to use shell commands to populate files list. g-every match is added. j-dont jump on first match</li>
+<li><code>:vim /expr/ %</code>       Search in current file</li>
+<li><code>:vim /expr/ *</code>       Search in all files in current dir</li>
+<li><code>:vim /expr/ *.cpp</code>   Search in multiple cpp files in current dir</li>
+<li><code>:vim /expr/ **</code>      Search recursivly in all files</li>
+<li><code>:vim /expr/ **/*.h</code>    Search recursivly in all header files</li>
+<li><code>:vim /expr/ ##</code>      search inside files in arglist</li>
+</ul>
+<p>search for all lines containing "dostuff()" in all .c files</p>
+<ul>
+<li><code>:vim /dostuff()/j ../**/*.c</code></li>
+</ul>
+<p>search inside hidden files</p>
+<ul>
+<li><code>:vimgrep /pattern/ ./.*</code></li>
+</ul>
+<h3 id="grep">grep</h3>
+<p>grep - use on large amounts of files</p>
+<ul>
+<li>Search in all files in current dir : <code>:grep /expr/ *</code></li>
+<li>Or search recursivly : <code>:grep -R /expr/ *</code></li>
+<li><code>:grep -R pattern *.c</code></li>
+<li><code>map &lt;F3&gt; :execute " grep -srnw --binary-files=without-match --exclude-dir=.git --exclude-from=exclude.list . -e " . expand("&lt;cword&gt;") . " " &lt;bar&gt; cwindow&lt;CR&gt;</code></li>
+<li>you can fill file exclude.list with file patterns to exclude from search, such as "*~" – all files ending in a '~' character</li>
+</ul>
+<p>"grep" and "vimgrep" fill the "quickfix list", which can be opened with :cw or :copen, and is a list shared between ALL windows.</p>
+<hr />
+<h2 id="netrw-commands">netrw commands</h2>
+<ul>
+<li><code>e .</code> go to file system view of current directory</li>
+<li><code>o</code>   open file in a split</li>
+<li><code>%</code>   create a new file</li>
+</ul>
+<h2 id="general-commands">General commands</h2>
+<ul>
+<li><code>C-l</code>     redraw screen</li>
+<li><code>C-g</code>     Shows filename, current line number, total lines in file, and % of file location</li>
+</ul>
+<h2 id="command-line-mode">Command-line mode</h2>
+<ul>
+<li><code>C-b</code> begining of command line</li>
+<li><code>C-e</code> end of command line</li>
+<li><code>C-w</code> delete the word before cursor</li>
+<li><code>C-u</code> delete everything between cursor and begining of line</li>
+<li><code>q:</code> <code>C-f</code> open buffer of command line</li>
+<li><code>q/</code>/<code>q?</code> open cmdline for search/backward</li>
+<li><code>C-c</code> exit the window</li>
+<li><code>@:</code>  repeate last Ex command</li>
+</ul>
+<hr />
+<h2 id="useful-settings">Useful settings</h2>
+<ul>
+<li>set completeopt=menuone,noinsert</li>
+<li>set autoindent</li>
+<li>set ft=xml</li>
+<li>set relativenumber</li>
+</ul>
+<hr />
+<h2 id="tips">Tips</h2>
+<ul>
+<li><code>gn</code>  go to next search result and visual highlight it</li>
+<li>switch between two chars: cursor on the first one, and then <code>xp</code></li>
+<li>switch between two lines: cursor of first one, and then <code>ddp</code></li>
+<li><code>:9t.</code>    copy line 9 to cursor position</li>
+<li><code>:so %</code>   treat temp file as vimrc, source it so configuration become active</li>
+<li>Switch between .c and .h file</li>
+</ul>
+<pre><code class="sh">    map &lt;F4&gt; :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,&lt;CR&gt;`
+</code></pre>
+
+<ul>
+<li>
+<p>Put output of shell command in buffer 
+<code>:%!ls</code></p>
+</li>
+<li>
+<p>Comment multiple lines</p>
+<ol>
+<li>C-v to select the lines</li>
+<li>Use substitute expression <code>:s/^/#/</code></li>
+<li>to uncomment: <code>:s/^#//</code></li>
+</ol>
+</li>
+<li>
+<p>Delete blank lines</p>
+<ul>
+<li><code>g/^$/d</code></li>
+<li><code>:g</code>  will execute a command on lines which match a regex. 
+        The regex is 'blank line' and the command is <code>:d</code> (delete)</li>
+</ul>
+</li>
+<li>
+<p>Delete all buffers</p>
+<ul>
+<li><code>:%bd|e#</code> %bd = delete all buffers. e# = open the last buffer for editing.</li>
+<li><code>command! BufOnly silent! execute "%bd|e#|bd#"</code></li>
+</ul>
+</li>
+<li>Save file as a root<ul>
+<li><code>w !sudo tee % &gt; /dev/null</code>   put a content of current buffer into <code>%</code> (current file) using sudo</li>
+</ul>
+</li>
+<li>Find and replace in project wide<ol>
+<li>Put all files of the project in arglist <code>:args *.cpp</code></li>
+<li>Find all reqiured changes in the project <code>:vimgrep /expr/g ##</code></li>
+<li>Qargs command puts all files from quicklist into arglist</li>
+<li>Substitude in all files <code>argdo %s/expr/str/ge</code></li>
+<li>Save all files <code>:argdo w</code></li>
+</ol>
+</li>
+</ul>
+</div>
+
+<div id="path">
+    ~/work/notes/md/linux/vim/vim.md
+</div>
+
+</body>
+</html> 

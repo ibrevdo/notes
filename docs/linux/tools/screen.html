@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Igor's notes: Screen usage</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+<div id="navbar">
+    <ul>
+    <li><a  href="/index.html">Home</a></li>
+    <li><a  href="/linux/index.html">Linux</a></li>
+    <li><a  href="/programming/index.html">Programming</a></li>
+    <li><a  href="/computing/index.html">Computing</a></li>
+    <li><a  href="/studies/index.html">Studies</a></li>
+    <li><a  href="/webtools/webtools.html">Webtools</a></li>
+    <li><a  href="/travel/index.html">Travel</a></li>
+    <li><a  href="/media/index.html">Media</a></li>
+    <li><a  href="/etc/index.html">Etc</a></li>
+    </ul>
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#screen-usage">Screen usage</a><ul>
+<li><a href="#initialization">Initialization</a></li>
+<li><a href="#windows">Windows</a></li>
+<li><a href="#sessions">Sessions</a></li>
+<li><a href="#copyscrollback-mode">Copy/scrollback mode</a></li>
+<li><a href="#regions">Regions</a></li>
+<li><a href="#other-commands">Other commands</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+<div class="content">
+    <div class="folder">
+        <p>&#60;linux/tools&#62;</p>    
+    </div>
+    <h1 id="screen-usage">Screen usage</h1>
+<h2 id="initialization">Initialization</h2>
+<ul>
+<li><code>screen -ls</code>                  list running screen sessions</li>
+<li><code>screen -r &lt;session&gt;</code>         reattach to running screen</li>
+<li><code>screen -S &lt;session_name&gt;</code>    start screen with named session</li>
+<li><code>screen -X -S &lt;session_name&gt; quit</code> kill session without attaching to it</li>
+</ul>
+<h2 id="windows">Windows</h2>
+<ul>
+<li><code>C-a "</code>           present a list of all windows (choose with arrows and return)</li>
+<li><code>C-a &lt;num&gt;</code>       go to window <num></li>
+<li><code>C-a C-a</code>         toggle between current and previous window</li>
+<li><code>C-a S-a</code>         rename current window</li>
+<li><code>C-a c</code>           create new window with a shell in it</li>
+<li><code>C-a n</code>           jump to next window</li>
+<li><code>C-a p</code>           jump to prev window</li>
+<li><code>C-a "</code>           list of windows</li>
+<li><code>C-a k</code>           kill window</li>
+<li><code>C-a :number</code>     renumber current window</li>
+<li><code>S-PageUp/PageDown</code>   scroll the screen window</li>
+</ul>
+<h2 id="sessions">Sessions</h2>
+<ul>
+<li><code>C-a :sessionname</code>        rename session</li>
+<li><code>C-a d</code>                   Detach session</li>
+<li><code>C-a S-k</code>                 Kill session</li>
+<li><code>C-a :quit</code>               Kill session</li>
+<li><code>C-a C-z</code>                 suspend screen</li>
+</ul>
+<h2 id="copyscrollback-mode">Copy/scrollback mode</h2>
+<ul>
+<li><code>C-a Esc</code>         enter a copy mode. in copy mode search with /</li>
+<li><code>&lt;Esc&gt;</code>           Exit copy/scrollback mode</li>
+<li><code>h,j,k,l</code>         move cursor like VIM</li>
+<li><code>C-b</code>             page up</li>
+<li><code>C-f</code>             page down</li>
+<li><code>&lt;Space&gt;</code>         Set mark.  When the second mark is set, the text <br>
+                    between the two marks will be put into screen's <br>
+                    paste buffer and copy/scrollback mode will be exited.</li>
+<li><code>^</code>               Move to first non-space character on current line</li>
+<li><code>$</code>               Move to last non-space character on current line</li>
+<li><code>0</code>               Move to leftmost column</li>
+<li><code>c</code>               Set the left margin for block-mode copying</li>
+<li><code>C</code>               Set the right margin for block-mode copying</li>
+<li><code>x</code>               Exchange the first mark with current cursor position useful for moving an already set mark</li>
+</ul>
+<h2 id="regions">Regions</h2>
+<ul>
+<li><code>C-a S</code>           Split the current window into two new ones.
+(The blank window will be displayed in the new
+region until you use one of the window selection commands.)</li>
+<li><code>C-a &lt;Tab&gt;</code>       Switch focus to the next region.</li>
+<li><code>C-a :resize 25%</code> resize region</li>
+<li><code>C-a x</code>           close region</li>
+<li><code>C-a S-q</code>         close all regions but current one</li>
+</ul>
+<h2 id="other-commands">Other commands</h2>
+<ul>
+<li><code>C-a ?</code>           help</li>
+<li><code>C-a a</code>           Send ("C-a") to the program running in the current window.</li>
+<li><code>C-a ]</code>           Send the contents of the paste buffer to the program running in the current window.</li>
+<li><code>C-a t</code>           Show time, date, hostname, and some other stuff.</li>
+<li><code>C-a @</code>          Do nothing</li>
+<li><code>C-a :</code>           Enter the command line mode</li>
+<li><code>C-a :source ~/.screenrc</code> reloads configuration file</li>
+</ul>
+</div>
+
+<div id="path">
+    ~/work/notes/md/linux/tools/screen.md
+</div>
+
+</body>
+</html> 

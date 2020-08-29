@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Igor's notes</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+<div id="navbar">
+    <ul>
+    <li><a  href="/index.html">Home</a></li>
+    <li><a  href="/linux/index.html">Linux</a></li>
+    <li><a  href="/programming/index.html">Programming</a></li>
+    <li><a  href="/computing/index.html">Computing</a></li>
+    <li><a  href="/studies/index.html">Studies</a></li>
+    <li><a  href="/webtools/webtools.html">Webtools</a></li>
+    <li><a  href="/travel/index.html">Travel</a></li>
+    <li><a  href="/media/index.html">Media</a></li>
+    <li><a  href="/etc/index.html">Etc</a></li>
+    </ul>
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#ip">IP</a><ul>
+<li><a href="#header">Header</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+<div class="content">
+    <div class="folder">
+        <p>&#60;computing/network&#62;</p>    
+    </div>
+    <hr />
+<h1 id="ip">IP</h1>
+<h2 id="header">Header</h2>
+<p>Version (4 bits) IHL (4 bits)   DSCP (6 bits) ECN (2 bits)  Total length (16 bits)
+Identification (16 bits)                                Flags (3 bits)  Fragment offset (13 bits)
+TTL (8 bits)                Protocol (8 bits)           Checksum (32 bits)
+Source IP (32 bits)
+Destination IP (32 bits)
+Options (0-128 bits)</p>
+<ul>
+<li>Version = 4</li>
+<li>IHL (Internet header length) - number of 32 bit words (5 means 32*5 bits =&gt; 20 bytes)</li>
+<li>DSCP - TOS</li>
+</ul>
+</div>
+
+<div id="path">
+    ~/work/notes/md/computing/network/ip.md
+</div>
+
+</body>
+</html> 

@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Igor's notes: Newline conversions</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+<div id="navbar">
+    <ul>
+    <li><a  href="/index.html">Home</a></li>
+    <li><a  href="/linux/index.html">Linux</a></li>
+    <li><a  href="/programming/index.html">Programming</a></li>
+    <li><a  href="/computing/index.html">Computing</a></li>
+    <li><a  href="/studies/index.html">Studies</a></li>
+    <li><a  href="/webtools/webtools.html">Webtools</a></li>
+    <li><a  href="/travel/index.html">Travel</a></li>
+    <li><a  href="/media/index.html">Media</a></li>
+    <li><a  href="/etc/index.html">Etc</a></li>
+    </ul>
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#newline-conversions">Newline conversions</a></li>
+</ul>
+</div>
+
+
+
+<div class="content">
+    <div class="folder">
+        <p>&#60;programming/git&#62;</p>    
+    </div>
+    <h1 id="newline-conversions">Newline conversions</h1>
+<p>The scheme when getting files from windows:</p>
+<ol>
+<li>
+<p>convert all new files to unix format</p>
+<ul>
+<li>
+<p>try this :</p>
+<ul>
+<li><code>find . -type f -exec dos2unix {} \; (with dos2unix version 6 or higher)</code></li>
+<li>or</li>
+<li><code>find . -type f -exec grep -qIP '\r\n' {} ';' -exec perl -pi -e 's/\r\n/\n/g' {} '+'</code></li>
+<li>(or maybe <code>grep -qIP '\r$'</code>)</li>
+</ul>
+</li>
+<li>
+<p>(from here : <a href="https://stackoverflow.com/questions/7068179/convert-line-endings-for-whole-directory-tree-git">https://stackoverflow.com/questions/7068179/convert-line-endings-for-whole-directory-tree-git</a>)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>use <code>core.autocrlf = false</code> if all git repositories are on linux</p>
+</li>
+<li>
+<p>If some repositories are on linux and some on windows, then</p>
+<ul>
+<li>on linux use: <code>use core.autocrlf = input</code></li>
+<li>on windows use: <code>use core.autocrlf = true</code><br>
+(from here:<a href="https://stackoverflow.com/questions/3206843/how-line-ending-conversions-work-with-git-core-autocrlf-between-different-operat">https://stackoverflow.com/questions/3206843/how-line-ending-conversions-work-with-git-core-autocrlf-between-different-operat</a>)</li>
+</ul>
+</li>
+</ol>
+</div>
+
+<div id="path">
+    ~/work/notes/md/programming/git/new_line_conversions.md
+</div>
+
+</body>
+</html> 

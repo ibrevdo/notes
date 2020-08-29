@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Igor's notes: Jekyll github pages</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+<div id="navbar">
+    <ul>
+    <li><a  href="/index.html">Home</a></li>
+    <li><a  href="/linux/index.html">Linux</a></li>
+    <li><a  href="/programming/index.html">Programming</a></li>
+    <li><a  href="/computing/index.html">Computing</a></li>
+    <li><a  href="/studies/index.html">Studies</a></li>
+    <li><a  href="/webtools/webtools.html">Webtools</a></li>
+    <li><a  href="/travel/index.html">Travel</a></li>
+    <li><a  href="/media/index.html">Media</a></li>
+    <li><a  href="/etc/index.html">Etc</a></li>
+    </ul>
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#jekyll-github-pages">Jekyll github pages</a><ul>
+<li><a href="#install">Install</a></li>
+<li><a href="#site-structure">site structure</a></li>
+<li><a href="#how-to-list-all-files">how to list all files:</a></li>
+<li><a href="#links">Links</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+<div class="content">
+    <div class="folder">
+        <p>&#60;programming&#62;</p>    
+    </div>
+    <h1 id="jekyll-github-pages">Jekyll github pages</h1>
+<h2 id="install">Install</h2>
+<ol>
+<li><code>sudo gem install jekyll</code></li>
+<li><code>jekyll new example</code>  - create new site in dir example</li>
+<li><code>cd example; bundle install --path vendor/bundle</code></li>
+<li><code>bundle exec jekyll serve --watch --baseurl ""</code></li>
+</ol>
+<h2 id="site-structure">site structure</h2>
+<ul>
+<li><code>_config.yml</code></li>
+<li><code>style.css</code></li>
+<li><code>_site</code></li>
+<li><code>_layouts/default.html</code><ul>
+<li>example: <a href="https://github.com/libsigcplusplus/libsigcplusplus/blob/master/docs/_layouts/default.html">https://github.com/libsigcplusplus/libsigcplusplus/blob/master/docs/_layouts/default.html</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="how-to-list-all-files">how to list all files:</h2>
+<p>In <code>default.html</code> add the following before "{ { content } }"</p>
+<pre><code class="html">Note: use &quot;{&quot; instead of &quot;|&quot;
+
+&lt;ul&gt;                                                                                        
+    |% for file in site.static_files %|
+        |% if file.extname == '.html' %|
+        &lt;li&gt; &lt;a href=&quot;|| site.baseurl |||| file.path ||&quot;&gt;||file.dir|| ||file.path||&lt;/a&gt;&lt;/li&gt;                
+        |% endif %|
+    |% endfor %|
+&lt;/ul&gt;
+</code></pre>
+
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://pages.github.com/versions/">https://pages.github.com/versions/</a></li>
+<li><a href="https://help.github.com/en/articles/setting-up-your-github-pages-site-locally-with-jekyll">https://help.github.com/en/articles/setting-up-your-github-pages-site-locally-with-jekyll</a></li>
+<li>Kramdown syntax <a href="https://kramdown.gettalong.org/syntax.html">https://kramdown.gettalong.org/syntax.html</a></li>
+<li>Kramdown html converter <a href="https://kramdown.gettalong.org/converter/html.html">https://kramdown.gettalong.org/converter/html.html</a></li>
+<li>Great Jekyll tutorial <a href="https://learn-the-web.algonquindesign.ca/topics/jekyll/">https://learn-the-web.algonquindesign.ca/topics/jekyll/</a></li>
+<li>TOC with jekyll only <a href="https://github.com/allejo/jekyll-toc">https://github.com/allejo/jekyll-toc</a></li>
+<li>Simple Jekyll search <a href="https://github.com/christian-fei/Simple-Jekyll-Search">https://github.com/christian-fei/Simple-Jekyll-Search</a></li>
+<li><a href="https://stackoverflow.com/questions/8340170/jekyll-automatically-highlight-current-tab-in-menu-bar">https://stackoverflow.com/questions/8340170/jekyll-automatically-highlight-current-tab-in-menu-bar</a></li>
+</ul>
+</div>
+
+<div id="path">
+    ~/work/notes/md/programming/jekyll_github_pages.md
+</div>
+
+</body>
+</html> 

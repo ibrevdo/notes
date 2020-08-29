@@ -1,0 +1,380 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Igor's notes</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+
+<div id="navbar">
+    <ul>
+    <li><a  href="/index.html">Home</a></li>
+    <li><a  href="/linux/index.html">Linux</a></li>
+    <li><a  href="/programming/index.html">Programming</a></li>
+    <li><a  href="/computing/index.html">Computing</a></li>
+    <li><a  href="/studies/index.html">Studies</a></li>
+    <li><a  href="/webtools/webtools.html">Webtools</a></li>
+    <li><a  href="/travel/index.html">Travel</a></li>
+    <li><a  href="/media/index.html">Media</a></li>
+    <li><a  href="/etc/index.html">Etc</a></li>
+    </ul>
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#editing">Editing</a></li>
+</ul>
+</div>
+
+
+
+<div class="content">
+    <div class="folder">
+        <p>&#60;linux/vim&#62;</p>    
+    </div>
+    <h2 id="editing">Editing</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Delete</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>delete char under cursor</td>
+</tr>
+<tr>
+<td>dd</td>
+<td>delete line</td>
+</tr>
+<tr>
+<td>S-d</td>
+<td>delete till end of line</td>
+</tr>
+<tr>
+<td>d<move></td>
+<td>delete till end of movement</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dw</td>
+<td>delete world</td>
+</tr>
+<tr>
+<td>d$</td>
+<td>delete till end of line</td>
+</tr>
+<tr>
+<td>df&gt;</td>
+<td>delete till word ending with '&gt;'</td>
+</tr>
+<tr>
+<td>diw</td>
+<td>delete word under cursor</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Copying text</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>yy</td>
+<td>copy line</td>
+</tr>
+<tr>
+<td>y<move></td>
+<td>copy till end of move</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Change text - delete text and enter editing mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>s</td>
+<td>delete one character and stay in editing mode</td>
+</tr>
+<tr>
+<td>cc</td>
+<td>change current line</td>
+</tr>
+<tr>
+<td>S-c</td>
+<td>change till end of line</td>
+</tr>
+<tr>
+<td>ciw</td>
+<td>change word under cursor</td>
+</tr>
+<tr>
+<td>c<move></td>
+<td>change till end of move</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Insert text</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i</td>
+<td>inserts before cursor</td>
+</tr>
+<tr>
+<td>a</td>
+<td>inserts after cursor</td>
+</tr>
+<tr>
+<td>S-i</td>
+<td>inserts at start of current line</td>
+</tr>
+<tr>
+<td>S-a</td>
+<td>insets after end of current line</td>
+</tr>
+<tr>
+<td>o</td>
+<td>inserts new line after current line</td>
+</tr>
+<tr>
+<td>S-o</td>
+<td>inserts new line before current line</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Insert mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C-w</td>
+<td>erase work backwards</td>
+</tr>
+<tr>
+<td>C-u</td>
+<td>erase line backwards</td>
+</tr>
+<tr>
+<td>S-<middle click></td>
+<td>paste from clipboard into vim</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Text completion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C-n</td>
+<td>next word proposal (from file)</td>
+</tr>
+<tr>
+<td>C-p</td>
+<td>previous word proposal (from file)</td>
+</tr>
+<tr>
+<td>note</td>
+<td>these keys are also used to navigate on the opned menu of completions</td>
+</tr>
+<tr>
+<td>C-x C-o</td>
+<td>omni-completion (Intellisense)</td>
+</tr>
+<tr>
+<td>C-x C-l</td>
+<td>line completion</td>
+</tr>
+<tr>
+<td>C-x C-k</td>
+<td>dictionary completion</td>
+</tr>
+<tr>
+<td>C-x C-f</td>
+<td>filenames completion</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>misc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>p</td>
+<td>paste yanked text</td>
+</tr>
+<tr>
+<td>]p</td>
+<td>paste yanked text and adjust the indent level</td>
+</tr>
+<tr>
+<td>.</td>
+<td>repeat last editing</td>
+</tr>
+<tr>
+<td>u</td>
+<td>undo</td>
+</tr>
+<tr>
+<td>tr</td>
+<td>transpose two characters</td>
+</tr>
+<tr>
+<td>S-j</td>
+<td>join lines</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>indent</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&gt;&gt;</td>
+<td>indent line forward</td>
+</tr>
+<tr>
+<td>&lt;&lt;</td>
+<td>indent line backwards</td>
+</tr>
+<tr>
+<td>##</td>
+<td>auto indent current line</td>
+</tr>
+<tr>
+<td>&gt;%</td>
+<td>indent curly-braces block (put your cursor on one of the curly braces)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Search and replace</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:%s/old/new/g</td>
+<td>replace old with new inside a file</td>
+</tr>
+<tr>
+<td>:%s/old/new/gc</td>
+<td>replace old with new inside a file with conformations</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Visual mode</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v</td>
+<td>start visual mode</td>
+</tr>
+<tr>
+<td>S-v</td>
+<td>visual line mode</td>
+</tr>
+<tr>
+<td>C-v</td>
+<td>select columns</td>
+</tr>
+<tr>
+<td>y</td>
+<td>yank highlighted area</td>
+</tr>
+<tr>
+<td>d</td>
+<td>kill highlighted area</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>shift right</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>shift left</td>
+</tr>
+<tr>
+<td>~</td>
+<td>switch case</td>
+</tr>
+<tr>
+<td>o</td>
+<td>move to opposite of highlighted area</td>
+</tr>
+<tr>
+<td>aw</td>
+<td>mark a word</td>
+</tr>
+<tr>
+<td>ab</td>
+<td>mark a () block</td>
+</tr>
+<tr>
+<td>aB</td>
+<td>mark a {}  block</td>
+</tr>
+<tr>
+<td>Esc</td>
+<td>exit visual mode</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="path">
+    ~/work/notes/md/linux/vim/edit.md
+</div>
+
+</body>
+</html> 
