@@ -12,7 +12,7 @@ webserver_start() {
         cd $DIR
         if [ -x $EXE ]; then
             echo "Starting webserver in $DIR"
-            ./$EXE 2>&1 &
+            ./$EXE &
         else
             echo "$EXE not found"
         fi
