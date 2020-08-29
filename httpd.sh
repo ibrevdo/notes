@@ -15,6 +15,7 @@ webserver_start() {
             ./$EXE 2>&1 &
         else
             echo "$EXE not found"
+        fi
     else
         echo "Cannot start webserver because $DIR doesn't exist"
     fi
