@@ -1,16 +1,12 @@
----
-order: 4
-
----
 
 # DSP
 
-#### Signal representation
+### Signal representation
 _x_ is a vector
 
 _x_ = (X0, X1, X2, ... Xn, ...)
 
-#### Axes
+### Axes
 Regular Axis
 _x_ = (1,3) = 1(1,0) + 3(0,1)
 
@@ -18,7 +14,7 @@ _x_ = (1,3) = 1(1,0) + 3(0,1)
 Axes rotation
 _x_=(1,3) = (a,b)
 
-#### Inner product
+### Inner product
 
 _x_ = (X0,...Xn-1), _y_ = (Y0, ..., Yn-1)
 
@@ -33,12 +29,12 @@ Parallel vectors : teta = 0, cos(teta) = 1
 xIy , teta = pi/2 , cos(teta) = 0
 if vectors are normalized, (x,y) = cos(teta)
 
-#### Projection
+### Projection
 a - is a projection of vector _x_ on _y_
 a = ||x|| cos(teta)
 
 
-#### Complex numbers
+### Complex numbers
 
 z = a + jb = r * e^j@ 
 = r * cos(@) + j * r * sin(@) 
@@ -50,18 +46,18 @@ sine wave:
 conjugate:
 z * = a-jb = r * e^-j@
 
-#### Choosing best axes (Fourier transform)
+### Choosing best axes (Fourier transform)
 
 coordinate a = (x(t), f(t)) = integral(x(t) * f(t) * ) \\
 sine wave basis: f(t) = e^j2pi * ft \\
 X(f) = integral( x(t) * e^-j2pi * ft)
 
 
-#### Fourier transform
+### Fourier transform
 
 
 
-#### Spectrum of digital signal
+### Spectrum of digital signal
 
 
 ## System representation 

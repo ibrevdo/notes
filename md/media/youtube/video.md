@@ -1,6 +1,13 @@
 
 # Videos
 
+## News
+* [Yuri Bezmenov : Deception was my job)](https://www.youtube.com/watch?v=y3qkf3bajd4)
+* [Памяти Антона Носика](https://www.youtube.com/watch?v=oU45noIQygI)
+* [Израильтянин в плену у Лукашенко!](https://www.youtube.com/watch?v=mb1IIQexX8M)
+* [Беслан. Помни ](https://www.youtube.com/watch?v=vF1UGmi5m8s)
+* [NEXTA – главное медиа белорусского протеста / вДудь](https://www.youtube.com/watch?v=jrOxsjdeccw)
+
 ## Movies
 * [Жизнь и удивительные приключения Робинзона Крузо](https://www.youtube.com/watch?v=mueKutJ3Sxg)
 
@@ -10,9 +17,10 @@
 * [Ali Baba i 40 razboinikov](https://www.youtube.com/watch?v=0DGg9yjK5hI)
 
 
+## Interests
+
 ### History
 * [The Living Stones of Sacsayhuaman](https://www.youtube.com/watch?v=M9J_ivMwTxc)
-* [Yuri Bezmenov : Deception was my job)](https://www.youtube.com/watch?v=y3qkf3bajd4)
 
 ### Literature
 * ["Открытый урок" с Дмитрием Быковым](https://www.youtube.com/channel/UCdYbY2CAbai8p4tGs2arkEA)
@@ -21,12 +29,7 @@
 * [Дикая природа Сербии 2011](https://www.youtube.com/watch?v=TuXCsdTYZRM)
 * [Nat Geo Wild: Ост Индия, лесные жители (1080р) ](https://www.youtube.com/watch?v=nbn5RgLW7iY)
 * [Путешествие в дебри Сибири](https://www.youtube.com/watch?v=_1D6LPUA_5c)
-
-
-### Documentary
-* [Памяти Антона Носика](https://www.youtube.com/watch?v=oU45noIQygI)
-* [נושאי המגבעת - שמיים שרוטים של גלויה](https://www.youtube.com/watch?v=deKf0lslRMg)
-* [Израильтянин в плену у Лукашенко!](https://www.youtube.com/watch?v=mb1IIQexX8M)
+* [2- Одиссея Жака Кусто - Науру](https://www.youtube.com/watch?v=WIYbT6kBQHc)
 
 
 ### Иога
@@ -34,11 +37,10 @@
 * [Йога для чайников (продвинутый уровень)](https://www.youtube.com/watch?v=MaCFuKLExSI)
 * [Сурья намаскар - комплекс приветствия солнца с Наташей Ерофеевой](https://www.youtube.com/watch?v=Us_ifzK9aKk)
 
-
 ### Painting
 * [Bob Ross - Mystic Mountain (Season 20 Episode 1)](https://www.youtube.com/watch?v=VlucWfTUo1A)
 
-### Fun
+## Fun
 * [Эту девушку я увидел на пляже и незаметно начал снимать](https://www.youtube.com/watch?v=YOkt9tQVvWQ)
 * [Йога. Приветствие солнцу](https://www.youtube.com/watch?v=hUhPnyGS1Vg)
 * [Правильные занятия йогой](https://www.youtube.com/watch?v=iEwUgf5H0pw)
@@ -49,5 +51,6 @@
 * [Sigur Rós - Valtari](https://vimeo.com/53394874)
 * [Blurred lines (Explicit video) ]( https://vimeo.com/67508707)
 
-
+## Israel
+* [נושאי המגבעת - שמיים שרוטים של גלויה](https://www.youtube.com/watch?v=deKf0lslRMg)
 

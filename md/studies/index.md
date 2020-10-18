@@ -1,10 +1,15 @@
-wiki_base_url: 
 
 # Studies
 
-* [[dsp_raf]]
-* [[geo]]
-* [[math]]
-* [[signal]]
+## Math
+* [[math.md]]
 
+## Signal processing
+* [[signal.md]]
+* [[dsp_raf.md]]
 
+## Computer architecture
+* [[comp_arch.md]]
+
+## Other
+* [[geo.md]]

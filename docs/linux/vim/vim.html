@@ -26,16 +26,22 @@
 <div class="toc">
 <ul>
 <li><a href="#vim">Vim</a><ul>
-<li><a href="#jumps">Jumps</a></li>
+<li><a href="#movement">Movement</a></li>
+<li><a href="#scroll">Scroll</a></li>
+<li><a href="#searching">Searching</a></li>
 <li><a href="#marks">Marks</a></li>
 <li><a href="#registers">Registers</a></li>
 <li><a href="#macros">Macros</a></li>
-<li><a href="#completions">Completions</a></li>
-<li><a href="#folding">Folding</a></li>
-<li><a href="#visual-mode">Visual mode</a></li>
+<li><a href="#insert-mode">Insert mode</a></li>
 <li><a href="#windows">Windows</a></li>
+<li><a href="#visual-mode">Visual mode</a></li>
+<li><a href="#command-line-mode">Command-line mode</a></li>
+<li><a href="#general-commands">General commands</a></li>
 <li><a href="#arglist">Arglist</a></li>
 <li><a href="#quickfix-list">Quickfix list</a></li>
+<li><a href="#tags">Tags</a></li>
+<li><a href="#finding-file">Finding file</a></li>
+<li><a href="#folding">Folding</a></li>
 <li><a href="#vimdiff">Vimdiff</a></li>
 <li><a href="#clipboard">Clipboard</a></li>
 <li><a href="#search-substitute-and-vim-regex">Search, substitute and vim regex</a><ul>
@@ -45,8 +51,6 @@
 </ul>
 </li>
 <li><a href="#netrw-commands">netrw commands</a></li>
-<li><a href="#general-commands">General commands</a></li>
-<li><a href="#command-line-mode">Command-line mode</a></li>
 <li><a href="#useful-settings">Useful settings</a></li>
 <li><a href="#tips">Tips</a></li>
 </ul>
@@ -62,58 +66,192 @@
     </div>
     <h1 id="vim">Vim</h1>
 <hr />
-<h2 id="jumps">Jumps</h2>
+<h2 id="movement">Movement</h2>
 <p>Jumps commands include: searches (and repetitions), substitutions, parenthesses jumping,
 paragraphs and sentences, locations inside window, opening another file</p>
 <ul>
-<li><code>(</code>/<code>)</code>   jump to prev/next sentence</li>
-<li><code>{</code>/<code>}</code>   jump to prev/next paragraph</li>
-<li><code>gg</code>/<code>G</code>  jump to start/end of file</li>
-<li><code>H</code>/<code>M</code>/<code>L</code> jump to windows top/middle/bottom</li>
-<li><code>%</code>       jump to matching parenthess (works with <code>(,[,{</code> )</li>
-<li><code>C-i</code>     jump forward (in)</li>
-<li><code>C-o</code>     jump back (out)</li>
-<li><code>C-]</code>     jump to tag definition (works in help or with ctags)</li>
-<li><code>:jumps</code>  see list of jumps</li>
-<li><code>g;</code> <code>g,</code> go back/forward through list of changes (<code>:changes</code> see list of changes)</li>
+<li><code>w</code>/<code>W</code>           move to start of next word/WORD (the delimeter of WORD is space)</li>
+<li><code>b</code>/<code>B</code>           move back to start of previous word/WORD</li>
+<li><code>e</code>/<code>E</code>           move to end of next word/WORD</li>
+<li><code>ge</code>/<code>gE</code>         move back to end of previous word/WORD</li>
+<li><code>0</code>/<code>$</code>           move to start/end of line</li>
+<li><code>f&lt;char&gt;</code>/<code>F&lt;ch&gt;</code> move forward/back to next occurance of letter <code>&lt;char&gt;</code></li>
+<li><code>t&lt;char&gt;</code>/<code>T&lt;ch&gt;</code> move until next occurance of letter <code>&lt;char&gt;</code></li>
+<li><code>;</code>               repeat above, in same direction</li>
+<li><code>,</code>               repeat above, in reverse direction</li>
+<li><code>(</code>/<code>)</code>           jump to prev/next sentence</li>
+<li><code>{</code>/<code>}</code>           jump to prev/next paragraph</li>
+<li><code>[[</code>/<code>]]</code>         jump to prev/next code block (first column has <code>{</code>)</li>
+<li><code>gg</code>/<code>G</code>          jump to start/end of file</li>
+<li><code>H</code>/<code>M</code>/<code>L</code>       jump to windows top/middle/bottom</li>
+<li><code>&lt;C-d&gt;</code>, <code>&lt;C-u&gt;</code>  half page down/up</li>
+<li><code>&lt;C-f&gt;</code>, <code>&lt;C-b&gt;</code>  page forward, page back</li>
+<li><code>%</code>               jump to matching bracket <code>( ), [ ], { }</code>. Even if the cursor is not positioned on the bracket</li>
+<li><code>''</code>              jump back to line where cursor was before the latest jump</li>
+<li><code>'.</code>              jump to line where was last change</li>
+<li><code>:jumps</code>          see list of jumps</li>
+<li><code>g;</code> <code>g,</code>         go back/forward through list of changes (<code>:changes</code> see list of changes)</li>
+<li><code>C-i</code>             jump forward (in)</li>
+<li><code>C-o</code>             jump back (out)</li>
+<li><code>C-]</code>             jump to tag definition (works in help or with ctags)</li>
+<li><code>C-T</code>             jump back from C-] jump</li>
+<li><code>gf</code>              jump to file under cursor                     </li>
+<li><code>gd</code>/<code>gD</code>         jump to definition(first occurance)/global definition of word under cursor</li>
 </ul>
+<h2 id="scroll">Scroll</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>zz</td>
+<td>scroll the line with the cursor to the center of the screen</td>
+</tr>
+<tr>
+<td>zt</td>
+<td>scroll the line with the cursor to the top</td>
+</tr>
+<tr>
+<td>zb</td>
+<td>scroll the line with the cursor to the bottom</td>
+</tr>
+<tr>
+<td>C-y</td>
+<td>scroll up</td>
+</tr>
+<tr>
+<td>C-e</td>
+<td>scroll down</td>
+</tr>
+</tbody>
+</table>
+<h2 id="searching">Searching</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*</code></td>
+<td>find (and highlight) exact word under cursor (forward)</td>
+</tr>
+<tr>
+<td><code>#</code></td>
+<td>find (and highlight) exact word under cursor (backwards)</td>
+</tr>
+<tr>
+<td><code>g*</code></td>
+<td>find (and highlight) partial word under cursor (forward)</td>
+</tr>
+<tr>
+<td><code>g#</code></td>
+<td>find (and highlight) partial word under cursor (backwards)</td>
+</tr>
+<tr>
+<td><code>/text</code></td>
+<td>find text (forward)</td>
+</tr>
+<tr>
+<td><code>?text</code></td>
+<td>find text (backward)</td>
+</tr>
+<tr>
+<td><code>n</code></td>
+<td>next matching search pattern</td>
+</tr>
+<tr>
+<td><code>N</code></td>
+<td>previous matching search pattern</td>
+</tr>
+</tbody>
+</table>
 <h2 id="marks">Marks</h2>
-<p><strong>Auto marks</strong></p>
-<pre><code>``      last jump within current file
-`.      last change within current file
-`0      jump to position in last file edited (after exiting vim)
-`[ `]   start/end of last changed or yanked text
-`&lt; `&gt;   start/end of last visual selelction
+<pre><code>|               |                                                              |
+| ------------- | ---------------------------------------------------------    |
+| Auto marks    |                                                              |
+| ``            | last jump (cursor pos) within current file                   |
+| `.            | last edit (cursor pos) within current file                   |
+| `0            | jump to position in last file edited (after exiting vim)     |
+| `[ `]         | start/end of last changed or yanked text                     |
+| `&lt; `&gt;         | start/end of last visual selelction                          |
+| 'a            | go to line of mark a                                         |
+| `a            | go to cursor position of mark a                              |
+| Local marks   |                                                              |
+| ma            | put current postion in mark a                                |
+| Global marks  | Global marks use capital letters and are saved between files |
+| mA            | set global mark by m and capital letter                      |
 </code></pre>
 
-<p><strong>Local marks</strong></p>
-<ul>
-<li><code>mm</code> put mark in current cursor</li>
-<li><code>`m</code> jump to mark</li>
-</ul>
-<p><strong>Global marks</strong>
-Global marks are saved between files</p>
-<ul>
-<li><code>mM</code>      set global mark by m and capital letter</li>
-<li><code>`M</code>  jump to global mark M</li>
-</ul>
 <h2 id="registers">Registers</h2>
-<p>The command that can use a register looks like this : <code>"{register}command</code>. 
-For example, to a yank a current word into register 'a' run : <code>"ayiw</code> </p>
 <ul>
-<li><code>""</code>      unnamed (default) register. contains what was deleted/yanked
-            Commands <code>x</code>,<code>s</code>,<code>c{motion}</code>,<code>d{motion}</code> all set content of this register</li>
-<li><code>"0</code>      yank register. command <code>y{motion}</code> sets this register</li>
-<li><code>"0p</code>     paste from yank register</li>
-<li><code>:reg</code>    inspect registers</li>
-<li><code>"a</code>      named register a</li>
-<li><code>"/</code>      last search register</li>
-<li><code>":</code>      last Ex command</li>
-<li><code>"%</code>      name of current file</li>
-<li><code>&lt;C-r&gt;"</code>   Copy text from register in insert mode/command prompt</li>
-<li><code>"+y</code>     if clipboard enabled, puts visual selection from Vim into system clipboard</li>
-<li><code>:put +</code>  if clipboard enabled, puts system clipboard into Vim</li>
+<li>The command that can use a register looks like this : <code>"{register}command</code>.</li>
+<li>For example, to a yank a current word into register 'a' run : <code>"ayiw</code></li>
+<li>To yank a selected word into register b: 1) select a word 2) <code>"by</code></li>
+<li>To paste from register a: <code>"ap</code></li>
+<li>To paste from a default register while in insert mode: <code>&lt;C-r&gt;"</code></li>
+<li>To copy one register to another : <code>let @b=@a</code></li>
 </ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>""</code></td>
+<td>unnamed (default) register. contains what was deleted/yanked.</td>
+</tr>
+<tr>
+<td></td>
+<td>Commands <code>x</code>,<code>s</code>,<code>c{motion}</code>,<code>d{motion}</code> all set content of this register</td>
+</tr>
+<tr>
+<td><code>"0</code></td>
+<td>yank register. command <code>y{motion}</code> sets this register</td>
+</tr>
+<tr>
+<td><code>"0p</code></td>
+<td>paste from yank register</td>
+</tr>
+<tr>
+<td><code>:reg</code></td>
+<td>inspect registers</td>
+</tr>
+<tr>
+<td><code>"a</code></td>
+<td>named register a</td>
+</tr>
+<tr>
+<td><code>"/</code></td>
+<td>last search register</td>
+</tr>
+<tr>
+<td><code>":</code></td>
+<td>last Ex command</td>
+</tr>
+<tr>
+<td><code>"%</code></td>
+<td>name of current file</td>
+</tr>
+<tr>
+<td><code>&lt;C-r&gt;</code></td>
+<td>Use register in insert mode/command mode</td>
+</tr>
+<tr>
+<td><code>&lt;C-r&gt;&lt;C-w&gt;</code></td>
+<td>Put word under cursor in command mode</td>
+</tr>
+</tbody>
+</table>
 <h2 id="macros">Macros</h2>
 <ul>
 <li><code>qa</code>      Start recording macro into register a. Stop recroding with <code>q</code>. </li>
@@ -122,21 +260,54 @@ For example, to a yank a current word into register 'a' run : <code>"ayiw</code>
 <li><code>22@a</code>    execute macro on next 22 buffers (num of buffers can be less than 22)</li>
 <li><code>:%norm! @a</code>  To repeat macro stored in register 'a', on whole file: </li>
 </ul>
-<h2 id="completions">Completions</h2>
+<h2 id="insert-mode">Insert mode</h2>
 <ul>
-<li><code>C-n</code>/<code>C-p</code>   keyword completion completion (next/previous) uses words from open buffers</li>
-<li><code>C-x C-o</code>     tags(omni) completion</li>
-<li><code>C-x C-f</code>     filename completion</li>
+<li><code>C-o</code> execute single normal mode command</li>
+<li><code>C-[</code> go to normal mode</li>
+<li><code>C-w</code> delete word before the cursor</li>
+<li><code>C-u</code> delete current line</li>
+<li><code>C-r</code> paste from register</li>
+<li><code>C-r "</code> insert the last yank/delete</li>
+<li><code>C-r %</code> insert file name</li>
+<li><code>C-r /</code> insert last search item</li>
+<li><code>C-r :</code> insert last command</li>
+<li><code>C-x C-y</code> scroll up</li>
+<li><code>C-x C-e</code> scroll down</li>
 </ul>
-<h2 id="folding">Folding</h2>
+<p><strong>Autocompletion</strong></p>
 <ul>
-<li><code>zi</code>          switch folding on/off</li>
-<li><code>za</code>          toggle current fold open/close</li>
-<li><code>zo</code>/<code>zc</code>     open/close current fold</li>
-<li><code>zR</code>/<code>zC</code>     open/close all folds</li>
-<li><code>zv</code>          expand folds to reveal cursor</li>
+<li><code>C-n</code>     insert a text (next) from open files</li>
+<li><code>C-p</code>     insert a text (prev) from open files</li>
+<li><code>C-x C-f</code> insert a filename</li>
+<li><code>C-x C-]</code> insert from tags</li>
+<li><code>C-x C-o</code> insert from omnicompletion</li>
+<li><code>C-x C-l</code> insert a whole line</li>
+<li><code>C-x C-i</code> insert a text from included files</li>
 </ul>
-<hr />
+<h2 id="windows">Windows</h2>
+<p>All window commands can be activated with <code>&lt;C-w&gt;&lt;C-&lt;letter&gt;&gt;</code> or just <code>&lt;C-w&lt;letter&gt;&gt;</code></p>
+<ul>
+<li><code>:sp &lt;file&gt;</code>      split and load file into new window</li>
+<li><code>:sb #</code>           split other buffer to window</li>
+<li><code>:new</code>,<code>:vnew</code>    split and open new buffer</li>
+<li><code>:close</code>,<code>C-wq</code>,<code>:q</code>  close current window</li>
+<li><code>:only</code>,<code>C-wo</code>    close other windows</li>
+<li><code>C-ws</code>            split current window vertically </li>
+<li><code>C-wf</code>            edit file under cursor in a split window</li>
+<li><code>C-ww</code>            go to window below/right of current one</li>
+<li><code>C-w&lt;arrow&gt;</code>      go to window according to direction</li>
+<li><code>C-wp</code>            go to previous window</li>
+<li><code>C-wq</code>            close current window</li>
+<li><code>C-w+</code> <code>C-w-</code>     increase/decrease current window</li>
+<li><code>C-w&gt;</code> <code>C-w&lt;</code>     increase/decrease width</li>
+<li><code>C-w_</code>            set current window height to maximum</li>
+<li><code>C-|</code>             set current window width to maximum</li>
+<li><code>C-w=</code>            make all windows even size</li>
+<li><code>C-w K/J/H/L</code>     move current window to top/bottom/left/right</li>
+<li><code>C-wr</code>            rotate windows locations</li>
+<li><code>C-wx</code>            exchange locations of two neighbor windows</li>
+<li><code>C-wz</code>            close preview window</li>
+</ul>
 <h2 id="visual-mode">Visual mode</h2>
 <ul>
 <li><code>o</code>   - move to other end of marked area</li>
@@ -147,19 +318,29 @@ For example, to a yank a current word into register 'a' run : <code>"ayiw</code>
 </ol>
 </li>
 </ul>
-<h2 id="windows">Windows</h2>
-<p>All window commands can be activated with <code>&lt;C-w&gt;&lt;C-&lt;letter&gt;&gt;</code> or just <code>&lt;C-w&lt;letter&gt;&gt;</code></p>
+<h2 id="command-line-mode">Command-line mode</h2>
 <ul>
-<li><code>C-ws</code>        split current window vertically </li>
-<li><code>:sp &lt;file&gt;</code>  split and load file into new window</li>
-<li><code>:new</code>,<code>:vnew</code> split and open new buffer</li>
-<li><code>C-ww</code>        jump to prevoius window</li>
-<li><code>:clo</code> or <code>:q</code> close current window</li>
-<li><code>C-w+</code> <code>C-w-</code>  enlarge/decrease current window</li>
-<li><code>C-w_</code>        enlarge current window maximally</li>
-<li><code>C-w=</code>        make all windows even g</li>
-<li><code>C-wr</code>        rotate windows locations</li>
-<li><code>C-wx</code>        exchange locations of two neighbor windows</li>
+<li><code>C-b</code> begining of command line</li>
+<li><code>C-e</code> end of command line</li>
+<li><code>C-w</code> delete the word before cursor</li>
+<li><code>C-u</code> delete everything between cursor and begining of line</li>
+<li><code>C-v</code> enter special character. For example: pressing C-x results ^X. Is used when editing macros stored in registers</li>
+<li><code>q:</code> <code>:&lt;C-f&gt;</code> open buffer of command line</li>
+<li><code>q/</code>/<code>q?</code> open cmdline for search/backward</li>
+<li><code>C-c</code> exit the window</li>
+<li><code>@:</code>  repeate last Ex command</li>
+</ul>
+<hr />
+<h2 id="general-commands">General commands</h2>
+<ul>
+<li><code>&lt;C-l&gt;</code>   redraw screen</li>
+<li><code>&lt;C-g&gt;</code>   Shows filename, current line number, total lines in file, and % of file location</li>
+<li><code>&lt;S-r&gt;</code>   Enter REPLACE mode</li>
+<li><code>&lt;S-q&gt;</code>   Enter Ex mode</li>
+<li><code>=G</code>      indent till end of file</li>
+<li><code>J</code>       join a line bellow to current line</li>
+<li><code>gJ</code>      join a line bellow to current line (without space)</li>
+<li><code>gv</code>      reselect last visual selection</li>
 </ul>
 <h2 id="arglist">Arglist</h2>
 <ul>
@@ -184,6 +365,53 @@ For example, to a yank a current word into register 'a' run : <code>"ayiw</code>
 <li><code>[Q</code>,<code>:cfirst</code>    show first entry of quickfix list</li>
 <li><code>]Q</code>,<code>:clast</code>     show last entry of quickfix list</li>
 <li><code>:copen</code>,<code>:close</code> open/close quickfix list window</li>
+<li><code>:cw</code>             open if there are results</li>
+</ul>
+<h2 id="tags">Tags</h2>
+<ul>
+<li><code>C-]</code>             jump to tag definition</li>
+<li><code>C-w]</code>            open tag definition in split windiw</li>
+<li><code>C-w }</code>           open tag definition in preview window</li>
+<li><code>pc</code>              preview close</li>
+<li><code>C-wz</code>            preview close</li>
+<li><code>g]</code>              open a window of defintions of current tag</li>
+<li><code>tj &lt;expr&gt;</code>       open a window of definitions of tag <code>&lt;expr&gt;</code></li>
+<li><code>ptj &lt;expr&gt;</code>      open a preview window for tag <code>&lt;expr&gt;</code>. Use <code>ptn</code>, <code>ptp</code> to navigate</li>
+<li><code>:tag /&lt;expr&gt;</code>    search for tag</li>
+</ul>
+<h2 id="finding-file">Finding file</h2>
+<p><code>edit</code> and <code>find</code> commands are used to find and open an paritcular file.</p>
+<ul>
+<li><code>:e[dit]</code>  command to open files relatively to working directory.
+            Supports globs use. Example:</li>
+<li><code>:e **/*time&lt;Tab&gt;</code>   find recursively file with partial name "time" and open it</li>
+<li><code>:fin[d]</code> command is used to open files relatively to <code>path</code> locations.</li>
+<li><code>:set path?</code>  to inspect current path locations</li>
+<li>if <code>**</code> is added to path, then is is possible to use find like that:</li>
+<li><code>:fin *time&lt;Tab&gt;</code> to search for partial name recursively</li>
+</ul>
+<h2 id="folding">Folding</h2>
+<ul>
+<li><code>zf{moion}</code>       create fold</li>
+<li><code>zfa{</code>            create fold of a paragraph between curly braces ( a function block)</li>
+<li><code>zd</code>              fold delete</li>
+<li><code>zE</code>              folds eliminate (delete all folds in the document)</li>
+<li><code>zo</code>/<code>zc</code>         open/close current fold</li>
+<li><code>zO</code>/<code>zC</code>         open/close current and nested folds</li>
+<li><code>za</code>              toggle open/close for current fold </li>
+<li><code>zA</code>              toggle open/close for current and nested folds </li>
+<li><code>zr</code>              reveal all folds one level</li>
+<li><code>zR</code>              reveal all folds completely</li>
+<li><code>zm</code>              fold more on all folds</li>
+<li><code>zM</code>              fold completely all folds</li>
+<li><code>zn</code>              folds none (open all folds in file)</li>
+<li><code>zN</code>              folds normal (return prevoius folding)  </li>
+<li><code>zi</code>              switch folding on/off</li>
+<li><code>zv</code>              expand folds to reveal cursor</li>
+<li><code>[z</code>,<code>]z</code>         go to start/end of current fold</li>
+<li><code>zj</code>,<code>zk</code>         go to next/previous fold</li>
+<li><code>:mkview</code>         save created folds</li>
+<li><code>:loadview</code>       load previously created folds</li>
 </ul>
 <h2 id="vimdiff">Vimdiff</h2>
 <p>Open two windows with two buffers (each buffer may be unnamed)</p>
@@ -192,11 +420,27 @@ For example, to a yank a current word into register 'a' run : <code>"ayiw</code>
 <li><code>:windo diffoff</code>  stop diff</li>
 <li><code>[c</code>,<code>]c</code>     jump back and forward between changes</li>
 <li><code>:diffget</code>,<code>:diffput</code> resolve differences between files</li>
+<li><code>:diffupdate</code> rescan changes</li>
 </ul>
 <h2 id="clipboard">Clipboard</h2>
 <ul>
+<li>In Linux (X11) there two types of clipboards:<ul>
+<li>Selection (<code>"*</code>) - populated by selection. Paste with middle mouse.</li>
+<li>Clipboard (<code>"+</code>) - populated with CTRL-C. Paste with CTRL-V or right mouse option.</li>
+<li>In Windows only clipboard exists, so both registers have same values</li>
+</ul>
+</li>
+<li>In order to use the registers Vim needs to have <code>+clipboard</code> enabled (check it with <code>:echo has('clipboard')</code>.<ul>
+<li>'clipboard' is usually enabled in gvim (vim-gtk in Ubuntu) and not enabled in terminal vim</li>
+<li><code>"+y</code> puts visual selection from Vim into system clipboard (paste it with CTRL-V)</li>
+<li><code>"+p</code> puts CTR-C text from system into Vim</li>
+</ul>
+</li>
+<li>Otherwise you can use terminal copy/paste capability:<ul>
 <li>In order to copy to clipboard from vim hold "Shift" while selecting with mouse. Now paste qith middle button</li>
 <li>In order to paste form clipboard into vim use "shift+middle click" or "Shift+Insert"</li>
+</ul>
+</li>
 </ul>
 <hr />
 <h2 id="search-substitute-and-vim-regex">Search, substitute and vim regex</h2>
@@ -242,6 +486,7 @@ If range is not specified then operate on whole file</p>
 <li><code>:g/^$/ d</code>    delete all empty lines in a file</li>
 <li><code>:g/^$/,/./-j</code> reduce multiple blank lines to a single blank</li>
 <li><code>:g/^Error/ . w &gt;&gt; errors.txt</code> Find all lines starting with error and append them to errors.txt</li>
+<li><code>:g/ml/s/:e/:sp/</code> substitute <code>:e</code> with <code>:sp</code> for each line that contains "ml"</li>
 <li><code>:g//cmd</code>     use previous expression again</li>
 </ul>
 <h3 id="vimgrep">vimgrep</h3>
@@ -251,7 +496,7 @@ If range is not specified then operate on whole file</p>
 <li><code>:vim /expr/ %</code>       Search in current file</li>
 <li><code>:vim /expr/ *</code>       Search in all files in current dir</li>
 <li><code>:vim /expr/ *.cpp</code>   Search in multiple cpp files in current dir</li>
-<li><code>:vim /expr/ **</code>      Search recursivly in all files</li>
+<li><code>:vim /expr/ **</code>      Search recursivly in all files (under the path)</li>
 <li><code>:vim /expr/ **/*.h</code>    Search recursivly in all header files</li>
 <li><code>:vim /expr/ ##</code>      search inside files in arglist</li>
 </ul>
@@ -270,33 +515,30 @@ If range is not specified then operate on whole file</p>
 <li>Or search recursivly : <code>:grep -R /expr/ *</code></li>
 <li><code>:grep -R pattern *.c</code></li>
 <li><code>map &lt;F3&gt; :execute " grep -srnw --binary-files=without-match --exclude-dir=.git --exclude-from=exclude.list . -e " . expand("&lt;cword&gt;") . " " &lt;bar&gt; cwindow&lt;CR&gt;</code></li>
-<li>you can fill file exclude.list with file patterns to exclude from search, such as "*~" – all files ending in a '~' character</li>
+<li>you can fill file exclude.list with file patterns to exclude from search, such as <code>*~</code> – all files ending in a '~' character</li>
 </ul>
 <p>"grep" and "vimgrep" fill the "quickfix list", which can be opened with :cw or :copen, and is a list shared between ALL windows.</p>
 <hr />
 <h2 id="netrw-commands">netrw commands</h2>
 <ul>
-<li><code>e .</code> go to file system view of current directory</li>
-<li><code>o</code>   open file in a split</li>
-<li><code>%</code>   create a new file</li>
+<li><code>:e .</code>    go to file system view of current directory</li>
+<li><code>:Vex</code>    open explorer verticaly</li>
+<li><code>o</code>       open file in a split</li>
+<li><code>p</code>       preview file. (open in split)</li>
+<li><code>S-p</code>     open file in previous window</li>
+<li><code>-</code>       go up one directory</li>
+<li><code>%</code>       create a new file</li>
+<li><code>d</code>       make a directory</li>
+<li><code>&lt;del&gt;</code>   remove file/directory</li>
+<li><code>S-d</code>     remove direcory</li>
+<li><code>s</code>       select sorting style</li>
+<li><code>i</code>       toggle files details/structure views</li>
+<li><code>I</code>       toggle help view</li>
+<li><code>gh</code>      show/hide dot files</li>
+<li><code>mb</code>      bookmark current dir</li>
+<li><code>gb</code>      go to previously bookmarked directory</li>
+<li><code>u</code>       change to recently visited directory</li>
 </ul>
-<h2 id="general-commands">General commands</h2>
-<ul>
-<li><code>C-l</code>     redraw screen</li>
-<li><code>C-g</code>     Shows filename, current line number, total lines in file, and % of file location</li>
-</ul>
-<h2 id="command-line-mode">Command-line mode</h2>
-<ul>
-<li><code>C-b</code> begining of command line</li>
-<li><code>C-e</code> end of command line</li>
-<li><code>C-w</code> delete the word before cursor</li>
-<li><code>C-u</code> delete everything between cursor and begining of line</li>
-<li><code>q:</code> <code>C-f</code> open buffer of command line</li>
-<li><code>q/</code>/<code>q?</code> open cmdline for search/backward</li>
-<li><code>C-c</code> exit the window</li>
-<li><code>@:</code>  repeate last Ex command</li>
-</ul>
-<hr />
 <h2 id="useful-settings">Useful settings</h2>
 <ul>
 <li>set completeopt=menuone,noinsert</li>
@@ -304,30 +546,44 @@ If range is not specified then operate on whole file</p>
 <li>set ft=xml</li>
 <li>set relativenumber</li>
 </ul>
-<hr />
 <h2 id="tips">Tips</h2>
 <ul>
-<li><code>gn</code>  go to next search result and visual highlight it</li>
+<li><code>enew</code>,<code>new</code>,<code>vnew</code>    open a new unnamed buffer (current window, split horisontally, split vertically)</li>
+<li><code>gd</code>      jump to first occurance of a word under cursor</li>
+<li><code>gn</code>      go to next search result and visual highlight it</li>
+<li><code>gu</code>/<code>gU</code> everything to lowercase/uppercase</li>
 <li>switch between two chars: cursor on the first one, and then <code>xp</code></li>
 <li>switch between two lines: cursor of first one, and then <code>ddp</code></li>
+<li><code>v$r*</code>    replace till end of line with <code>*</code></li>
+<li><code>i</code>   Operator 'i' works to operate on inner block. <ul>
+<li><code>yiw</code> copy inner word (block=word)</li>
+<li><code>di"</code> delete in quotes (block in between quotes)</li>
+<li><code>ci{</code> change in curly braces (block is between curly braces)</li>
+<li><code>dip</code> delete in paragraph (lines together)</li>
+<li><code>cit</code> change inside tags (for example html tags)</li>
+<li><code>&gt;iB</code> indent inner block</li>
+</ul>
+</li>
+<li><code>a</code>       Operator 'a' can do the same but operates on 'outer' block</li>
+<li><code>]p</code>      Paste and auto-indent</li>
 <li><code>:9t.</code>    copy line 9 to cursor position</li>
 <li><code>:so %</code>   treat temp file as vimrc, source it so configuration become active</li>
-<li>Switch between .c and .h file</li>
-</ul>
-<pre><code class="sh">    map &lt;F4&gt; :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,&lt;CR&gt;`
-</code></pre>
-
-<ul>
+<li><code>:r!ls</code>   Add output of shell command into current buffer </li>
+<li><code>:%!ls</code>   Fill current buffer with output of the shell command</li>
+<li><code>:.!seq 0 255 | printf '\%02x' | fmt -w 50</code>   put a result of compex command instead of current line</li>
+<li><code>:w !bash</code>    run lines of cuurent buffer on external command (bash)</li>
+<li><code>!./%</code>    execute current buffer with shell (a buffer must be saved as a file and set as executable)</li>
+<li><code>!!</code>      repeate the last shell command</li>
 <li>
-<p>Put output of shell command in buffer 
-<code>:%!ls</code></p>
+<p><code>.!!</code>     write the result of last shell command in current line</p>
 </li>
 <li>
 <p>Comment multiple lines</p>
 <ol>
-<li>C-v to select the lines</li>
-<li>Use substitute expression <code>:s/^/#/</code></li>
-<li>to uncomment: <code>:s/^#//</code></li>
+<li>Position a cursor at start of line where comment required</li>
+<li><code>C-v</code> to enter to visual block and go down as needed</li>
+<li><code>I</code> to enter insert mode, enter the comment <code>#</code> and ESC to normal mode</li>
+<li>to uncomment, do the same but instead entering insert mode, just press <code>x</code> to remove comments</li>
 </ol>
 </li>
 <li>
@@ -339,23 +595,34 @@ If range is not specified then operate on whole file</p>
 </ul>
 </li>
 <li>
-<p>Delete all buffers</p>
+<p>Delete all buffers except current</p>
 <ul>
 <li><code>:%bd|e#</code> %bd = delete all buffers. e# = open the last buffer for editing.</li>
 <li><code>command! BufOnly silent! execute "%bd|e#|bd#"</code></li>
 </ul>
 </li>
-<li>Save file as a root<ul>
+<li>
+<p>Save file as a root</p>
+<ul>
 <li><code>w !sudo tee % &gt; /dev/null</code>   put a content of current buffer into <code>%</code> (current file) using sudo</li>
 </ul>
 </li>
-<li>Find and replace in project wide<ol>
+<li>
+<p>Find and replace in project wide</p>
+<ol>
 <li>Put all files of the project in arglist <code>:args *.cpp</code></li>
 <li>Find all reqiured changes in the project <code>:vimgrep /expr/g ##</code></li>
 <li>Qargs command puts all files from quicklist into arglist</li>
 <li>Substitude in all files <code>argdo %s/expr/str/ge</code></li>
 <li>Save all files <code>:argdo w</code></li>
 </ol>
+</li>
+<li>
+<p>Switch between .c and .h file</p>
+<ul>
+<li>switch from header to c : <code>:e %:r.cpp</code> and vice versa <code>:e %:r.h</code></li>
+<li><code>map &lt;F4&gt; :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,&lt;CR&gt;</code></li>
+</ul>
 </li>
 </ul>
 </div>

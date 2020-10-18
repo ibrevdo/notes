@@ -1,58 +1,102 @@
 # Vim 
 
 ---------------------------------
-## Jumps
+## Movement
+
 Jumps commands include: searches (and repetitions), substitutions, parenthesses jumping,
 paragraphs and sentences, locations inside window, opening another file
 
-* `(`/`)`   jump to prev/next sentence
-* `{`/`}`   jump to prev/next paragraph
-* `gg`/`G`  jump to start/end of file
-* `H`/`M`/`L` jump to windows top/middle/bottom
-* `%`       jump to matching parenthess (works with `(,[,{` )
-* `C-i`     jump forward (in)
-* `C-o`     jump back (out)
-* `C-]`     jump to tag definition (works in help or with ctags)
-* `:jumps`  see list of jumps
-* `g;` `g,` go back/forward through list of changes (`:changes` see list of changes)
+* `w`/`W`           move to start of next word/WORD (the delimeter of WORD is space)
+* `b`/`B`           move back to start of previous word/WORD
+* `e`/`E`           move to end of next word/WORD
+* `ge`/`gE`         move back to end of previous word/WORD
+* `0`/`$`           move to start/end of line
+* `f<char>`/`F<ch>` move forward/back to next occurance of letter `<char>`
+* `t<char>`/`T<ch>` move until next occurance of letter `<char>`
+* `;`               repeat above, in same direction
+* `,`               repeat above, in reverse direction
+* `(`/`)`           jump to prev/next sentence
+* `{`/`}`           jump to prev/next paragraph
+* `[[`/`]]`         jump to prev/next code block (first column has `{`)
+* `gg`/`G`          jump to start/end of file
+* `H`/`M`/`L`       jump to windows top/middle/bottom
+* `<C-d>`, `<C-u>`  half page down/up
+* `<C-f>`, `<C-b>`  page forward, page back
+* `%`               jump to matching bracket `( ), [ ], { }`. Even if the cursor is not positioned on the bracket
+* `''`              jump back to line where cursor was before the latest jump
+* `'.`              jump to line where was last change
+* `:jumps`          see list of jumps
+* `g;` `g,`         go back/forward through list of changes (`:changes` see list of changes)
+* `C-i`             jump forward (in)
+* `C-o`             jump back (out)
+* `C-]`             jump to tag definition (works in help or with ctags)
+* `C-T`             jump back from C-] jump
+* `gf`              jump to file under cursor                     
+* `gd`/`gD`         jump to definition(first occurance)/global definition of word under cursor
+
+## Scroll
+
+|     |                                                             |
+|-----|-------------------------------------------------------------|
+| zz  | scroll the line with the cursor to the center of the screen |
+| zt  | scroll the line with the cursor to the top                  |
+| zb  | scroll the line with the cursor to the bottom               |
+| C-y | scroll up                                                   |
+| C-e | scroll down                                                 |
+
+## Searching
+
+|         |                                                                       |
+| ------- | --------------------------------------------------------------------- |
+| `*`     | find (and highlight) exact word under cursor (forward)                |
+| `#`     | find (and highlight) exact word under cursor (backwards)              |
+| `g*`    | find (and highlight) partial word under cursor (forward)              |
+| `g#`    | find (and highlight) partial word under cursor (backwards)            |
+| `/text` | find text (forward)                                                   |
+| `?text` | find text (backward)                                                  |
+| `n`     | next matching search pattern                                          |
+| `N`     | previous matching search pattern                                      |
 
 ## Marks
-**Auto marks**
 
 ```
-``      last jump within current file
-`.      last change within current file
-`0      jump to position in last file edited (after exiting vim)
-`[ `]   start/end of last changed or yanked text
-`< `>   start/end of last visual selelction
+|               |                                                              |
+| ------------- | ---------------------------------------------------------    |
+| Auto marks    |                                                              |
+| ``            | last jump (cursor pos) within current file                   |
+| `.            | last edit (cursor pos) within current file                   |
+| `0            | jump to position in last file edited (after exiting vim)     |
+| `[ `]         | start/end of last changed or yanked text                     |
+| `< `>         | start/end of last visual selelction                          |
+| 'a            | go to line of mark a                                         |
+| `a            | go to cursor position of mark a                              |
+| Local marks   |                                                              |
+| ma            | put current postion in mark a                                |
+| Global marks  | Global marks use capital letters and are saved between files |
+| mA            | set global mark by m and capital letter                      |
 ```
-**Local marks**
-
-* `mm` put mark in current cursor
-* `` `m `` jump to mark
-
-**Global marks**
-Global marks are saved between files
-
-* `mM`      set global mark by m and capital letter
-* `` `M ``  jump to global mark M
 
 ## Registers
-The command that can use a register looks like this : `"{register}command`. 
-For example, to a yank a current word into register 'a' run : `"ayiw` 
+* The command that can use a register looks like this : `"{register}command`.
+* For example, to a yank a current word into register 'a' run : `"ayiw`
+* To yank a selected word into register b: 1) select a word 2) `"by`
+* To paste from register a: `"ap`
+* To paste from a default register while in insert mode: `<C-r>"`
+* To copy one register to another : `let @b=@a`
 
-* `""`      unnamed (default) register. contains what was deleted/yanked
-            Commands `x`,`s`,`c{motion}`,`d{motion}` all set content of this register
-* `"0`      yank register. command `y{motion}` sets this register
-* `"0p`     paste from yank register
-* `:reg`    inspect registers
-* `"a`      named register a
-* `"/`      last search register
-* `":`      last Ex command
-* `"%`      name of current file
-* `<C-r>"`   Copy text from register in insert mode/command prompt
-* `"+y`     if clipboard enabled, puts visual selection from Vim into system clipboard
-* `:put +`  if clipboard enabled, puts system clipboard into Vim
+|              |                                                                            |
+| --------     | -------------------------------------------------------------------------- |
+| `""`         | unnamed (default) register. contains what was deleted/yanked.              |
+|              | Commands `x`,`s`,`c{motion}`,`d{motion}` all set content of this register  |
+| `"0`         | yank register. command `y{motion}` sets this register                      |
+| `"0p`        | paste from yank register                                                   |
+| `:reg`       | inspect registers                                                          |
+| `"a`         | named register a                                                           |
+| `"/`         | last search register                                                       |
+| `":`         | last Ex command                                                            |
+| `"%`         | name of current file                                                       |
+| `<C-r>`      | Use register in insert mode/command mode                                   |
+| `<C-r><C-w>` | Put word under cursor in command mode                                      |
 
 ## Macros
 
@@ -62,21 +106,55 @@ For example, to a yank a current word into register 'a' run : `"ayiw`
 * `22@a`    execute macro on next 22 buffers (num of buffers can be less than 22)
 * `:%norm! @a`  To repeat macro stored in register 'a', on whole file: 
 
-## Completions
+## Insert mode
+* `C-o` execute single normal mode command
+* `C-[` go to normal mode
+* `C-w` delete word before the cursor
+* `C-u` delete current line
+* `C-r` paste from register
+*   `C-r "` insert the last yank/delete
+*   `C-r %` insert file name
+*   `C-r /` insert last search item
+*   `C-r :` insert last command
+* `C-x C-y` scroll up
+* `C-x C-e` scroll down
 
-* `C-n`/`C-p`   keyword completion completion (next/previous) uses words from open buffers
-* `C-x C-o`     tags(omni) completion
-* `C-x C-f`     filename completion
+**Autocompletion**
 
-## Folding
+* `C-n`     insert a text (next) from open files
+* `C-p`     insert a text (prev) from open files
+* `C-x C-f` insert a filename
+* `C-x C-]` insert from tags
+* `C-x C-o` insert from omnicompletion
+* `C-x C-l` insert a whole line
+* `C-x C-i` insert a text from included files
 
-* `zi`          switch folding on/off
-* `za`          toggle current fold open/close
-* `zo`/`zc`     open/close current fold
-* `zR`/`zC`     open/close all folds
-* `zv`          expand folds to reveal cursor
 
-----------------------------------
+## Windows
+
+All window commands can be activated with `<C-w><C-<letter>>` or just `<C-w<letter>>`
+
+* `:sp <file>`      split and load file into new window
+* `:sb #`           split other buffer to window
+* `:new`,`:vnew`    split and open new buffer
+* `:close`,`C-wq`,`:q`  close current window
+* `:only`,`C-wo`    close other windows
+* `C-ws`            split current window vertically 
+* `C-wf`            edit file under cursor in a split window
+* `C-ww`            go to window below/right of current one
+* `C-w<arrow>`      go to window according to direction
+* `C-wp`            go to previous window
+* `C-wq`            close current window
+* `C-w+` `C-w-`     increase/decrease current window
+* `C-w>` `C-w<`     increase/decrease width
+* `C-w_`            set current window height to maximum
+* `C-|`             set current window width to maximum
+* `C-w=`            make all windows even size
+* `C-w K/J/H/L`     move current window to top/bottom/left/right
+* `C-wr`            rotate windows locations
+* `C-wx`            exchange locations of two neighbor windows
+* `C-wz`            close preview window
+
 ## Visual mode
 * `o`   - move to other end of marked area
 * `gv`  reselect last visual selection
@@ -84,20 +162,29 @@ For example, to a yank a current word into register 'a' run : `"ayiw`
     1. `vi}`    highlight inner {} block
     2. `va)`    highlight outer () block
 
-## Windows
+## Command-line mode
+* `C-b` begining of command line
+* `C-e` end of command line
+* `C-w` delete the word before cursor
+* `C-u` delete everything between cursor and begining of line
+* `C-v` enter special character. For example: pressing C-x results ^X. Is used when editing macros stored in registers
+* `q:` `:<C-f>` open buffer of command line
+* `q/`/`q?` open cmdline for search/backward
+* `C-c` exit the window
+* `@:`  repeate last Ex command
 
-All window commands can be activated with `<C-w><C-<letter>>` or just `<C-w<letter>>`
+----------------------------------
 
-* `C-ws`        split current window vertically 
-* `:sp <file>`  split and load file into new window
-* `:new`,`:vnew` split and open new buffer
-* `C-ww`        jump to prevoius window
-* `:clo` or `:q` close current window
-* `C-w+` `C-w-`  enlarge/decrease current window
-* `C-w_`        enlarge current window maximally
-* `C-w=`        make all windows even g
-* `C-wr`        rotate windows locations
-* `C-wx`        exchange locations of two neighbor windows
+## General commands
+* `<C-l>`   redraw screen
+* `<C-g>`   Shows filename, current line number, total lines in file, and % of file location
+* `<S-r>`   Enter REPLACE mode
+* `<S-q>`   Enter Ex mode
+* `=G`      indent till end of file
+* `J`       join a line bellow to current line
+* `gJ`      join a line bellow to current line (without space)
+* `gv`      reselect last visual selection
+
 
 ## Arglist
 
@@ -121,6 +208,52 @@ All window commands can be activated with `<C-w><C-<letter>>` or just `<C-w<lett
 * `[Q`,`:cfirst`    show first entry of quickfix list
 * `]Q`,`:clast`     show last entry of quickfix list
 * `:copen`,`:close` open/close quickfix list window
+* `:cw`             open if there are results
+
+## Tags
+* `C-]`             jump to tag definition
+* `C-w]`            open tag definition in split windiw
+* `C-w }`           open tag definition in preview window
+* `pc`              preview close
+* `C-wz`            preview close
+* `g]`              open a window of defintions of current tag
+* `tj <expr>`       open a window of definitions of tag `<expr>`
+* `ptj <expr>`      open a preview window for tag `<expr>`. Use `ptn`, `ptp` to navigate
+* `:tag /<expr>`    search for tag
+
+## Finding file
+`edit` and `find` commands are used to find and open an paritcular file.
+
+* `:e[dit]`  command to open files relatively to working directory.
+            Supports globs use. Example:
+* `:e **/*time<Tab>`   find recursively file with partial name "time" and open it
+* `:fin[d]` command is used to open files relatively to `path` locations.
+* `:set path?`  to inspect current path locations
+* if `**` is added to path, then is is possible to use find like that:
+* `:fin *time<Tab>` to search for partial name recursively
+
+## Folding
+
+* `zf{moion}`       create fold
+* `zfa{`            create fold of a paragraph between curly braces ( a function block)
+* `zd`              fold delete
+* `zE`              folds eliminate (delete all folds in the document)
+* `zo`/`zc`         open/close current fold
+* `zO`/`zC`         open/close current and nested folds
+* `za`              toggle open/close for current fold 
+* `zA`              toggle open/close for current and nested folds 
+* `zr`              reveal all folds one level
+* `zR`              reveal all folds completely
+* `zm`              fold more on all folds
+* `zM`              fold completely all folds
+* `zn`              folds none (open all folds in file)
+* `zN`              folds normal (return prevoius folding)  
+* `zi`              switch folding on/off
+* `zv`              expand folds to reveal cursor
+* `[z`,`]z`         go to start/end of current fold
+* `zj`,`zk`         go to next/previous fold
+* `:mkview`         save created folds
+* `:loadview`       load previously created folds
 
 ## Vimdiff
 
@@ -130,10 +263,20 @@ Open two windows with two buffers (each buffer may be unnamed)
 * `:windo diffoff`  stop diff
 * `[c`,`]c`     jump back and forward between changes
 * `:diffget`,`:diffput` resolve differences between files
+* `:diffupdate` rescan changes
 
 ## Clipboard
-* In order to copy to clipboard from vim hold "Shift" while selecting with mouse. Now paste qith middle button
-* In order to paste form clipboard into vim use "shift+middle click" or "Shift+Insert"
+* In Linux (X11) there two types of clipboards:
+    * Selection (`"*`) - populated by selection. Paste with middle mouse.
+    * Clipboard (`"+`) - populated with CTRL-C. Paste with CTRL-V or right mouse option.
+    * In Windows only clipboard exists, so both registers have same values
+* In order to use the registers Vim needs to have `+clipboard` enabled (check it with `:echo has('clipboard')`.
+    * 'clipboard' is usually enabled in gvim (vim-gtk in Ubuntu) and not enabled in terminal vim
+    * `"+y` puts visual selection from Vim into system clipboard (paste it with CTRL-V)
+    * `"+p` puts CTR-C text from system into Vim
+* Otherwise you can use terminal copy/paste capability:
+    * In order to copy to clipboard from vim hold "Shift" while selecting with mouse. Now paste qith middle button
+    * In order to paste form clipboard into vim use "shift+middle click" or "Shift+Insert"
 
 --------------------------------
 ## Search, substitute and vim regex
@@ -182,6 +325,7 @@ If range is not specified then operate on whole file
 * `:g/^$/ d`    delete all empty lines in a file
 * `:g/^$/,/./-j` reduce multiple blank lines to a single blank
 * `:g/^Error/ . w >> errors.txt` Find all lines starting with error and append them to errors.txt
+* `:g/ml/s/:e/:sp/` substitute `:e` with `:sp` for each line that contains "ml"
 * `:g//cmd`     use previous expression again
 
 ### vimgrep
@@ -192,7 +336,7 @@ vimgrep - use it to search in small group of files (like a local project)
 * `:vim /expr/ %`       Search in current file
 * `:vim /expr/ *`       Search in all files in current dir
 * `:vim /expr/ *.cpp`   Search in multiple cpp files in current dir
-* `:vim /expr/ **`      Search recursivly in all files
+* `:vim /expr/ **`      Search recursivly in all files (under the path)
 * `:vim /expr/ **/*.h`    Search recursivly in all header files
 * `:vim /expr/ ##`      search inside files in arglist
 
@@ -212,32 +356,31 @@ grep - use on large amounts of files
 * Or search recursivly : `:grep -R /expr/ *`
 * `:grep -R pattern *.c`
 * `map <F3> :execute " grep -srnw --binary-files=without-match --exclude-dir=.git --exclude-from=exclude.list . -e " . expand("<cword>") . " " <bar> cwindow<CR>`
-* you can fill file exclude.list with file patterns to exclude from search, such as "*~" – all files ending in a '~' character
+* you can fill file exclude.list with file patterns to exclude from search, such as `*~` – all files ending in a '~' character
 
 "grep" and "vimgrep" fill the "quickfix list", which can be opened with :cw or :copen, and is a list shared between ALL windows.
 
 
 -----------------------------------
 ## netrw commands
-* `e .` go to file system view of current directory
-* `o`   open file in a split
-* `%`   create a new file
+* `:e .`    go to file system view of current directory
+* `:Vex`    open explorer verticaly
+* `o`       open file in a split
+* `p`       preview file. (open in split)
+* `S-p`     open file in previous window
+* `-`       go up one directory
+* `%`       create a new file
+* `d`       make a directory
+* `<del>`   remove file/directory
+* `S-d`     remove direcory
+* `s`       select sorting style
+* `i`       toggle files details/structure views
+* `I`       toggle help view
+* `gh`      show/hide dot files
+* `mb`      bookmark current dir
+* `gb`      go to previously bookmarked directory
+* `u`       change to recently visited directory
 
-## General commands
-* `C-l`     redraw screen
-* `C-g`     Shows filename, current line number, total lines in file, and % of file location
-
-## Command-line mode
-* `C-b` begining of command line
-* `C-e` end of command line
-* `C-w` delete the word before cursor
-* `C-u` delete everything between cursor and begining of line
-* `q:` `C-f` open buffer of command line
-* `q/`/`q?` open cmdline for search/backward
-* `C-c` exit the window
-* `@:`  repeate last Ex command
-
-----------------------------------
 
 ## Useful settings
 
@@ -246,41 +389,59 @@ grep - use on large amounts of files
 * set ft=xml
 * set relativenumber
 
----------------------------------
 ## Tips
 
-* `gn`  go to next search result and visual highlight it
+* `enew`,`new`,`vnew`    open a new unnamed buffer (current window, split horisontally, split vertically)
+* `gd`      jump to first occurance of a word under cursor
+* `gn`      go to next search result and visual highlight it
+* `gu`/`gU` everything to lowercase/uppercase
 * switch between two chars: cursor on the first one, and then `xp`
 * switch between two lines: cursor of first one, and then `ddp`
+* `v$r*`    replace till end of line with `*`
+* `i`   Operator 'i' works to operate on inner block. 
+    * `yiw` copy inner word (block=word)
+    * `di"` delete in quotes (block in between quotes)
+    * `ci{` change in curly braces (block is between curly braces)
+    * `dip` delete in paragraph (lines together)
+    * `cit` change inside tags (for example html tags)
+    * `>iB` indent inner block
+* `a`       Operator 'a' can do the same but operates on 'outer' block
+* `]p`      Paste and auto-indent
 * `:9t.`    copy line 9 to cursor position
 * `:so %`   treat temp file as vimrc, source it so configuration become active
-* Switch between .c and .h file
-
-```sh
-    map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>`
-```
-
-* Put output of shell command in buffer 
-`:%!ls`
+* `:r!ls`   Add output of shell command into current buffer 
+* `:%!ls`   Fill current buffer with output of the shell command
+* `:.!seq 0 255 | printf '\%02x' | fmt -w 50`   put a result of compex command instead of current line
+* `:w !bash`    run lines of cuurent buffer on external command (bash)
+* `!./%`    execute current buffer with shell (a buffer must be saved as a file and set as executable)
+* `!!`      repeate the last shell command
+* `.!!`     write the result of last shell command in current line
 
 * Comment multiple lines
-    1. C-v to select the lines
-    2. Use substitute expression `:s/^/#/`
-    3. to uncomment: `:s/^#//`
+    1. Position a cursor at start of line where comment required
+    2. `C-v` to enter to visual block and go down as needed
+    3. `I` to enter insert mode, enter the comment `#` and ESC to normal mode
+    4. to uncomment, do the same but instead entering insert mode, just press `x` to remove comments
 
 * Delete blank lines
     * `g/^$/d`
     * `:g`  will execute a command on lines which match a regex. 
             The regex is 'blank line' and the command is `:d` (delete)
 
-* Delete all buffers
+* Delete all buffers except current
     * `:%bd|e#` %bd = delete all buffers. e# = open the last buffer for editing.
     * `command! BufOnly silent! execute "%bd|e#|bd#"`
+
 * Save file as a root
     * `w !sudo tee % > /dev/null`   put a content of current buffer into `%` (current file) using sudo
+
 * Find and replace in project wide
     1. Put all files of the project in arglist `:args *.cpp`
     2. Find all reqiured changes in the project `:vimgrep /expr/g ##`
     3. Qargs command puts all files from quicklist into arglist
     4. Substitude in all files `argdo %s/expr/str/ge`
     5. Save all files `:argdo w`
+
+* Switch between .c and .h file
+    * switch from header to c : `:e %:r.cpp` and vice versa `:e %:r.h`
+    * `map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>`

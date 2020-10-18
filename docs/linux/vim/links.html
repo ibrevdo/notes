@@ -26,21 +26,20 @@
 <div class="toc">
 <ul>
 <li><a href="#vim-links">Vim Links</a><ul>
+<li><a href="#resources">Resources</a></li>
 <li><a href="#guides">Guides</a><ul>
+<li><a href="#core">Core</a></li>
 <li><a href="#vim-regular-expressions">Vim regular expressions</a></li>
+<li><a href="#tags">Tags</a></li>
+<li><a href="#vim-for-cc">Vim for C/C++</a></li>
+<li><a href="#vim-for-python">Vim for python</a></li>
+<li><a href="#colorschemes">Colorschemes</a></li>
 <li><a href="#vimdiff">Vimdiff</a></li>
 <li><a href="#configuration-examples">Configuration examples</a></li>
 </ul>
 </li>
-<li><a href="#tips">Tips</a></li>
 <li><a href="#videos">Videos</a></li>
-<li><a href="#blogs">Blogs</a></li>
-<li><a href="#books">Books</a></li>
-<li><a href="#plugins">Plugins</a><ul>
-<li><a href="#colorscheme">Colorscheme</a></li>
-<li><a href="#vimcast-watching">Vimcast watching</a></li>
-</ul>
-</li>
+<li><a href="#plugins">Plugins</a></li>
 </ul>
 </li>
 </ul>
@@ -53,118 +52,140 @@
         <p>&#60;linux/vim&#62;</p>    
     </div>
     <h1 id="vim-links">Vim Links</h1>
-<h2 id="guides">Guides</h2>
+<h2 id="resources">Resources</h2>
 <ul>
-<li>Vim wiki                      http://vim.wikia.com/wiki/Vim_Tips_Wiki</li>
-<li>Vim cheat list                http://www.tuxfiles.org/linuxhelp/vimcheat.html</li>
-<li>Vim cheat sheet               http://www.lagmonster.org/docs/vi2.html</li>
-<li>How I learned to love Vim     http://devblog.famundo.com/articles/2007/03/08/ho<a class="wikilink" href="http://devblog.famundo.com/articles/2007/03/08/how-i-learned-to-love-vim-and-ditched-eclipse">w</a><a class="wikilink" href="-i-learned-to-love-vim-and-ditched-eclipse.html">I Learned to Love Vim and Ditched Eclipse</a></li>
-<li>Vim tutorial                  http://blog.interlinked.org/tutorials/vim_tutorial.html</li>
-<li>Computer hope Vim guide       http://www.computerhope.com/unix/vim.htm</li>
-<li>Learn Vimscript the hard way  http://learnvimscriptthehardway.stevelosh.com/</li>
-<li>Vim as an IDE                 http://clipboarded.blogspot.com/2007/10/vim-as-ide.html</li>
-<li>Using Vim as an IDE all in one  http://vim.wikia.com/wiki/Using_vim_as_an_IDE_all_in_one</li>
-<li>Vim for C programmers         http://www.linuxjournal.com/magazine/vim-c-programmers?page#0,0</li>
-<li>Vim - Python Wiki             https://wiki.python.org/moin/Vim</li>
-<li>Real Python - Vim and Python A Match made in heaven https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/)</li>
-<li>Registers                     https://stackoverflow.com/questions/1497958/how-do-i-use-vim-registers</li>
-<li>VIM documentations - Change text    http://vimdoc.sourceforge.net/htmldoc/change.html</li>
-<li>What is your most productive shortcut   https://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim</li>
+<li><a href="http://derekwyatt.org/vim/tutorials/index.html">Vim tutorial videos by Derek Wyatt</a></li>
+<li><a href="http://vimcasts.org">Vim casts</a></li>
+<li><a href="http://vim.wikia.com/wiki/Vim_Tips_Wiki">Vim wiki</a></li>
+<li><a href="http://dailyvim.tumblr.com/">daily vim - devotional</a></li>
+<li><a href="https://pragprog.com/book/dnvim/practical-vim">Book: Practical VIM</a></li>
+<li><a href="https://vimawesome.com/">Vim Awesome</a></li>
+<li><a href="https://www.vi-improved.org/plugins/">#vim recomended plugins</a></li>
+</ul>
+<h2 id="guides">Guides</h2>
+<h3 id="core">Core</h3>
+<ul>
+<li><a href="http://vimdoc.sourceforge.net/htmldoc/change.html">VIM documentations - Change text</a></li>
+<li><a href="http://blog.interlinked.org/tutorials/vim_tutorial.html">Vim tutorial</a></li>
+<li><a href="http://www.computerhope.com/unix/vim.htm">Computer hope Vim guide</a></li>
+<li><a href="https://linuxgazette.net/152/srinivasan.html">Vim advanced tutorial</a></li>
+<li><a href="https://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim">Most productive shortcut</a></li>
+<li><a href="http://www.viemu.com/a-why-vi-vim.html">http://www.viemu.com/a-why-vi-vim.html</a></li>
+<li><a href="https://www.freecodecamp.org/news/learn-linux-vim-basic-features-19134461ab85/">https://www.freecodecamp.org/news/learn-linux-vim-basic-features-19134461ab85/</a></li>
+<li>[Power of G    (g=global in command line searches and substitutions)][http://vim.wikia.com/wiki/Power_of_g]</li>
+<li><a href="http://vim.wikia.com/wiki/Best_Vim_Tips">Bestvim tips</a></li>
+<li><a href="http://stackoverflow.com/questions/8750275/vim-super-fast-navigation">Super fast vim navigation</a></li>
+<li><a href="http://vim.wikia.com/wiki/Using_marks">Using marks</a></li>
+<li><a href="https://vim.fandom.com/wiki/Easier_buffer_switching">Easier buffer switching</a></li>
+<li><a href="http://stackoverflow.com/questions/16082991/vim-switching-between-files-rapidly-using-vanilla-vim-no-plugins">switching between files rapidly using vanilla vim no plugins</a></li>
+<li><a href="http://vim.wikia.com/wiki/Switch_between_Vim_window_splits_easily">http://vim.wikia.com/wiki/Switch_between_Vim_window_splits_easily</a></li>
+<li><a href="http://stackoverflow.com/questions/1737163/vim-traversing-text-in-insert-mode">http://stackoverflow.com/questions/1737163/vim-traversing-text-in-insert-mode</a></li>
+<li><a href="https://vim.fandom.com/wiki/Folding">Folding</a></li>
+<li><a href="https://stackoverflow.com/questions/1497958/how-do-i-use-vim-registers">Registers</a></li>
+<li><a href="http://vim.wikia.com/wiki/Ranges">Vim ranges</a></li>
+<li><a href="http://vim.wikia.com/wiki/Macros">Vim macros</a></li>
+<li><a href="http://stackoverflow.com/questions/3776117/vim-what-is-the-difference-between-the-remap-noremap-nnoremap-and-vnoremap-ma">remap-noremap-etc</a></li>
+<li><a href="http://learnvimscriptthehardway.stevelosh.com/">Learn Vimscript the hard way</a></li>
+<li><a href="http://stackoverflow.com/questions/3997078/how-to-paste-yanked-text-into-vim-command-line">command line manipulation</a></li>
+<li><a href="http://vim.wikia.com/wiki/Repeat_last_colon_command">Repeat last colon command</a></li>
+<li><a href="https://stackoverflow.com/questions/32898923/navigating-filesystem-in-vim-find-vs-edit">Navigating file system: find vs edit</a></li>
+<li><a href="https://stackoverflow.com/questions/3554719/find-a-file-via-recursive-directory-search-in-vim">Find a file using wildcards or search in buffer</a></li>
+<li><a href="https://stackoverflow.com/questions/23976517/vim-find-command-how-to-list-all-matched-files">Vim find tricks</a></li>
+<li><a href="https://vi.stackexchange.com/questions/">Vim path option</a></li>
+<li><a href="http://vim.wikia.com/wiki/Find_in_files_within_Vim">Find in files within VIM</a></li>
+<li><a href="https://stackoverflow.com/questions/11975174/how-do-i-search-the-open-buffers-in-vim">Search text in open buffers</a></li>
+<li><a href="https://vimways.org/2018/death-by-a-thousand-files/">Death by a thousand files</a></li>
+<li><a href="https://vimways.org/2018/you-should-be-using-tags-in-vim/">You should be using tags in vim</a></li>
+<li><a href="https://www.ele.uri.edu/faculty/vetter/Other-stuff/vi/vimtips.html">Vim tips</a></li>
+<li><a href="https://gist.github.com/ajh17/a8f5f194079818b99199">The power of Vim. How to use make and quickfix</a></li>
+<li><a href="https://vi.stackexchange.com/questions/2858/navigating-code-projects-without-using-external-commands">Include search and definition search</a></li>
 </ul>
 <h3 id="vim-regular-expressions">Vim regular expressions</h3>
 <ul>
-<li>http://vimregex.com/</li>
+<li><a href="http://vimregex.com/">http://vimregex.com/</a></li>
+</ul>
+<h3 id="tags">Tags</h3>
+<ul>
+<li><a href="https://andrew.stwrt.ca/posts/vim-ctags/">ctags tricks</a></li>
+<li><a href="https://www.linux.com/learn/vim-tips-working-external-commands">working with external commands</a></li>
+<li><a href="http://stackoverflow.com/questions/501585/how-can-you-use-python-in-vim">use python interpreter in VIM</a></li>
+<li><a href="http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks">vim and ctags</a></li>
+<li><a href="https://stackoverflow.com/questions/934233/cscope-or-ctags-why-choose-one-over-the-other">cscope vs ctags</a></li>
+<li><a href="https://stackoverflow.com/questions/36613241/using-vim-to-find-definition-when-navigation-around-usr-include-files">find definition in a header file</a></li>
+<li><a href="https://tbaggery.com/">Effortless ctags with git</a></li>
+</ul>
+<h3 id="vim-for-cc">Vim for C/C++</h3>
+<ul>
+<li><a href="http://clipboarded.blogspot.com/2007/10/vim-as-ide.html">Vim as an IDE</a></li>
+<li><a href="http://vim.wikia.com/wiki/Using_vim_as_an_IDE_all_in_one">Using Vim as an IDE all in one</a></li>
+<li><a href="http://www.linuxjournal.com/magazine/vim-c-programmers?page#0,0">Vim for C programmers</a></li>
+<li><a href="https://stackoverflow.com/questions/736701/class-function-names-highlighting-in-vim">https://stackoverflow.com/questions/736701/class-function-names-highlighting-in-vim</a></li>
+</ul>
+<h3 id="vim-for-python">Vim for python</h3>
+<ul>
+<li><a href="https://wiki.python.org/moin/Vim">Vim - Python Wiki</a></li>
+<li><a href="https://stackoverflow.com/questions/18948491/running-python-code-in-vim">https://stackoverflow.com/questions/18948491/running-python-code-in-vim</a></li>
+<li><a href="https://www.linuxquestions.org/questions/linux-software-2/python-ide-4175680123/">https://www.linuxquestions.org/questions/linux-software-2/python-ide-4175680123/</a></li>
+<li><a href="https://vi.stackexchange.com/questions/5110/quickfix-support-for-python-tracebacks">https://vi.stackexchange.com/questions/5110/quickfix-support-for-python-tracebacks</a></li>
+<li><a href="http://www.held.org.il/blog/2011/02/configuring-ctags-for-python-and-vim/">http://www.held.org.il/blog/2011/02/configuring-ctags-for-python-and-vim/</a></li>
+<li><a href="https://stackoverflow.com/questions/47948545/ctags-vim-and-python-code">https://stackoverflow.com/questions/47948545/ctags-vim-and-python-code</a></li>
+<li><a href="https://stackoverflow.com/questions/23915741/navigating-python-modules-with-ctags-in-vim">https://stackoverflow.com/questions/23915741/navigating-python-modules-with-ctags-in-vim</a></li>
+</ul>
+<h3 id="colorschemes">Colorschemes</h3>
+<ul>
+<li><a href="https://vimcolorschemes.com/most-popular">vimcolorschemes</a></li>
+<li><a href="https://github.com/NLKNguyen/papercolor-theme">papercolor-theme</a></li>
+<li><a href="https://github.com/danilo-augusto/vim-afterglow">afterglow</a></li>
 </ul>
 <h3 id="vimdiff">Vimdiff</h3>
 <ul>
-<li>merge changes using vimdiff     https://stackoverflow.com/questions/27832630/merge-changes-using-vimdiff)</li>
-<li>vimdiff as git merge tool       https://www.rosipov.com/blog/use-vimdiff-as-git-mergetool/</li>
+<li><a href="https://stackoverflow.com/questions/27832630/merge-changes-using-vimdiff">merge changes using vimdiff</a></li>
+<li><a href="https://www.rosipov.com/blog/use-vimdiff-as-git-mergetool/">vimdiff as git merge tool</a></li>
 </ul>
 <h3 id="configuration-examples">Configuration examples</h3>
 <ul>
 <li><a href="https://github.com/VundleVim/Vundle.vim/wiki/Examples">https://github.com/VundleVim/Vundle.vim/wiki/Examples</a></li>
-<li>Alexey Shmalko config <a href="https://github.com/rasendubi/dotfiles">https://github.com/rasendubi/dotfiles</a></li>
-<li>vim dotfiles example <a href="https://github.com/zlahham/dotfiles/tree/master/linux">https://github.com/zlahham/dotfiles/tree/master/linux</a></li>
-</ul>
-<h2 id="tips">Tips</h2>
-<ul>
-<li>Most productive VIM shortcut https://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim</li>
-<li>http://stackoverflow.com/questions/3776117/vim-what-is-the-difference-between-the-remap-noremap-nnoremap-and-vnoremap-ma</li>
-<li>http://www.viemu.com/a-why-vi-vim.html</li>
-<li>http://vim.runpaint.org/basics/</li>
-<li><a href="http://vim.wikia.com/wiki/Best_Vim_Tips">Bestvim tips</a></li>
-<li><a href="http://stackoverflow.com/questions/16082991/vim-switching-between-files-rapidly-using-vanilla-vim-no-plugins">switching between files rapidly using vanilla vim no plugins</a></li>
-<li><a href="https://andrew.stwrt.ca/posts/vim-ctags/">ctags tricks</a></li>
-<li><a href="https://www.linux.com/learn/vim-tips-working-external-commands">working with external commands</a></li>
-<li><a href="http://stackoverflow.com/questions/501585/how-can-you-use-python-in-vim">use python interpreter in VIM</a></li>
-<li>http://superuser.com/questions/132029/how-do-you-reload-your-vimrc-file-without-restarting-vim</li>
-<li>http://stackoverflow.com/questions/526858/how-do-i-make-vim-do-normal-bash-like-tab-completion-for-file-names</li>
-<li>http://stackoverflow.com/questions/1737163/vim-traversing-text-in-insert-mode</li>
-<li>http://vim.wikia.com/wiki/Switch_between_Vim_window_splits_easily</li>
-<li>Super fast vim navigation         http://stackoverflow.com/questions/8750275/vim-super-fast-navigation</li>
-<li>using marks                       http://vim.wikia.com/wiki/Using_marks</li>
-<li>command line manipulation         http://stackoverflow.com/questions/3997078/how-to-paste-yanked-text-into-vim-command-line</li>
-<li>vim and ctags                     http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks</li>
-<li>Vim ranges                        http://vim.wikia.com/wiki/Ranges</li>
-<li>Repeat last colon command         http://vim.wikia.com/wiki/Repeat_last_colon_command</li>
-<li>Power of G    (g=global in command line searches and substitutions)   http://vim.wikia.com/wiki/Power_of_g</li>
-<li>Vim macro                         http://vim.wikia.com/wiki/Macros</li>
-<li>Navigating file system: find vs edit  https://stackoverflow.com/questions/32898923/navigating-filesystem-in-vim-find-vs-edit</li>
-<li>Find a file using wildcards or search in buffer   https://stackoverflow.com/questions/3554719/find-a-file-via-recursive-directory-search-in-vim</li>
-<li>Find in files within VIM          http://vim.wikia.com/wiki/Find_in_files_within_Vim</li>
-<li>Vim path option                   https://vi.stackexchange.com/questions/</li>
-<li>find definition in a header file https://stackoverflow.com/questions/36613241/using-vim-to-find-definition-when-navigation-around-usr-include-files</li>
-<li>cscope vs ctags                   https://stackoverflow.com/questions/934233/cscope-or-ctags-why-choose-one-over-the-other</li>
+<li><a href="https://github.com/rasendubi/dotfiles">Alexey Shmalko config</a></li>
+<li><a href="https://github.com/zlahham/dotfiles/tree/master/linux">vim dotfiles example</a></li>
 </ul>
 <h2 id="videos">Videos</h2>
 <ul>
-<li>Vim casts                         http://vimcasts.org/episodes/page/7/</li>
-<li>Vim tutorial videos by Derek Wyatt    http://derekwyatt.org/vim/tutorials/index.html</li>
-<li>vim + tmux - OMG!Code             https://www.youtube.com/watch?v#5r6yzFEXajQ</li>
-<li>Damian Conway, "More Instantly Better Vim" - OSCON 2013   https://www.youtube.com/watch?v#aHm36-na4-4</li>
-<li>How to Do 90% of What Plugins Do (With Just Vim   https://www.youtube.com/watch?v#XA2WjJbmmoM </li>
-<li>VIM - Bram                        https://www.youtube.com/watch?v=ayc_qpB-93o&amp;feature=youtu.be</li>
-</ul>
-<h2 id="blogs">Blogs</h2>
-<ul>
-<li>daily vim - devotional            http://dailyvim.tumblr.com/</li>
-</ul>
-<h2 id="books">Books</h2>
-<ul>
-<li>Practical VIM                     https://pragprog.com/book/dnvim/practical-vim</li>
+<li><a href="https://www.youtube.com/watch?v#5r6yzFEXajQ">vim + tmux - OMG!Code</a></li>
+<li><a href="https://www.youtube.com/watch?v#aHm36-na4-4">Damian Conway, "More Instantly Better Vim" - OSCON 2013</a></li>
+<li><a href="https://www.youtube.com/watch?v#XA2WjJbmmoM">How to Do 90% of What Plugins Do (With Just Vim</a></li>
+<li><a href="https://www.youtube.com/watch?v=ayc_qpB-93o&amp;feature=youtu.be">VIM - Bram</a></li>
+<li><a href="https://www.youtube.com/watch?v=JFr28K65-5E">Leeren. Vim:Tutorial on Costumization and Configuration</a></li>
 </ul>
 <h2 id="plugins">Plugins</h2>
 <ul>
-<li>Vim Awesome                       https://vimawesome.com/</li>
-<li>Vundle                            https://github.com/VundleVim/Vundle.vim</li>
-<li>unimpired                         https://github.com/tpope/vim-unimpaired</li>
-<li>YouCompleteMe                     http://valloric.github.io/YouCompleteMe/</li>
-<li>Python mode                       https://github.com/python-mode/python-mode)</li>
-<li>Easy tags                         https://github.com/xolox/vim-easytags<ul>
-<li>Easy tags tips                  https://codeyarns.com/2015/03/21/easytags-plugin-for-vim/</li>
+<li><a href="https://github.com/VundleVim/Vundle.vim">Vundle</a></li>
+<li><a href="https://github.com/tpope/vim-unimpaired">unimpired</a></li>
+<li><a href="https://github.com/justinmk/vim-dirvish">vim-dirvish</a></li>
+<li><a href="https://github.com/francoiscabrol/ranger.vim">ranger.vim</a></li>
+<li><a href="https://github.com/junegunn/fzf">fzf - fuzzy finder</a></li>
+<li><a href="https://github.com/yegappan/mru">mru</a></li>
+<li><a href="https://github.com/scrooloose/nerdtree">NERD Tree</a></li>
+<li><a href="https://github.com/itchyny/lightline.vim">lightline</a></li>
+<li><a href="https://github.com/Yggdroot/indentLine">indentLine</a></li>
+<li><a href="https://github.com/scrooloose/syntastic">syntastic</a></li>
+<li><a href="http://vim.sourceforge.net/scripts/script.php?script_id=213">c.vim plugin for C\C++ programming</a></li>
+<li><a href="https://github.com/justmao945/vim-clang">vim-clang</a></li>
+<li><a href="https://github.com/octol/vim-cpp-enhanced-highlight">vim cpp enhanced (C++)</a></li>
+<li><a href="https://www.vim.org/scripts/script.php?script_id=4293">STL syntax: Improved C++11/14</a></li>
+<li><a href="https://github.com/rhysd/vim-clang-format">vim-clang-format</a></li>
+<li><a href="http://valloric.github.io/YouCompleteMe/">YouCompleteMe</a></li>
+<li><a href="https://github.com/python-mode/python-mode">Python mode</a></li>
+<li><a href="https://github.com/craigemery/vim-autotag">vim-autotag</a></li>
+<li><a href="https://github.com/majutsushi/tagbar">Tag bar</a></li>
+<li><a href="https://github.com/xolox/vim-easytags">Easy tags</a><ul>
+<li><a href="https://codeyarns.com/2015/03/21/easytags-plugin-for-vim/">Easy tags tips</a></li>
 </ul>
 </li>
-<li>NERD Tree                         https://github.com/scrooloose/nerdtree</li>
-<li>Lightline                         https://github.com/itchyny/lightline.vim</li>
-<li>Syntastic                         https://github.com/scrooloose/syntastic</li>
-<li>Tag bar                           https://github.com/majutsushi/tagbar</li>
-<li>c.vim plugin for C\C++ programming  http://vim.sourceforge.net/scripts/script.php?script_id=213</li>
-<li>vim syntax extra (C)              https://code.visualstudio.com/docs/setup/linux</li>
-<li>vim cpp enhanced (C++)            https://github.com/octol/vim-cpp-enhanced-highlight</li>
-<li>STL syntax: Improved C++11/14     https://www.vim.org/scripts/script.php?script_id=4293</li>
-<li>FastFold                          https://github.com/Konfekt/FastFold</li>
-<li>vimwiki                           https://github.com/vimwiki/vimwiki<ul>
-<li>vimwiki cheetsheet              http://thedarnedestthing.com/vimwiki%20cheatsheet</li>
+<li><a href="https://github.com/Konfekt/FastFold">FastFold</a></li>
+<li><a href="https://github.com/vimwiki/vimwiki">vimwiki</a><ul>
+<li><a href="http://thedarnedestthing.com/vimwiki%20cheatsheet">vimwiki cheetsheet</a></li>
 </ul>
 </li>
-</ul>
-<h3 id="colorscheme">Colorscheme</h3>
-<ul>
-<li>afterglow                         https://github.com/danilo-augusto/vim-afterglow</li>
-</ul>
-<h3 id="vimcast-watching">Vimcast watching</h3>
-<ul>
-<li>Episode 7 - Working with windows  http://vimcasts.org/episodes/working-with-windows/</li>
 </ul>
 </div>
 

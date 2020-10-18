@@ -1,6 +1,9 @@
 #!/bin/bash
 
+SRC=/home/mago/git/notes
 SITE=docs
+
+cd $SRC
 
 if [ -d $SITE ]; then
     rm -r $SITE/*

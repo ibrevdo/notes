@@ -1,7 +1,3 @@
----
-order: 1
-
----
 
 # C language and Linux programming
 
@@ -70,12 +66,6 @@ order: 1
 
 -------------------------------------------------------
 ## D-Bus
-* https://dbus.freedesktop.org/doc/dbus-tutorial.html
-* https://stackoverflow.com/questions/572283/what-is-the-underlying-transport-for-d-bus
+* [Dbus-tutorial](https://dbus.freedesktop.org/doc/dbus-tutorial.html)
+* [What is the underlying transport for d-bus](https://stackoverflow.com/questions/572283/what-is-the-underlying-transport-for-d-bus)
 
--------------------------------------------------------
-## Linux Kernel module programming
-* linux kernel module cheetsheet <https://github.com/cirosantilli/linux-kernel-module-cheat>
-
-## Labs and training
-* <https://devarea.com/labs/#.XchNbOZfiV5>

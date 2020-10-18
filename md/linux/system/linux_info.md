@@ -1,14 +1,9 @@
----
-order: 2
----
 
-Linux info
-================================
+# Linux info
 
-File system
---------------------------------
+## File system
 
-#### Logs
+### Logs
 
 The following files contain Linux logs. These files contain info from last boot
 
@@ -17,22 +12,21 @@ The following files contain Linux logs. These files contain info from last boot
 * <code>/var/log/syslog</code>      logs everything, except auth related messages 
 
 
-Links 
---------------------------------
+## Links 
 
-#### General
+### General
 
 [Learning the Linux File System](https://www.youtube.com/watch?v=HIXzJ3Rz9po)
 
 
-#### Init scripts
+### Init scripts
 
 [udev](https://wiki.gentoo.org/wiki/Udev)
 [Console kit](https://freedesktop.org/wiki/Software/ConsoleKit/)
 [Console kit 2](https://github.com/ConsoleKit2/ConsoleKit2 )
 
 
-#### Programming
+### Programming
 
 [ABI](https://en.wikipedia.org/wiki/Application_binary_interface)
 

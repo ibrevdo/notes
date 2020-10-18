@@ -4,6 +4,7 @@
 ## C/C++
 * [[c_cpp/c_linux_programming.md]]
 * [[c_cpp/glibc.md]]
+* [[c_cpp/linux_kernel.md]]
 * [[c_cpp/cpp.md]]
 * [[c_cpp/projects.md]] 
 

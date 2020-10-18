@@ -3,25 +3,25 @@
 
 ## System
 
-* initd                                 <https://en.wikipedia.org/wiki/Init>
-* systemd                               <https://en.wikipedia.org/wiki/Systemd>
-* services, runlevels and rcd scripts   <https://www.linux.com/news/introduction-services-runlevels-and-rcd-scripts>
-* udev                                  <https://en.wikipedia.org/wiki/Udev>
-* eudev  (@toread)                      <https://wiki.gentoo.org/wiki/Eudev>
-* Linux File system                     <http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/usr.html>
-* Wayland (display server) (@toread)
-    * <https://en.wikipedia.org/wiki/Wayland_(display_server_protocol)>
-* Shells                                <https://docs.slackware.com/howtos:cli_manual:shells>
-* Bash                                  <https://docs.slackware.com/slackbook:bash>
-* Users and Groups                      <https://wiki.archlinux.org/index.php/users_and_groups>
-* Linux - overview of memory management
-    * <http://www.linuxhowtos.org/System/LinuxMemoryManagement.htm>
-* Change root   <https://wiki.archlinux.org/index.php/Change_root>
-* gshadow       <https://www.man7.org/linux/man-pages/man5/gshadow.5.html>
-* Linux PAM     <https://en.wikipedia.org/wiki/Linux_PAM>
-* Securing applications on Linux with PAM <https://www.linuxjournal.com/article/5940>
-* The Linux-PAM System Administarator Guide <http://www.linux-pam.org/Linux-PAM-html/Linux-PAM_SAG.html>
-* [What is D-Bus practically useful for?](https://unix.stackexchange.com/questions/604258/what-is-d-bus-practically-useful-for)
+|                                           |                                                                                        |
+|-------------------------------------------| ---------------------------------------------------------------------------------------|
+| initd                                     | <https://en.wikipedia.org/wiki/Init>                                                   |
+| systemd                                   | <https://en.wikipedia.org/wiki/Systemd>                                                |
+| services, runlevels and rcd scripts       | <https://www.linux.com/news/introduction-services-runlevels-and-rcd-scripts>           |
+| udev                                      | <https://en.wikipedia.org/wiki/Udev>                                                   |
+| eudev  (@toread)                          | <https://wiki.gentoo.org/wiki/Eudev>                                                   |
+| Linux File system                         | <http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/usr.html>                     |
+| Wayland (display server) (@toread)        | <https://en.wikipedia.org/wiki/Wayland_(display_server_protocol)>                      |
+| Shells                                    | <https://docs.slackware.com/howtos:cli_manual:shells>                                  |
+| Bash                                      | <https://docs.slackware.com/slackbook:bash>                                            |
+| Users and Groups                          | <https://wiki.archlinux.org/index.php/users_and_groups>                                |
+| Linux - overview of memory management     | <http://www.linuxhowtos.org/System/LinuxMemoryManagement.htm>                          |
+| Change root                               | <https://wiki.archlinux.org/index.php/Change_root>                                     |
+| gshadow                                   | <https://www.man7.org/linux/man-pages/man5/gshadow.5.html>                             |
+| Linux PAM                                 | <https://en.wikipedia.org/wiki/Linux_PAM>                                              |
+| Securing applications on Linux with PAM   | <https://www.linuxjournal.com/article/5940>                                            |
+| The Linux-PAM System Administarator Guide | <http://www.linux-pam.org/Linux-PAM-html/Linux-PAM_SAG.html>                           |
+| What is D-Bus practically useful for?     | <https://unix.stackexchange.com/questions/604258/what-is-d-bus-practically-useful-for> |
 
 
 ### Bash
@@ -30,6 +30,7 @@
     * <https://www.quora.com/What-is-bash_profile-and-what-is-its-use>
 * Difference betwwen nohup disown and &
     * <https://unix.stackexchange.com/questions/3886/difference-between-nohup-disown-and>
+* About glob <https://mywiki.wooledge.org/glob>
 
 ### dotfiles examples
 * dotfiles + install script <https://github.com/maguec/dotfiles>
@@ -76,6 +77,7 @@
 * Embedded Linux practical labs         https://bootlin.com/blog/beagle-labs
 * Unix philosphy                        https://en.wikipedia.org/wiki/Unix_philosophy
 * Cross Linux from scratch              http://trac.clfs.org/
+* General cli guids                     https://shapeshed.com/posts/
 
 -----------------------------------
 ## Development

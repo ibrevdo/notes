@@ -97,6 +97,8 @@ Return to calling script :
 returning non-zero considered an error return value
 
 -------------------------
+## Shortcuts
+* `Alt-.`   paste last command argument
 
 ## Examples
 

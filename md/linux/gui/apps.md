@@ -10,6 +10,7 @@
 | clementine  | music player           | amarok fork | qt5, gstreamer     |
 | calibre     | ebook reader organizer |             |                    |
 | libreoffice | office suite           |             |                    |
+| stellarium  | planetarium            |             |                    |
 
 ## KDE Applications
 

@@ -66,6 +66,8 @@
 ## Best Linux applications of 2017
   * https://www.linuxquestions.org/questions/2017-linuxquestions-org-members-choice-awards-126/
 
+## Planetarium
+* [stellarium](https://www.youtube.com/watch?v=hQtLH0FafrI)
 ## Games
 * [Colonization ]( http://store.steampowered.com/app/327400/Sid_Meiers_Colonization_Classic/)
 * [100-best-free-and-high-quality-linux-games ]( http://www.cahilig.net/2011/07/29/100-best-free-and-high-quality-linux-games)

@@ -1,7 +1,3 @@
----
-order: 1
-
----
 
 # Math
 
@@ -16,9 +12,9 @@ order: 1
 
 
 ## Articles
-* Fibonacci numbers               https://en.wikipedia.org/wiki/Fibonacci_number
+* [Fibonacci numbers](https://en.wikipedia.org/wiki/Fibonacci_number)
 
 
 ## Videos
-* Powers of ten                   https://www.youtube.com/watch?v=0fKBhvDjuy0
+* [Powers of ten](https://www.youtube.com/watch?v=0fKBhvDjuy0)
 
