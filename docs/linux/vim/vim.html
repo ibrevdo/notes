@@ -28,11 +28,13 @@
 <li><a href="#vim">Vim</a><ul>
 <li><a href="#movement">Movement</a></li>
 <li><a href="#scroll">Scroll</a></li>
+<li><a href="#operations">Operations</a></li>
 <li><a href="#searching">Searching</a></li>
 <li><a href="#marks">Marks</a></li>
 <li><a href="#registers">Registers</a></li>
 <li><a href="#macros">Macros</a></li>
 <li><a href="#insert-mode">Insert mode</a></li>
+<li><a href="#insert-completion-mode">Insert completion mode</a></li>
 <li><a href="#windows">Windows</a></li>
 <li><a href="#visual-mode">Visual mode</a></li>
 <li><a href="#command-line-mode">Command-line mode</a></li>
@@ -129,6 +131,28 @@ paragraphs and sentences, locations inside window, opening another file</p>
 </tr>
 </tbody>
 </table>
+<h2 id="operations">Operations</h2>
+<ul>
+<li><code>i</code>           enter insert mode before cursor pos</li>
+<li><code>a</code>           enter insert mode after cursor pos</li>
+<li><code>I</code>           enter insert mode at the start of the line</li>
+<li><code>A</code>           enter insert mode at the end of the line</li>
+<li><code>o</code>,<code>O</code>       enter new line after/before current and stay in insert mode</li>
+<li><code>x</code>,<code>X</code>       delete single character at/before cursor position</li>
+<li><code>r</code>           replace single character at cursor position</li>
+<li><code>R</code>           enter replace mode</li>
+<li><code>["x]d{motion}</code>   delete from cursor pos till the "motion" [put deleted text into register x]</li>
+<li>examples:<ul>
+<li><code>dw</code>      delete till the start of next word</li>
+<li><code>dt}</code>     delete till next occurance of }</li>
+<li><code>dd</code>      delete whole line</li>
+<li><code>D</code>       delete from cursor pos till end of line</li>
+</ul>
+</li>
+<li><code>["x]c{motion}</code>   change from cursor pos till the "motion" [put deleted text into register x]. (like delete but stay in insert mode)</li>
+<li><code>["x]y{motion}</code>   yank (copy) from cursor pos till the "motion" [put yanked text into register x]</li>
+<li><code>["x]p</code>,<code>["x]P</code>   paste yanked/deleted text after/before the cursor pos [take a text from register x]</li>
+</ul>
 <h2 id="searching">Searching</h2>
 <table>
 <thead>
@@ -262,6 +286,7 @@ paragraphs and sentences, locations inside window, opening another file</p>
 </ul>
 <h2 id="insert-mode">Insert mode</h2>
 <ul>
+<li><code>C-a</code> paste last inserted text</li>
 <li><code>C-o</code> execute single normal mode command</li>
 <li><code>C-[</code> go to normal mode</li>
 <li><code>C-w</code> delete word before the cursor</li>
@@ -274,15 +299,32 @@ paragraphs and sentences, locations inside window, opening another file</p>
 <li><code>C-x C-y</code> scroll up</li>
 <li><code>C-x C-e</code> scroll down</li>
 </ul>
-<p><strong>Autocompletion</strong></p>
+<h2 id="insert-completion-mode">Insert completion mode</h2>
 <ul>
-<li><code>C-n</code>     insert a text (next) from open files</li>
-<li><code>C-p</code>     insert a text (prev) from open files</li>
-<li><code>C-x C-f</code> insert a filename</li>
-<li><code>C-x C-]</code> insert from tags</li>
-<li><code>C-x C-o</code> insert from omnicompletion</li>
-<li><code>C-x C-l</code> insert a whole line</li>
-<li><code>C-x C-i</code> insert a text from included files</li>
+<li>This is a sub mode of insert mode. You can enter it by typing <code>C-x</code> and one of <code>C-x</code> commands while in insert mode.</li>
+<li>While in completion mode, use <code>C-n</code>/<code>C-p</code> to choose next/previous sugestion.</li>
+<li>When completion is active you can use <code>C-y</code> to accept currently selected entry.</li>
+<li>Or you can use <code>C-e</code> to end the completion and go back to original text.</li>
+<li><code>C-n</code>/<code>C-p</code> "complete any word" complete keyword under cursor according to <code>complete</code> option.<ul>
+<li><code>.,w,b,u,t,i</code> complete order: current buffer, open windows, loaded buffers, tags, included files</li>
+</ul>
+</li>
+<li><code>C-x C-u</code> "user defined completion" complete according to a function specified in <code>completefunc</code> option</li>
+<li><code>C-x C-f</code> complete a filename (the filenames are searched according to <code>path</code> option)</li>
+<li><code>C-x C-]</code> complete from tags</li>
+<li><code>C-x C-o</code> "omni completion" complete according to a function specified in <code>omnifunc</code> option<ul>
+<li><code>C</code> requires a tags file. Example: <code>% ctags -R -f ~/.vim/systags /usr/include</code> </li>
+<li>add the file to <code>tags</code> option: <code>set tags+=~/.vim/systags</code></li>
+<li>When omni completion is used after "." or "-&gt;", it attempts to recognize the type of variable and suggest only valid members.</li>
+</ul>
+</li>
+<li><code>C-x C-l</code> complete whole lines</li>
+<li><code>C-x C-n</code> complete word from current buffer (search next)</li>
+<li><code>C-x C-p</code> complete word from current buffer (search previous)</li>
+<li><code>C-x C-i</code> complete from included files (the files are search according to <code>path</code> option</li>
+<li><code>C-x C-d</code> complete definitions and macros. from included files (the files are search according to <code>path</code> option</li>
+<li><code>C-x C-k</code> complete from dictionary. Uses a list of words from <code>dictionary</code> option</li>
+<li><code>C-x C-s</code> complete with spelling suggestion (Possible to use <code>C-x s</code> because <code>C-s</code> suspends display in many terminals. Use <code>C-q</code> to unsuspend)</li>
 </ul>
 <h2 id="windows">Windows</h2>
 <p>All window commands can be activated with <code>&lt;C-w&gt;&lt;C-&lt;letter&gt;&gt;</code> or just <code>&lt;C-w&lt;letter&gt;&gt;</code></p>
@@ -360,12 +402,14 @@ paragraphs and sentences, locations inside window, opening another file</p>
 </ul>
 <h2 id="quickfix-list">Quickfix list</h2>
 <ul>
-<li><code>[q</code>,<code>:cprev</code>     show prev entry of quickfix list</li>
-<li><code>]q</code>,<code>:cnext</code>     show next entry of quickfix list</li>
-<li><code>[Q</code>,<code>:cfirst</code>    show first entry of quickfix list</li>
-<li><code>]Q</code>,<code>:clast</code>     show last entry of quickfix list</li>
-<li><code>:copen</code>,<code>:close</code> open/close quickfix list window</li>
-<li><code>:cw</code>             open if there are results</li>
+<li><code>:copen</code>,<code>:close</code> open/close quickfix window</li>
+<li><code>:ccl</code>            close quickfix window</li>
+<li><code>:cw</code>             open if there are results / close it otherwise</li>
+<li><code>:cc [nr]</code>        go to result number (go to same result if number omitted)</li>
+<li><code>:cp</code>,<code>[q</code>        show prev entry of quickfix list</li>
+<li><code>:cn</code>,<code>]q</code>        show next entry of quickfix list</li>
+<li><code>:cfirst</code>,<code>[Q</code>    show first entry of quickfix list</li>
+<li><code>:clast</code>,<code>]Q</code>     show last entry of quickfix list</li>
 </ul>
 <h2 id="tags">Tags</h2>
 <ul>
@@ -500,6 +544,9 @@ If range is not specified then operate on whole file</p>
 <li><code>:vim /expr/ **/*.h</code>    Search recursivly in all header files</li>
 <li><code>:vim /expr/ ##</code>      search inside files in arglist</li>
 </ul>
+<p>search for last pattern
+* press <code>*</code> on a word (will enter it to last search)
+* Use empty pattern <code>:vim // **</code> to search it in all files recursively </p>
 <p>search for all lines containing "dostuff()" in all .c files</p>
 <ul>
 <li><code>:vim /dostuff()/j ../**/*.c</code></li>

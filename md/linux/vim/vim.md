@@ -44,6 +44,26 @@ paragraphs and sentences, locations inside window, opening another file
 | C-y | scroll up                                                   |
 | C-e | scroll down                                                 |
 
+## Operations
+* `i`           enter insert mode before cursor pos
+* `a`           enter insert mode after cursor pos
+* `I`           enter insert mode at the start of the line
+* `A`           enter insert mode at the end of the line
+* `o`,`O`       enter new line after/before current and stay in insert mode
+* `x`,`X`       delete single character at/before cursor position
+* `r`           replace single character at cursor position
+* `R`           enter replace mode
+* `["x]d{motion}`   delete from cursor pos till the "motion" [put deleted text into register x]
+* examples:
+    * `dw`      delete till the start of next word
+    * `dt}`     delete till next occurance of }
+    * `dd`      delete whole line
+    * `D`       delete from cursor pos till end of line
+* `["x]c{motion}`   change from cursor pos till the "motion" [put deleted text into register x]. (like delete but stay in insert mode)
+* `["x]y{motion}`   yank (copy) from cursor pos till the "motion" [put yanked text into register x]
+* `["x]p`,`["x]P`   paste yanked/deleted text after/before the cursor pos [take a text from register x]
+
+
 ## Searching
 
 |         |                                                                       |
@@ -107,6 +127,7 @@ paragraphs and sentences, locations inside window, opening another file
 * `:%norm! @a`  To repeat macro stored in register 'a', on whole file: 
 
 ## Insert mode
+* `C-a` paste last inserted text
 * `C-o` execute single normal mode command
 * `C-[` go to normal mode
 * `C-w` delete word before the cursor
@@ -119,15 +140,27 @@ paragraphs and sentences, locations inside window, opening another file
 * `C-x C-y` scroll up
 * `C-x C-e` scroll down
 
-**Autocompletion**
-
-* `C-n`     insert a text (next) from open files
-* `C-p`     insert a text (prev) from open files
-* `C-x C-f` insert a filename
-* `C-x C-]` insert from tags
-* `C-x C-o` insert from omnicompletion
-* `C-x C-l` insert a whole line
-* `C-x C-i` insert a text from included files
+## Insert completion mode
+* This is a sub mode of insert mode. You can enter it by typing `C-x` and one of `C-x` commands while in insert mode.
+* While in completion mode, use `C-n`/`C-p` to choose next/previous sugestion.
+* When completion is active you can use `C-y` to accept currently selected entry.
+* Or you can use `C-e` to end the completion and go back to original text.
+* `C-n`/`C-p` "complete any word" complete keyword under cursor according to `complete` option.
+    * `.,w,b,u,t,i` complete order: current buffer, open windows, loaded buffers, tags, included files
+* `C-x C-u` "user defined completion" complete according to a function specified in `completefunc` option
+* `C-x C-f` complete a filename (the filenames are searched according to `path` option)
+* `C-x C-]` complete from tags
+* `C-x C-o` "omni completion" complete according to a function specified in `omnifunc` option
+    * `C` requires a tags file. Example: `% ctags -R -f ~/.vim/systags /usr/include` 
+    * add the file to `tags` option: `set tags+=~/.vim/systags`
+    * When omni completion is used after "." or "->", it attempts to recognize the type of variable and suggest only valid members.
+* `C-x C-l` complete whole lines
+* `C-x C-n` complete word from current buffer (search next)
+* `C-x C-p` complete word from current buffer (search previous)
+* `C-x C-i` complete from included files (the files are search according to `path` option
+* `C-x C-d` complete definitions and macros. from included files (the files are search according to `path` option
+* `C-x C-k` complete from dictionary. Uses a list of words from `dictionary` option
+* `C-x C-s` complete with spelling suggestion (Possible to use `C-x s` because `C-s` suspends display in many terminals. Use `C-q` to unsuspend)
 
 
 ## Windows
@@ -203,12 +236,14 @@ All window commands can be activated with `<C-w><C-<letter>>` or just `<C-w<lett
 
 ## Quickfix list
 
-* `[q`,`:cprev`     show prev entry of quickfix list
-* `]q`,`:cnext`     show next entry of quickfix list
-* `[Q`,`:cfirst`    show first entry of quickfix list
-* `]Q`,`:clast`     show last entry of quickfix list
-* `:copen`,`:close` open/close quickfix list window
-* `:cw`             open if there are results
+* `:copen`,`:close` open/close quickfix window
+* `:ccl`            close quickfix window
+* `:cw`             open if there are results / close it otherwise
+* `:cc [nr]`        go to result number (go to same result if number omitted)
+* `:cp`,`[q`        show prev entry of quickfix list
+* `:cn`,`]q`        show next entry of quickfix list
+* `:cfirst`,`[Q`    show first entry of quickfix list
+* `:clast`,`]Q`     show last entry of quickfix list
 
 ## Tags
 * `C-]`             jump to tag definition
@@ -339,6 +374,10 @@ vimgrep - use it to search in small group of files (like a local project)
 * `:vim /expr/ **`      Search recursivly in all files (under the path)
 * `:vim /expr/ **/*.h`    Search recursivly in all header files
 * `:vim /expr/ ##`      search inside files in arglist
+
+search for last pattern
+* press `*` on a word (will enter it to last search)
+* Use empty pattern `:vim // **` to search it in all files recursively 
 
 search for all lines containing "dostuff()" in all .c files
 
