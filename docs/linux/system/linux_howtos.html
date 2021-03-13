@@ -41,20 +41,19 @@
         <p>&#60;linux/system&#62;</p>    
     </div>
     <h1 id="linux-howtos">Linux Howtos</h1>
-<h3 id="searching">Searching</h3>
+<h2 id="searching">Searching</h2>
 <ul>
 <li>search "word" in hidden directories   </li>
 </ul>
-<pre><code class="sh">grep -R &quot;word&quot; `ls -ap | grep &quot;^\..*/$&quot;` 
+<pre><code class="language-sh">grep -R &quot;word&quot; `ls -ap | grep &quot;^\..*/$&quot;` 
 </code></pre>
-
 <ul>
 <li>
-<p>find file by (partial) name           <code>find . -iname "stdio*"</code></p>
+<p>find file by (partial) name   <code>find . -iname "stdio*"</code></p>
 </li>
 <li>
 <p>count a number of files in directories recursively (wihtout folders)
-find . -type f | wc -l</p>
+<code>find . -type f | wc -l</code></p>
 </li>
 <li>
 <p>update permissions to all folders recursively
@@ -65,13 +64,13 @@ find . -type d -exec chmod 755 {} \;</p>
 find /opt/lampp/htdocs -type f -exec chmod 644 {} \;</p>
 </li>
 </ul>
-<h3 id="logging">Logging</h3>
+<h2 id="logging">Logging</h2>
 <ul>
 <li>dmesg                                 prints kernel messages . i.e /var/log/kern.log            </li>
 <li>print 10 last lines of kernel log     <code>dmesg | tail 10</code></li>
 <li>follow log file in real time          <code>tail -f /var/log/syslog</code></li>
 </ul>
-<h3 id="networking">Networking</h3>
+<h2 id="networking">Networking</h2>
 <ul>
 <li>display bandwidth usage               <code>iftop -P</code></li>
 </ul>

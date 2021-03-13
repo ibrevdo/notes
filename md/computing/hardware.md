@@ -1,10 +1,6 @@
----
-order: 6
 
----
+# Hardware
 
-Hardware
-===========
 * http://en.wikipedia.org/wiki/Microcontroller
 * http://en.wikipedia.org/wiki/Microprocessor
 * http://en.wikipedia.org/wiki/Central_processing_unit

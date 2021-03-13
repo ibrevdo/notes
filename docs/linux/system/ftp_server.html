@@ -45,9 +45,8 @@
 <li>The ftp service in slackware is run by rc.inetd script. In inetd configuration file <code>/etc/inetd.conf</code> uncomment following line
 in order to start the ftp service.</li>
 </ul>
-<pre><code class="sh">ftp     stream  tcp     nowait  root    /usr/sbin/tcpd  proftpd
+<pre><code class="language-sh">ftp     stream  tcp     nowait  root    /usr/sbin/tcpd  proftpd
 </code></pre>
-
 <ul>
 <li>Proftpd configuration is here <code>/etc/proftpd.conf</code></li>
 <li>Inside ftp user home dir  <code>/home/ftp</code> create directory <code>incoming</code> and make it 777 permissions</li>

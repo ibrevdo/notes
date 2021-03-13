@@ -103,10 +103,9 @@
 <li>[:alnum:]                       means [0-9A-Za-z]</li>
 </ul>
 <p>more examples: </p>
-<pre><code class="sh">[:alpha:], [:cntrl:], [:digit:], [:graph:], 
+<pre><code class="language-sh">[:alpha:], [:cntrl:], [:digit:], [:graph:], 
 [:lower:], [:upper:], [:xdigit:], [:space:]
 </code></pre>
-
 <h3 id="exception">Exception</h3>
 <p><code>[^&lt;expression&gt;]</code> doesn't contain &lt; expression &gt;</p>
 <h3 id="notes">Notes</h3>
@@ -118,10 +117,9 @@
 <h3 id="backreferences-remembering-patterns">Backreferences - remembering patterns</h3>
 <p>Each <code>\(&lt;expression&gt;\)</code> starts a new pattern, which can be recalled by <code>\1</code></p>
 <p><strong>Examples</strong></p>
-<pre><code class="bash">\([a-z]])\1                             match 2 identical letters
+<pre><code class="language-bash">\([a-z]])\1                             match 2 identical letters
 \([a-z]\)\([a-z]\)[a-z]\2\1             match 5 letter palindrome ('radar')
 </code></pre>
-
 <hr />
 <h2 id="sed">Sed</h2>
 <h3 id="sed-command-format">sed command format</h3>
@@ -156,10 +154,9 @@
 <p>substitution works only on pattern which was found by the regular expression.
 rest of the line stays.</p>
 <p><strong>example</strong>: </p>
-<pre><code class="sh">file contains
+<pre><code class="language-sh">file contains
 one two three
 </code></pre>
-
 <ul>
 <li><code>sed 's/two/2/' file</code> will result in :<code>one 2 three</code></li>
 <li><code>sed 's/.*two/2/' file'</code> will result in : 2 three</li>

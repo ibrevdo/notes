@@ -94,7 +94,6 @@ Partition          Start        End   Sectors   Size Type
 /dev/nvme0n1p7 431947776  998166527 566218752   270G Linux filesystem               /home
 /dev/nvme0n1p4 998166528 1000214527   2048000  1000M Windows recovery environment
 </code></pre>
-
 <h2 id="boot-loader-grub2">Boot loader : grub2</h2>
 <ul>
 <li>
@@ -131,12 +130,11 @@ Partition          Start        End   Sectors   Size Type
 </li>
 </ul>
 <h2 id="update-slackware">Update slackware</h2>
-<pre><code class="sh">slackpkg update
+<pre><code class="language-sh">slackpkg update
 slackpkg install-new
 slackpkg upgrade-all
 slackplg clean-system
 </code></pre>
-
 <h3 id="if-using-grub">if using grub</h3>
 <p><code>grub-mkconfig -o /boot/grub/grub.cfg</code></p>
 <h2 id="notes">Notes</h2>

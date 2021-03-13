@@ -75,13 +75,12 @@ So when system time is saved into HW clock there are two options :
 * <code>/usr/share/zoneinfo/</code> is a system timezone database. It is updated as part of glibc-zoneinfo package.
 * <code>/etc/localtime</code> - contains current TZ and DST info. (The file from zoneinfo is copied here.)</p>
 <p><strong>Example</strong>:</p>
-<pre><code class="sh">IST-2IDT,M3.4.4/26,M10.5.0
+<pre><code class="language-sh">IST-2IDT,M3.4.4/26,M10.5.0
 It means that we use IST(Israel standard time) which is 2 hours ahead of UTC.
 IDT is day saving time - without offset it is by default one hour ahead of standard time.
 M3.4.4/26 - means the daylight saving starts on month 3, week 4 and day 4 of the week.
 M10.5.0 - means the daylight saving stops on month 10, week 5, day 0 of the week.
 </code></pre>
-
 <p>Also we can use this command to show it easier:
 <code>zdump -v Asia/Jerusalem | grep 2019</code></p>
 <p>From here : <code>man 3 tzset</code></p>
@@ -113,13 +112,12 @@ So, now in order to update the Local time we should use:\
 <h2 id="my-configuration-for-slackware">My configuration for Slackware</h2>
 <p>Use ntpdate command to update clock once a day</p>
 <p>Create /etc/cron.dayly/datesync with following content:</p>
-<pre><code class="sh">#!/bin/sh
+<pre><code class="language-sh">#!/bin/sh
 /usr/sbin/ntpdate 0.pool.ntp.org &gt;&gt; /var/log/messages 2&gt;&amp;1
 /usr/sbin/ntpdate 1.pool.ntp.org &gt;&gt; /var/log/messages 2&gt;&amp;1
 sleep 10
 /sbin/hwclock -w
 </code></pre>
-
 <p>Enable the script for running
 <code>chmod +x /etc/cron.daily/datesync</code></p>
 </div>

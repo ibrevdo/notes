@@ -56,14 +56,13 @@
     <h1 id="my-slackware-setup">My Slackware setup</h1>
 <h2 id="installation-steps">Installation steps</h2>
 <p><strong>Step 1</strong> mirror slackware tree according to a desired version:</p>
-<pre><code class="sh">./mirror-slackware-current.sh   -a x86_64 -r 14.2 -v -o NONE        \
+<pre><code class="language-sh">./mirror-slackware-current.sh   -a x86_64 -r 14.2 -v -o NONE        \
                                 -l /home/mago/installs/slackware    \
                                 -f -m rsync.slackware.pl::slackware/slackware64-14.2
 </code></pre>
-
 <p><strong>Step 2</strong> prepare an install DVD image
 <code>./make-slackware-dvd</code></p>
-<pre><code class="sh">#!/bin/bash
+<pre><code class="language-sh">#!/bin/bash
 
 SLACKWARE_TREE=./slackware64-14.2
 
@@ -80,7 +79,6 @@ mkisofs -o ../slackware-dvd.iso                         \
         -m 'source'                                     \
         -V &quot;SlackDVD&quot; .
 </code></pre>
-
 <p><strong>Step 3</strong> Process the ISO image to make it bootable when written to a USB stick.
 <code>isohybrid slackware-dvd.iso</code></p>
 <p><strong>Step 4</strong> write ISO image to a USB stick
@@ -88,18 +86,16 @@ mkisofs -o ../slackware-dvd.iso                         \
 <h2 id="system-configuration-post-install">System configuration (Post install)</h2>
 <h3 id="using-initrd-initial-ram-disk">Using initrd (Initial RAM disk)</h3>
 <p><strong>Step 1</strong> make the initrd</p>
-<pre><code class="sh">mkinitrd -c -k 4.14.11 -m ext4 -f ext4 -r /dev/sdb1
+<pre><code class="language-sh">mkinitrd -c -k 4.14.11 -m ext4 -f ext4 -r /dev/sdb1
 </code></pre>
-
 <p><strong>Step 2</strong> configure lilo.config to use it</p>
-<pre><code class="sh"># Linux bootable partition config begins
+<pre><code class="language-sh"># Linux bootable partition config begins
 image = /boot/vmlinuz-generic
     root = /dev/sdb1
     label = &quot;Linux&quot;
     initrd = /boot/initrd.gz
     read-only
 </code></pre>
-
 <p><strong>Step 3</strong> and run lilo (and reboot)
 <code>lilo -v</code></p>
 <h3 id="create-user">Create user</h3>
@@ -118,32 +114,28 @@ image = /boot/vmlinuz-generic
 <p>TODO</p>
 <h3 id="slackware-update-routine">Slackware update routine</h3>
 <p><strong>Step 1</strong> Update packages</p>
-<pre><code class="sh">slackpkg update
+<pre><code class="language-sh">slackpkg update
 slackpkg install-new
 slackpkg upgrade-all
 slackpkg clean-system (optional)
 </code></pre>
-
 <p><strong>Step 2</strong> Deal with new files</p>
-<pre><code class="sh">find /etc -iname &quot;*.new&quot;
+<pre><code class="language-sh">find /etc -iname &quot;*.new&quot;
 </code></pre>
-
 <h3 id="additional-step-when-using-initrd-initial-ram-disk">Additional step when using initrd (Initial RAM disk)</h3>
 <p>make the initrd</p>
-<pre><code class="sh">VER=$(ls /boot | grep &quot;vmlinuz-generic-&quot; | cut -d'-' -f 3) &amp;&amp; sudo mkinitrd -c -k $VER -m ext4 -f ext4 -r /dev/sdb1
+<pre><code class="language-sh">VER=$(ls /boot | grep &quot;vmlinuz-generic-&quot; | cut -d'-' -f 3) &amp;&amp; sudo mkinitrd -c -k $VER -m ext4 -f ext4 -r /dev/sdb1
 </code></pre>
-
 <p>and run lilo <code>lilo -v</code></p>
 <h2 id="slackware-live-cd">Slackware Live CD</h2>
 <h4 id="how-to-chroot-from-live-cd-to-original-file-system-and-install-initrd-on-hard-drive-partition">How to chroot from live CD to original file system and install initrd on hard drive partition</h4>
-<pre><code class="sh">mkdir /mnt/root
+<pre><code class="language-sh">mkdir /mnt/root
 mount -t ext4 /dev/sdb1 /mnt/root
 mount -t proc none /mnt/root/proc
 mount -o bind /dev /mnt/root/dev
 (mount -o bind /usr /mnt/root/usr)
 chroot /mnt/root /bin/bash
 </code></pre>
-
 <p>And now make the initrd as described in <strong>Using initrd</strong> above </p>
 </div>
 

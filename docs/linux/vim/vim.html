@@ -99,6 +99,7 @@ paragraphs and sentences, locations inside window, opening another file</p>
 <li><code>C-T</code>             jump back from C-] jump</li>
 <li><code>gf</code>              jump to file under cursor                     </li>
 <li><code>gd</code>/<code>gD</code>         jump to definition(first occurance)/global definition of word under cursor</li>
+<li><code>g;</code>/<code>g,</code>         jump backward/forward the jumplist</li>
 </ul>
 <h2 id="scroll">Scroll</h2>
 <table>
@@ -212,7 +213,6 @@ paragraphs and sentences, locations inside window, opening another file</p>
 | Global marks  | Global marks use capital letters and are saved between files |
 | mA            | set global mark by m and capital letter                      |
 </code></pre>
-
 <h2 id="registers">Registers</h2>
 <ul>
 <li>The command that can use a register looks like this : <code>"{register}command</code>.</li>
@@ -366,11 +366,14 @@ paragraphs and sentences, locations inside window, opening another file</p>
 <li><code>C-e</code> end of command line</li>
 <li><code>C-w</code> delete the word before cursor</li>
 <li><code>C-u</code> delete everything between cursor and begining of line</li>
+<li><code>C-a</code> complete all matches in command line</li>
 <li><code>C-v</code> enter special character. For example: pressing C-x results ^X. Is used when editing macros stored in registers</li>
 <li><code>q:</code> <code>:&lt;C-f&gt;</code> open buffer of command line</li>
 <li><code>q/</code>/<code>q?</code> open cmdline for search/backward</li>
 <li><code>C-c</code> exit the window</li>
 <li><code>@:</code>  repeate last Ex command</li>
+<li><code>C-r"</code> put yanked/deleted text into command line</li>
+<li><code>C-r/</code> put last search into command line</li>
 </ul>
 <hr />
 <h2 id="general-commands">General commands</h2>
@@ -389,9 +392,8 @@ paragraphs and sentences, locations inside window, opening another file</p>
 <li><code>:args</code>           show arglist</li>
 <li>populate args with shell command</li>
 </ul>
-<pre><code class="sh">    :args `find *.md`
+<pre><code class="language-sh">    :args `find *.md`
 </code></pre>
-
 <ul>
 <li><code>:next</code>/<code>:prev</code>   traverse trough buffers inside arglsist</li>
 <li><code>:first</code>/<code>:last</code>  jump to first/last buffer of arglist</li>
@@ -518,10 +520,9 @@ It is possible to use any character instead of <code>/</code> as a separator.</p
                                         <code>\1</code> and <code>\2</code>.</li>
 <li>Useful mappings for substitutions</li>
 </ul>
-<pre><code class="sh">noremap ;; :%s:::gc&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;
+<pre><code class="language-sh">noremap ;; :%s:::gc&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;
 cmap    ;\ \(\)&lt;Left&gt;&lt;Left&gt;
 </code></pre>
-
 <h3 id="global-command">Global command</h3>
 <p><code>:range g!/patern/cmd</code> Execute the Ex command (default: <code>:p</code>) on the lines within range 
 where pattern matches. (or, if <code>!</code> is used, only where match does not occure) \
@@ -598,6 +599,7 @@ If range is not specified then operate on whole file</p>
 <li><code>enew</code>,<code>new</code>,<code>vnew</code>    open a new unnamed buffer (current window, split horisontally, split vertically)</li>
 <li><code>gd</code>      jump to first occurance of a word under cursor</li>
 <li><code>gn</code>      go to next search result and visual highlight it</li>
+<li><code>g//</code>     list last search occurances in current file</li>
 <li><code>gu</code>/<code>gU</code> everything to lowercase/uppercase</li>
 <li>switch between two chars: cursor on the first one, and then <code>xp</code></li>
 <li>switch between two lines: cursor of first one, and then <code>ddp</code></li>

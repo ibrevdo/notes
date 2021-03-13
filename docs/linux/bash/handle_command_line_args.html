@@ -41,7 +41,7 @@
     </div>
     <h1 id="handle-command-line-args">handle command line args</h1>
 <h2 id="if-no-arguments-were-provided">if no arguments were provided</h2>
-<pre><code class="bash">function USAGE ()
+<pre><code class="language-bash">function USAGE ()
 {
     echo &quot;&quot;
     echo &quot;USAGE: &quot;
@@ -58,9 +58,8 @@
     exit $E_OPTERROR    # Exit and explain usage, if no argument(s) given.
 }
 </code></pre>
-
 <h2 id="process-arguments">process arguments</h2>
-<pre><code class="bash">while getopts &quot;:d:h:?&quot; Option
+<pre><code class="language-bash">while getopts &quot;:d:h:?&quot; Option
 do
     case $Option in
         d    ) DT=$OPTARG;;

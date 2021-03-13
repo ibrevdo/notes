@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
-    <title>Igor's notes</title>
+    <title>Igor's notes: Audio sampling (PCM)</title>
     <link rel="stylesheet" href="https://ibrevdo.github.io/notes/css/common.css">
 </head>
 
@@ -25,7 +25,11 @@
 
 <div class="toc">
 <ul>
-<li><a href="#audio-sampling-pcm">Audio sampling (PCM)</a></li>
+<li><a href="#audio-sampling-pcm">Audio sampling (PCM)</a><ul>
+<li><a href="#definitions">Definitions</a></li>
+<li><a href="#examples">Examples</a></li>
+</ul>
+</li>
 </ul>
 </div>
 
@@ -35,25 +39,31 @@
     <div class="folder">
         <p>&#60;computing&#62;</p>    
     </div>
-    <hr />
-<h2 id="audio-sampling-pcm">Audio sampling (PCM)</h2>
-<p>1 sample = 16 bits (2 bytes)
-Sample rate : 8 KHz</p>
-<p>Audio card produces chunks of 60 samples each:
+    <h1 id="audio-sampling-pcm">Audio sampling (PCM)</h1>
+<h2 id="definitions">Definitions</h2>
+<pre><code>1 sample = 16 bits (2 bytes)
+Sample rate : 8 KHz
+
+Audio card produces chunks of 60 samples each:
 8000/60 samples =&gt; every 7.5 ms
-60 samples = 120 bytes</p>
-<p>Question 1: 
+60 samples = 120 bytes
+</code></pre>
+<h2 id="examples">Examples</h2>
+<pre><code>Question 1: 
 Sample rate = 8 KHz
 16 bits per sample
 How many samples we get every 20 ms ?
-8000 / (1000/20) = 160 samples (= 320 bytes)</p>
-<p>Question 2:
+8000 / (1000/20) = 160 samples (= 320 bytes)
+</code></pre>
+<pre><code>Question 2:
 Calulute bits pers second for this stream.
-(Sample rate)*(bits per sample) = 8KHz * 16 = 128 Kbs</p>
-<p>Question 3:
+(Sample rate)*(bits per sample) = 8KHz * 16 = 128 Kbs
+</code></pre>
+<pre><code>Question 3:
 packet = 60 samples. packet rate = every 7.5 ms
 What is the sample rate ?
-(1000/7.5)*60 = 8KHz</p>
+(1000/7.5)*60 = 8KHz
+</code></pre>
 </div>
 
 <div id="path">

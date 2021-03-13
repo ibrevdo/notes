@@ -33,6 +33,7 @@ paragraphs and sentences, locations inside window, opening another file
 * `C-T`             jump back from C-] jump
 * `gf`              jump to file under cursor                     
 * `gd`/`gD`         jump to definition(first occurance)/global definition of word under cursor
+* `g;`/`g,`         jump backward/forward the jumplist
 
 ## Scroll
 
@@ -200,11 +201,14 @@ All window commands can be activated with `<C-w><C-<letter>>` or just `<C-w<lett
 * `C-e` end of command line
 * `C-w` delete the word before cursor
 * `C-u` delete everything between cursor and begining of line
+* `C-a` complete all matches in command line
 * `C-v` enter special character. For example: pressing C-x results ^X. Is used when editing macros stored in registers
 * `q:` `:<C-f>` open buffer of command line
 * `q/`/`q?` open cmdline for search/backward
 * `C-c` exit the window
 * `@:`  repeate last Ex command
+* `C-r"` put yanked/deleted text into command line
+* `C-r/` put last search into command line
 
 ----------------------------------
 
@@ -433,6 +437,7 @@ grep - use on large amounts of files
 * `enew`,`new`,`vnew`    open a new unnamed buffer (current window, split horisontally, split vertically)
 * `gd`      jump to first occurance of a word under cursor
 * `gn`      go to next search result and visual highlight it
+* `g//`     list last search occurances in current file
 * `gu`/`gU` everything to lowercase/uppercase
 * switch between two chars: cursor on the first one, and then `xp`
 * switch between two lines: cursor of first one, and then `ddp`

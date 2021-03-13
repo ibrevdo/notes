@@ -31,6 +31,10 @@
 * Cantata 
     * <https://github.com/CDrummond/cantata>
     * <https://opensource.com/article/17/8/cantata-music-linux>
+* Straberry music player
+    * <https://itsfoss.com/strawberry-music-player/>
+    * <https://www.strawberrymusicplayer.org/>
+    * <https://apps.kde.org/en/kpat>
 
 ## Video players
 * SMplayer
@@ -68,6 +72,7 @@
 
 ## Planetarium
 * [stellarium](https://www.youtube.com/watch?v=hQtLH0FafrI)
+
 ## Games
 * [Colonization ]( http://store.steampowered.com/app/327400/Sid_Meiers_Colonization_Classic/)
 * [100-best-free-and-high-quality-linux-games ]( http://www.cahilig.net/2011/07/29/100-best-free-and-high-quality-linux-games)

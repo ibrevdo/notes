@@ -23,7 +23,7 @@
 * [[slackware/upgrade.md]]
 * [[slackware/packages.md]]
 * [[slackware/alien_pkgs.md]]
-* [[slackware/slackbuilds.md]]
+* [[slackware/slackware_tips.md]]
 
 ## System
 * [[system/Linux_system_links.md]]
@@ -35,14 +35,14 @@
 * [[system/key.md]]
 * [[system/sudo.md]]
 
-## Tools
+## CLI tools and howto's
 * [[tools/tools.md]]
+* [[tools/howtos.md]]
 * [[tools/screen.md]]
 * [[tools/tmux.md]]
-* [[tools/connecting_remotely_with_gui.md]]
 * [[tools/cmus.md]]
+* [[tools/connecting_remotely_with_gui.md]]
 * [[tools/rtorrent_by_screen.md]]
-* [[tools/howto.md]]
 
 ## Gui
 * [[gui/xfce.md]]

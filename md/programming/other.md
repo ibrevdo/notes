@@ -1,8 +1,3 @@
----
-order: 2
-
----
-
 # Programming
 
 ------------------------
@@ -33,4 +28,4 @@ order: 2
 * [CMake support in Qt Creator (and elsewhere?)](https://blog.qt.io/blog/2016/11/15/cmake-support-in-qt-creator-and-elsewhere/)
 * [Alternative CMake support for Qt Creator.](https://github.com/h4tr3d/cmakeprojectmanager2)
 
-
+* [null program blogs](https://nullprogram.com/blog/2017/04/01/)

@@ -1,9 +1,13 @@
----
-order: 7
-title: slackbuild packages
----
 
-# Slackbuilds Packages
+# Slackware tips
+
+## web brousers
+* lightweight brousers <https://www.linuxquestions.org/questions/showthread.php?p=6223171> 
+* chrome-brouser <https://www.linuxquestions.org/questions/showthread.php?p=6223527>
+
+## IDE
+* how to install qt-creator <https://www.linuxquestions.org/questions/showthread.php?p=6223121>
+
 
 ## To install
 

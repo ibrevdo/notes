@@ -10,6 +10,9 @@
 * [Book: Practical VIM](https://pragprog.com/book/dnvim/practical-vim)
 * [Vim Awesome](https://vimawesome.com/)
 * [#vim recomended plugins](https://www.vi-improved.org/plugins/)
+* [Vim genious - game](http://www.vimgenius.com/lessons/vim-intro/levels/level-1)
+* [Vim General forum](http://vim.1045645.n5.nabble.com/Vim-General-f1139531.html)
+* [A tiny pease of vim](https://medium.com/a-tiny-piece-of-vim)
 
 
 ## Guides
@@ -50,6 +53,9 @@
 * [Vim tips](https://www.ele.uri.edu/faculty/vetter/Other-stuff/vi/vimtips.html)
 * [The power of Vim. How to use make and quickfix](https://gist.github.com/ajh17/a8f5f194079818b99199)
 * [Include search and definition search](https://vi.stackexchange.com/questions/2858/navigating-code-projects-without-using-external-commands)
+* [Scripting vim](https://developer.ibm.com/technologies/linux/articles/l-vim-script-1/)
+* [from vim to vimrc](https://vimways.org/2018/from-vimrc-to-vim/)
+* [where to put filetype specific stuff](https://www.reddit.com/r/vim/wiki/where_to_put_filetype_specific_stuff)
 
 ### Vim regular expressions
 * <http://vimregex.com/>
@@ -68,6 +74,9 @@
 * [Using Vim as an IDE all in one](http://vim.wikia.com/wiki/Using_vim_as_an_IDE_all_in_one)
 * [Vim for C programmers](http://www.linuxjournal.com/magazine/vim-c-programmers?page#0,0)
 * <https://stackoverflow.com/questions/736701/class-function-names-highlighting-in-vim>
+* [C++ code completion setup](https://vim.fandom.com/wiki/C%2B%2B_code_completion)
+* [Generate Ctags for C/C++ and all of their included](https://www.topbug.net/blog/2012/03/17/generate-ctags-files-for-c-slash-c-plus-plus-source-files-and-all-of-their-included-header-files/)
+* [Unix as an IDE](https://sanctum.geek.nz/arabesque/series/unix-as-ide/)
 
 ### Vim for python
 * [Vim - Python Wiki](https://wiki.python.org/moin/Vim)
@@ -91,6 +100,7 @@
 * <https://github.com/VundleVim/Vundle.vim/wiki/Examples>
 * [Alexey Shmalko config](https://github.com/rasendubi/dotfiles)
 * [vim dotfiles example](https://github.com/zlahham/dotfiles/tree/master/linux)
+* [Derek Wyatt vimrc](https://github.com/derekwyatt/vim-config/blob/master/vimrc)
 
 ## Videos
 * [vim + tmux - OMG!Code](https://www.youtube.com/watch?v#5r6yzFEXajQ)
@@ -98,12 +108,18 @@
 * [How to Do 90% of What Plugins Do (With Just Vim](https://www.youtube.com/watch?v#XA2WjJbmmoM )
 * [VIM - Bram](https://www.youtube.com/watch?v=ayc_qpB-93o&feature=youtu.be)
 * [Leeren. Vim:Tutorial on Costumization and Configuration](https://www.youtube.com/watch?v=JFr28K65-5E)
+* [Let Vim do the typing](https://www.youtube.com/watch?v=3TX3kV3TICU)
+* [Vim notetaking tips](https://www.youtube.com/watch?v=wh_WGWii7UE)
+* [FZF and vim talk](https://www.youtube.com/watch?v=aXPQTesFdTI)
+* [VimConf 2020: Giving Vim Superpowers](https://www.youtube.com/watch?v=xf0yYLj4AJI)
+* [Going mouseless with Vim/Tmux/Hotkeys](https://www.youtube.com/watch?v=E-ZbrtoSuzw)
 
 
 ## Plugins
 * [Vundle](https://github.com/VundleVim/Vundle.vim)
 * [unimpired](https://github.com/tpope/vim-unimpaired)
 * [vim-dirvish](https://github.com/justinmk/vim-dirvish)
+* [vim-rsi](https://github.com/tpope/vim-rsi)
 * [ranger.vim](https://github.com/francoiscabrol/ranger.vim)
 * [fzf - fuzzy finder](https://github.com/junegunn/fzf)
 * [mru](https://github.com/yegappan/mru)
@@ -113,6 +129,7 @@
 * [syntastic](https://github.com/scrooloose/syntastic)
 * [c.vim plugin for C\C++ programming](http://vim.sourceforge.net/scripts/script.php?script_id=213)
 * [vim-clang](https://github.com/justmao945/vim-clang)
+* [ale - asynchronius lint engine](https://github.com/dense-analysis/ale)
 * [vim cpp enhanced (C++)](https://github.com/octol/vim-cpp-enhanced-highlight)
 * [STL syntax: Improved C++11/14](https://www.vim.org/scripts/script.php?script_id=4293)
 * [vim-clang-format](https://github.com/rhysd/vim-clang-format)

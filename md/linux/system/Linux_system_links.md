@@ -10,6 +10,7 @@
 | services, runlevels and rcd scripts       | <https://www.linux.com/news/introduction-services-runlevels-and-rcd-scripts>           |
 | udev                                      | <https://en.wikipedia.org/wiki/Udev>                                                   |
 | eudev  (@toread)                          | <https://wiki.gentoo.org/wiki/Eudev>                                                   |
+| elogind                                   | <https://github.com/elogind/elogind>                                                   |
 | Linux File system                         | <http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/usr.html>                     |
 | Wayland (display server) (@toread)        | <https://en.wikipedia.org/wiki/Wayland_(display_server_protocol)>                      |
 | Shells                                    | <https://docs.slackware.com/howtos:cli_manual:shells>                                  |
@@ -78,6 +79,7 @@
 * Unix philosphy                        https://en.wikipedia.org/wiki/Unix_philosophy
 * Cross Linux from scratch              http://trac.clfs.org/
 * General cli guids                     https://shapeshed.com/posts/
+* The Tradegy of systemd                <https://www.youtube.com/watch?v=o_AIw9bGogo>
 
 -----------------------------------
 ## Development

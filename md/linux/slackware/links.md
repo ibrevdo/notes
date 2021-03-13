@@ -83,6 +83,7 @@
 * Slackware in depth #3 -- multilib               https://www.youtube.com/watch?v=kQKLQu1MxMQ
 * Slackware 14, Xfce 4.10 HD                      https://www.youtube.com/watch?v=8HfTR96-FbUA
 * [Zenwalk Linux (100% Slackware)](https://www.youtube.com/watch?v=zm-H3zfaqA8)
+* [In Pursuit of "Slack" - Slackware UEFI Plus Grub Install](https://www.youtube.com/watch?v=OZeJd5JPQro)
 
 
 ### Salix

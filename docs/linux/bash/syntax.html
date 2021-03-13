@@ -57,11 +57,10 @@
 <ul>
 <li>how to init?</li>
 </ul>
-<pre><code class="sh">VAR=1 
+<pre><code class="language-sh">VAR=1 
 #or 
 VAR=`ls -l` 
 </code></pre>
-
 <ul>
 <li>how to use?
 <code>echo $VAR</code></li>
@@ -93,7 +92,7 @@ VAR=`ls -l`
 <ul>
 <li>Syntax</li>
 </ul>
-<pre><code class="sh">if test1
+<pre><code class="language-sh">if test1
 then
         command2        # then is executed if the exit code of test1 command is zero
 elsif
@@ -102,7 +101,6 @@ else                    # if the exit code is not zero then else is executed
         command4
 fi
 </code></pre>
-
 <hr />
 <h2 id="test-commands">Test commands</h2>
 <ul>
@@ -147,12 +145,11 @@ fi
 <hr />
 <h2 id="functions">Functions</h2>
 <p>Define </p>
-<pre><code class="sh">func {
+<pre><code class="language-sh">func {
     echo $1
     return 
 }
 </code></pre>
-
 <p>Return to calling script :
 <code>return [n]</code>
 returning non-zero considered an error return value</p>
@@ -162,11 +159,10 @@ returning non-zero considered an error return value</p>
 <li><code>Alt-.</code>   paste last command argument</li>
 </ul>
 <h2 id="examples">Examples</h2>
-<pre><code class="sh">if [ $DEBUG -eq 2 ]; then
+<pre><code class="language-sh">if [ $DEBUG -eq 2 ]; then
         echo ok;
 fi
 </code></pre>
-
 <hr />
 <h2 id="heredoc">Heredoc</h2>
 <ul>

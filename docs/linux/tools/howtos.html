@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
-    <title>Igor's notes</title>
+    <title>Igor's notes: Linux CLI How to's</title>
     <link rel="stylesheet" href="https://ibrevdo.github.io/notes/css/common.css">
 </head>
 
@@ -29,7 +29,7 @@
 <li><a href="#time-sync">Time sync</a></li>
 <li><a href="#calculate-md5-checksum-of-a-directory">Calculate md5 checksum of a directory</a></li>
 <li><a href="#mplayer-stream">mplayer stream</a></li>
-<li><a href="#linux-and-youtube">Linux and Youtube</a></li>
+<li><a href="#youtube">Youtube</a></li>
 <li><a href="#virtualization">Virtualization</a></li>
 </ul>
 </li>
@@ -42,12 +42,13 @@
     <div class="folder">
         <p>&#60;linux/tools&#62;</p>    
     </div>
-    <hr />
-<h1 id="linux-cli-how-tos">Linux CLI How to's</h1>
+    <h1 id="linux-cli-how-tos">Linux CLI How to's</h1>
 <h2 id="time-sync">Time sync</h2>
-<p>update time using time server on linux
-* http://www.cyberciti.biz/tips/synchronize-the-system-clock-to-network-time-protocol-ntp-under-fedora-or-red-hat-linux.html
-* http://www.howtogeek.com/tips/how-to-sync-your-linux-server-time-with-network-time-servers-ntp/</p>
+<p>update time using time server on linux</p>
+<ul>
+<li><a href="http://www.cyberciti.biz/tips/synchronize-the-system-clock-to-network-time-protocol-ntp-under-fedora-or-red-hat-linux.html">http://www.cyberciti.biz/tips/synchronize-the-system-clock-to-network-time-protocol-ntp-under-fedora-or-red-hat-linux.html</a></li>
+<li><a href="http://www.howtogeek.com/tips/how-to-sync-your-linux-server-time-with-network-time-servers-ntp/">http://www.howtogeek.com/tips/how-to-sync-your-linux-server-time-with-network-time-servers-ntp/</a></li>
+</ul>
 <h2 id="calculate-md5-checksum-of-a-directory">Calculate md5 checksum of a directory</h2>
 <ul>
 <li><code>find "$path" -type f -print0 | sort -z | xargs -r0 md5sum | md5sum</code></li>
@@ -64,16 +65,16 @@
 <p><code>mplayer -afm ffmpeg -nocache -prefer-ipv4 https://kanlivep2event-i.akamaihd.net/hls/live/749624/749624/kanbet_mp3/chunklist.m3u8</code></p>
 </li>
 </ul>
-<h2 id="linux-and-youtube">Linux and Youtube</h2>
-<p>how to download an MP3 track from a YouTube video
-* https://askubuntu.com/questions/178481/how-to-download-an-mp3-track-from-a-youtube-video</p>
+<h2 id="youtube">Youtube</h2>
+<p>how to download an MP3 track from a YouTube video <br>
+* <a href="https://askubuntu.com/questions/178481/how-to-download-an-mp3-track-from-a-youtube-video">https://askubuntu.com/questions/178481/how-to-download-an-mp3-track-from-a-youtube-video</a></p>
 <h2 id="virtualization">Virtualization</h2>
-<p>VirtualBox’s Little Secret: The Command Line
-* http://www.linux-mag.com/id/7673/?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+LinuxMagazine+(Linux+Magazine%3A+Top+Stories</p>
+<p>VirtualBox’s Little Secret: The Command Line <br>
+* <a href="https://medium.com/disruptive-labs/virtualboxs-little-secret-command-line-924442d9a2dc">https://medium.com/disruptive-labs/virtualboxs-little-secret-command-line-924442d9a2dc</a></p>
 </div>
 
 <div id="path">
-    ~/git/notes/md/linux/tools/howto.md
+    ~/git/notes/md/linux/tools/howtos.md
 </div>
 
 </body>

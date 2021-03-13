@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Igor's notes: Liveslak</title>
+    <link rel="stylesheet" href="https://ibrevdo.github.io/notes/css/common.css">
+</head>
+
+<body>
+
+<div id="navbar">
+    <ul>
+    <li><a  href="/index.html">Home</a></li>
+    <li><a  href="/linux/index.html">Linux</a></li>
+    <li><a  href="/programming/index.html">Programming</a></li>
+    <li><a  href="/computing/index.html">Computing</a></li>
+    <li><a  href="/studies/index.html">Studies</a></li>
+    <li><a  href="/webtools/webtools.html">Webtools</a></li>
+    <li><a  href="/travel/index.html">Travel</a></li>
+    <li><a  href="/media/index.html">Media</a></li>
+    <li><a  href="/etc/index.html">Etc</a></li>
+    </ul>
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#liveslak">Liveslak</a><ul>
+<li><a href="#downloading">Downloading</a></li>
+<li><a href="#transfer-to-usb">Transfer to USB</a></li>
+<li><a href="#layout-of-the-iso">Layout of the ISO</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+<div class="content">
+    <div class="folder">
+        <p>&#60;linux/slackware&#62;</p>    
+    </div>
+    <h1 id="liveslak">Liveslak</h1>
+<h2 id="downloading">Downloading</h2>
+<p><code>rsync -avP rsync://bear.alienbase.nl/mirrors/slackware-live/1.3.4/slackware64-live-plasma5-current.iso .</code></p>
+<h2 id="transfer-to-usb">Transfer to USB</h2>
+<ul>
+<li>Create a persistent USB with following command. The changes will be written to the directory “persistence” in the root of the USB device
+<code>iso2usb.sh -i slackware64-live-xfce-current.iso -o /dev/sdX</code></li>
+<li>Create a persistent USB with encrypted /home directory. The "slhome.img" will hold the encrypted /home directory. It's size is 60% percent of USB volume.
+<code>iso2usb.sh -i slackware64-live-xfce-current.iso -o /dev/sdX -c 60%</code></li>
+<li>Create a persistent USB with following command. A file “persistence.img” in the root of the USB device will be loop-mounted by the Live OS and changes to the system will be written to the filesystem inside this container file.
+<code>iso2usb.sh -P -i slackware64-live-xfce-current.iso -o /dev/sdX</code></li>
+<li>Same but the “persistence.img” file will be encrypted. In this case, must provide a size of this container file
+<code>iso2usb.sh -C 300M -i slackware64-live-xfce-current.iso -o /dev/sdX</code></li>
+</ul>
+<h2 id="layout-of-the-iso">Layout of the ISO</h2>
+<ul>
+<li>EFI   - grub configuration used when booting with UEFI</li>
+<li>boot  - syslinux configuration used when booting with BIOS. also contains the kernel and initrd files to actually boot the OS.</li>
+<li>liveslak - directory which contains all the squashfs modules which are used to assemble the filesystem of the Live OS.
+  It also also contains the files that are copied directly into the root of the Live filesystem.</li>
+<li>system - this directory contains all the modules which were created by the “make_slackware_live.sh” script. All these modules are numbered and the Live init script will use that to re-assemble the Live filesystem in the exact same order as they were created initially.</li>
+<li>rootcopy/ - this directory is empty by default. Anything you (the user of the ISO) add to this directory will be copied verbatim into the filesystem by the init script when the Live OS boots. You can use this feature for instance if you do not want to create a separate squashfs module file for your application configuration files.</li>
+<li>addons - modules which are stored in this directory will always be added to the Live filesystem</li>
+<li>optional - modules in this directory will not be added to the filesystem of the Live OS unless you force this with a “load=” boot parameter</li>
+<li>persistent - the files of persistent overlay</li>
+<li>
+<p>slhome.img - a file that contains an encrypted home dir</p>
+</li>
+<li>
+<p>The boot command parameter to wipe the overlay and start with a fresh unaltered Live OS is <code>nop=wipe</code></p>
+</li>
+<li><code>mount -o remount,rw /mnt/livemedia</code> will remount the liveslak partition. For example, the persistent dir will be accessable as <code>/mnt/livemedia/persistence</code></li>
+<li>The complete RAM filesystem which underpins the overlay is made available to the user of the Live OS as <code>/mnt/live</code></li>
+</ul>
+</div>
+
+<div id="path">
+    ~/git/notes/md/linux/slackware/liveslak.md
+</div>
+
+</body>
+</html> 

@@ -1,6 +1,3 @@
----
-order: 3
----
 
 # tmux usage
 All tmux commands can be run from inside tmux either by using prefix `C-b` and `:<command>`
