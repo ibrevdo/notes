@@ -1,8 +1,8 @@
 
 # Slackware tips
 
-## web brousers
-* lightweight brousers <https://www.linuxquestions.org/questions/showthread.php?p=6223171> 
+## web browsers
+* lightweight browsers <https://www.linuxquestions.org/questions/showthread.php?p=6223171> 
 * chrome-brouser <https://www.linuxquestions.org/questions/showthread.php?p=6223527>
 
 ## IDE
